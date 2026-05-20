@@ -1,0 +1,13 @@
+<table border='1'><tr>
+        <th>Nombre</th>
+        <th>Documento</th>
+        <th>Teléfono</th>
+        <th>Email</th>
+        <th>Saldo</th>
+      </tr><tr>
+        <td>betzabe mina balcero</td>
+        <td>29703954</td>
+        <td>3128195476</td>
+        <td>burro@hotmail.com</td>
+        <td>300000.00</td>
+    </tr></table>
