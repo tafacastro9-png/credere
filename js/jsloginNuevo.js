@@ -60,7 +60,7 @@ if(bloqueado){
             if (response.response === "success") {
 
                 window.location.replace(
-                    "../../views/index.php"
+                    "/CrederePruebas/views/index.php"
                 );
 
                 return;
