@@ -54,7 +54,7 @@ include "consultUserSession.php";
         <div class="navbar-logo">
             <a href="../views/index.php">
                   <div class="cover-image">
-                            <img src="/CredereProduccion/images/logo.png" alt="" width="200" height="70">
+                            <img src="images/logo.png" alt="" width="200" height="70">
                         </div>
             </a>
         </div>

@@ -2,9 +2,9 @@
 
 $host = "127.0.0.1";
 $port = 3306;
-$user = "root";
-$password = "";
-$database = "prestamodbcliente";
+$user = "u205183886_Fabian";
+$password = "Faca2026*";
+$database = "u205183886_prestamodb";
 
 $conexion = mysqli_connect($host, $user, $password, $database, $port);
 

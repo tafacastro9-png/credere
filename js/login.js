@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         fetch(
 
-            "/CredereProduccion/includes/sesion/validarAcceso.php",
+            "includes/sesion/validarAcceso.php",
 
             {
                 method: "POST",
