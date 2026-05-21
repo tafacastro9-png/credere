@@ -35,7 +35,7 @@ if(bloqueado){
         new FormData(form);
 
         fetch(
-            "/Credere/includes/sesion/validarAcceso.php",
+            "/CredereProduccion/includes/sesion/validarAcceso.php",
             {
                 method: "POST",
                 body: userData

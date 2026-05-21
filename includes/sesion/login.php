@@ -156,7 +156,7 @@ body{
 <div class="login-card">
 
     <div class="logo">
-        <img src="/Credere/images/logo.png">
+        <img src="/CredereProduccion/images/logo.png">
        
         <p style="color:#666;font-size:14px;">Accede a tu panel financiero</p>
     </div>
@@ -214,7 +214,7 @@ password.addEventListener("input", () => {
 
 </script>
 
-<script src="/Credere/js/jsloginNuevo.js"></script>
+<script src="/CredereProduccion/js/jsloginNuevo.js"></script>
 
 </body>
 </html>

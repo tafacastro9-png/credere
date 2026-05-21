@@ -211,7 +211,7 @@ if ($estado == 'Rechazado') {
             $partes = explode('/', $rutaArchivo);
             $nombreFinal = rawurlencode(end($partes));
             $carpeta = implode('/', array_slice($partes, 0, -1));
-            $rutaCompleta = "/Credere/documentos/" . $carpeta . "/" . $nombreFinal;
+            $rutaCompleta = "/CredereProduccion/documentos/" . $carpeta . "/" . $nombreFinal;
         ?>
 
         <div class="border rounded p-3 mb-3 bg-light">
