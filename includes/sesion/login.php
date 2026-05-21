@@ -214,7 +214,7 @@ password.addEventListener("input", () => {
 
 </script>
 
-<script src="js/jsloginNuevo.js"></script>
+<script src="/js/jsloginNuevo.js"></script>
 
 </body>
 </html>
