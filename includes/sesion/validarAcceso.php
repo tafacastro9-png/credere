@@ -1,6 +1,6 @@
 <?php
 
-require_once($_SERVER['DOCUMENT_ROOT'] . '/db.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php');
 
 header('Content-Type: application/json');
 
