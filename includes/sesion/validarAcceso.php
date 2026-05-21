@@ -23,7 +23,7 @@ $queryTiempo = mysqli_query(
     $conexion,
 
     "SELECT valor
-     FROM parametrosInternos
+     FROM parametrosinternos
      WHERE nombre = 'tiempoBloqueoLogin'
      LIMIT 1"
 );
@@ -47,7 +47,7 @@ $queryIntentos = mysqli_query(
     $conexion,
 
     "SELECT valor
-     FROM parametrosInternos
+     FROM parametrosinternos
      WHERE nombre = 'intentosBloqueoUsuario'
      LIMIT 1"
 );
