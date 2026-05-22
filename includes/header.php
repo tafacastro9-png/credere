@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 
 include "configSession.php";
-// include "consultUserSession.php";
+include "consultUserSession.php";
 
 ?>
 <!DOCTYPE html>
