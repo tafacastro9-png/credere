@@ -70,32 +70,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-});
+    /* ========= SUBMENUS MANUALES ========= */
 
-/* ========= SUBMENUS MANUALES ========= */
+    document.querySelectorAll(".nav-item-has-children > a")
+    .forEach(function(menu){
 
-document.querySelectorAll(".nav-item-has-children > a")
-.forEach(function(menu){
+        menu.addEventListener("click", function(e){
 
-    menu.addEventListener("click", function(e){
+            e.preventDefault();
 
-        e.preventDefault();
+            const submenu = this.parentElement.querySelector(".dropdown-nav");
 
-        const submenu = this.parentElement.querySelector(".dropdown-nav");
+            if(submenu){
 
-        if(submenu){
+                if(submenu.style.display === "block"){
 
-            if(submenu.style.display === "block"){
+                    submenu.style.display = "none";
 
-                submenu.style.display = "none";
+                }else{
 
-            }else{
+                    submenu.style.display = "block";
 
-                submenu.style.display = "block";
+                }
 
             }
 
-        }
+        });
 
     });
 
