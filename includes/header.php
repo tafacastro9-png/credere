@@ -43,6 +43,10 @@ include "consultUserSession.php";
 </style>
 
 <body>
+
+<script>
+alert("SCRIPT DIRECTO");
+</script>
     <!-- ======== Preloader =========== -->
    
     <!-- ======== Preloader =========== -->
