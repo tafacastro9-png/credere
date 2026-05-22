@@ -3,11 +3,15 @@
   /* ========= Preloader ======== */
   const preloader = document.querySelectorAll('#preloader');
 
-  window.addEventListener('load', function () {
-    if (preloader.length) {
-      document.getElementById('preloader').style.display = 'none';
+document.addEventListener("DOMContentLoaded", function () {
+
+    const preloader = document.getElementById("preloader");
+
+    if (preloader) {
+        preloader.style.display = "none";
     }
-  });
+
+});
 
   /* ========= Add Box Shadow in Header on Scroll ======== */
   window.addEventListener('scroll', function () {
