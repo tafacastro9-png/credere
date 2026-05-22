@@ -1,72 +1,73 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  /* ========= PRELOADER ======== */
-  const preloader = document.getElementById("preloader");
+    /* ========= PRELOADER ======== */
+    const preloader = document.getElementById("preloader");
 
-  if (preloader) {
-    preloader.style.display = "none";
-  }
+    if (preloader) {
+        preloader.style.display = "none";
+    }
 
-  /* ========= HEADER SHADOW ======== */
-  window.addEventListener('scroll', function () {
+    /* ========= HEADER SHADOW ======== */
+    window.addEventListener("scroll", function () {
 
-    const header = document.querySelector('.header');
+        const header = document.querySelector(".header");
 
-    if (header) {
+        if (header) {
+            header.style.boxShadow =
+                window.scrollY > 0
+                    ? "0px 0px 30px 0px rgba(200, 208, 216, 0.30)"
+                    : "none";
+        }
 
-      header.style.boxShadow = window.scrollY > 0
-        ? '0px 0px 30px 0px rgba(200, 208, 216, 0.30)'
-        : 'none';
+    });
+
+    /* ========= SIDEBAR ======== */
+
+    const sidebar = document.querySelector(".sidebar-nav-wrapper");
+    const overlay = document.querySelector(".overlay");
+    const menuBtn = document.getElementById("menu-toggle");
+
+    // LIMPIAR estados rotos al iniciar
+    if (overlay) {
+        overlay.classList.remove("active");
+        overlay.style.display = "none";
+    }
+
+    if (sidebar) {
+        sidebar.classList.remove("active");
+    }
+
+    // TOGGLE MENU
+    if (menuBtn && sidebar) {
+
+        menuBtn.addEventListener("click", function () {
+
+            sidebar.classList.toggle("active");
+
+            if (overlay) {
+
+                if (sidebar.classList.contains("active")) {
+                    overlay.style.display = "block";
+                } else {
+                    overlay.style.display = "none";
+                }
+
+            }
+
+        });
 
     }
 
-  });
+    // CERRAR OVERLAY
+    if (overlay && sidebar) {
 
-  /* ========= SIDEBAR TOGGLE ======== */
-  const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
-  const mainWrapper = document.querySelector(".main-wrapper");
-  const menuToggleButton = document.querySelector("#menu-toggle");
-  const menuToggleButtonIcon = document.querySelector("#menu-toggle i");
-  const overlay = document.querySelector(".overlay");
+        overlay.addEventListener("click", function () {
 
-  if (menuToggleButton && sidebarNavWrapper && mainWrapper && overlay) {
+            sidebar.classList.remove("active");
+            overlay.style.display = "none";
 
-    menuToggleButton.addEventListener("click", () => {
+        });
 
-      sidebarNavWrapper.classList.toggle("active");
-      overlay.classList.toggle("active");
-      mainWrapper.classList.toggle("active");
-
-      if (menuToggleButtonIcon) {
-
-        if (menuToggleButtonIcon.classList.contains("lni-chevron-left")) {
-
-          menuToggleButtonIcon.classList.remove("lni-chevron-left");
-          menuToggleButtonIcon.classList.add("lni-menu");
-
-        } else {
-
-          menuToggleButtonIcon.classList.remove("lni-menu");
-          menuToggleButtonIcon.classList.add("lni-chevron-left");
-
-        }
-
-      }
-
-    });
-
-  }
-
-  if (overlay && sidebarNavWrapper && mainWrapper) {
-
-    overlay.addEventListener("click", () => {
-
-      sidebarNavWrapper.classList.remove("active");
-      overlay.classList.remove("active");
-      mainWrapper.classList.remove("active");
-
-    });
-
-  }
+    }
 
 });
