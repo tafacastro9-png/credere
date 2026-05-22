@@ -62,12 +62,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_2"
-   aria-controls="ddmenu_2"
-   aria-expanded="false">
+           <a href="javascript:void(0)" class="collapsed">
                 <span class="icon">
                     <span class="mdi mdi-account-group"></span>
                 </span>
@@ -89,12 +84,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('referencias.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_21"
-   aria-controls="ddmenu_21"
-   aria-expanded="false">
+           <a href="javascript:void(0)" class="collapsed">
                 <span class="icon">
                     <span class="mdi mdi-account-supervisor-circle"></span>
                 </span>
@@ -116,12 +106,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('simulador.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_4"
-   aria-controls="ddmenu_4"
-   aria-expanded="false">
+           <a href="javascript:void(0)" class="collapsed">
                 <span class="icon">
                     <span class="mdi mdi-calculator-variant-outline"></span>
                 </span>
@@ -147,12 +132,7 @@ include "consultUserSession.php";
 ): ?>
 
 <li class="nav-item nav-item-has-children">
-    <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_55"
-   aria-controls="ddmenu_55"
-   aria-expanded="false">
+<a href="javascript:void(0)" class="collapsed">
         <span class="icon">
            <span class="mdi mdi-cash-multiple"></span>
         </span>
@@ -191,12 +171,7 @@ include "consultUserSession.php";
 <?php if (isset($_SESSION['permisos']) && in_array('cartera.ver', $_SESSION['permisos'])): ?>
 <li class="nav-item nav-item-has-children">
 
-    <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_5"
-   aria-controls="ddmenu_5"
-   aria-expanded="false">
+  <a href="javascript:void(0)" class="collapsed">
         <span class="icon">
             <span class="mdi mdi-wallet-outline"></span>
         </span>
@@ -232,12 +207,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('inversionistas.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_6"
-   aria-controls="ddmenu_6"
-   aria-expanded="false">
+       <a href="javascript:void(0)" class="collapsed">
                 <span class="icon">
                     <span class="mdi mdi-finance"></span>
                 </span>
@@ -277,12 +247,7 @@ include "consultUserSession.php";
 <?php if (isset($_SESSION['permisos']) && in_array('reportes.ver', $_SESSION['permisos'])): ?>
 
 <li class="nav-item nav-item-has-children">
-   <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_555"
-   aria-controls="ddmenu_555"
-   aria-expanded="false">
+<a href="javascript:void(0)" class="collapsed">
         <span class="icon">
           <span class="mdi mdi-file-chart-outline"></span>
         </span>
@@ -339,12 +304,7 @@ include "consultUserSession.php";
         <?php if (isset($_SESSION['permisos']) && in_array('estadisticas.ver', $_SESSION['permisos'])): ?>
 
 <li class="nav-item nav-item-has-children">
-    <a href="javascript:void(0)"
-   class="collapsed"
-   data-bs-toggle="collapse"
-   data-bs-target="#ddmenu_85"
-   aria-controls="ddmenu_85"
-   aria-expanded="false">
+   <a href="javascript:void(0)" class="collapsed">
         <span class="icon">
            <span class="mdi mdi-chart-line"></span>
         </span>
