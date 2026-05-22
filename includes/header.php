@@ -62,12 +62,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <button
-    class="collapsed border-0 bg-transparent w-100 text-start"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#ddmenu_2"
-    aria-expanded="false">
+            <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
                 <span class="icon">
                     <span class="mdi mdi-account-group"></span>
                 </span>
@@ -523,7 +518,4 @@ console.log(testCollapse);
         <?php include "../views/ventanaLogout.php"; ?>
 		<?php include "../includes/sesion/validarInactividad.php"; ?>
 
-        </main>
-
-</body>
-</html>
+        
