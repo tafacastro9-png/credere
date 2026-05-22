@@ -495,32 +495,19 @@ include "consultUserSession.php";
         </header>
         <!-- ========== header end ========== -->
         <script src="../js/notificaciones.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-		<!-- Bootstrap -->
-<script src="../js/bootstrap.bundle.min.js"></script>
-
-<script>
-
-console.log("BOOTSTRAP TEST");
-
-const testCollapse = document.querySelector('[data-bs-toggle="collapse"]');
-
-console.log(testCollapse);
-
-</script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
 
 <!-- DataTables -->
 <script src="../js/jquery.dataTables.min.js"></script>
 <script src="../js/dataTables.bootstrap4.min.js"></script>
 
+<!-- MAIN -->
+<script src="/js/main.js?v=1"></script>
 
+<?php include "../views/ventanaLogout.php"; ?>
+<?php include "../includes/sesion/validarInactividad.php"; ?>
 
-<!-- Tu JS principal si existe -->
-<script src="/js/main.js"></script>
-
-
- </main>
-        <?php include "../views/ventanaLogout.php"; ?>
-		<?php include "../includes/sesion/validarInactividad.php"; ?>
-
+</body>
+</html>
         
