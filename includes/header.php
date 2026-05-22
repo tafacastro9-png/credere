@@ -75,6 +75,68 @@ include "consultUserSession.php";
                         <!-- PERFIL -->
                         <div class="profile-box ml-15">
 
+    <button class="dropdown-toggle bg-transparent border-0"
+        type="button"
+        id="profile"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+
+        <div class="profile-info">
+
+            <div class="info d-flex align-items-center">
+
+                <div class="image">
+
+                    <img src="/images/user.png"
+                        alt=""
+                        width="40"
+                        style="border-radius:50%;">
+
+                </div>
+
+                <div class="ms-2">
+
+                    <h6 class="fw-500 mb-0">
+                        <?php echo $usuario; ?>
+                    </h6>
+
+                    <p class="mb-0">
+                        <?php echo $user['rol']; ?>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </button>
+
+    <ul class="dropdown-menu dropdown-menu-end"
+        aria-labelledby="profile">
+
+        <li>
+            <a class="dropdown-item"
+                href="../views/perfilUser.php">
+
+                Perfil
+
+            </a>
+        </li>
+
+        <li>
+            <a class="dropdown-item"
+                href="../views/configuracionEmpresa.php">
+
+                Configuración
+
+            </a>
+        </li>
+
+    </ul>
+
+</div>
+
                             <button class="dropdown-toggle bg-transparent border-0"
                                 type="button"
                                 id="profile"
