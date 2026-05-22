@@ -1,12 +1,7 @@
 <?php
 
-// include "configSession.php";
-// include "consultUserSession.php";
-
-
-$usuario = "admin";
-$user['rol'] = "Administrador";
-
+include "configSession.php";
+include "consultUserSession.php";
 
 ?>
 
@@ -19,12 +14,11 @@ $user['rol'] = "Administrador";
     <title>TEST</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-    <link rel="stylesheet" href="../css/lineicons.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/lineicons.css" />
 
 </head>
-
 
 <body>
 
@@ -32,22 +26,32 @@ $user['rol'] = "Administrador";
 <aside class="sidebar-nav-wrapper">
 
     <div class="navbar-logo">
-        <ul class="sidebar-nav">
-
-    <li class="nav-item">
 
         <a href="#">
-
-            <span class="text">
-                Dashboard
-            </span>
-
+            LOGO
         </a>
 
-    </li>
-
-</ul>
     </div>
+
+    <nav class="sidebar-nav">
+
+        <ul>
+
+            <li class="nav-item">
+
+                <a href="#">
+
+                    <span class="text">
+                        Dashboard
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
 
 </aside>
 
@@ -103,10 +107,11 @@ $user['rol'] = "Administrador";
     </header>
 
 </main>
-<script src="../js/jquery-3.7.1.min.js"></script>
+
 <!-- JS -->
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/main.js"></script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/bootstrap.bundle.min.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>
