@@ -62,7 +62,7 @@ include "consultUserSession.php";
             <a href="../views/index.php">
 
                 <div class="cover-image">
-                    <img src="/CrederePruebas/images/logo.png" alt="" width="200" height="70">
+                    <img src="/images/logo.png" alt="" width="200" height="70">
                 </div>
 
             </a>
