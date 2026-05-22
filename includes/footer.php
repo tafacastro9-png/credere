@@ -34,6 +34,9 @@
 <!-- 1️⃣ jQuery (OBLIGATORIO primero) -->
 
 
+<!-- Bootstrap -->
+<script src="../js/bootstrap.bundle.min.js"></script>
+
 <!-- 3️⃣ DataTables -->
 <script src="../js/jquery.dataTables.min.js"></script>
 
