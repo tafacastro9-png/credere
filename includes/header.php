@@ -503,7 +503,7 @@ include "consultUserSession.php";
 <script src="../js/dataTables.bootstrap4.min.js"></script>
 
 <!-- MAIN -->
-<script src="/js/main.js?v=1"></script>
+<script src="/js/main.js?v=999999"></script>
 
 <?php include "../views/ventanaLogout.php"; ?>
 <?php include "../includes/sesion/validarInactividad.php"; ?>
