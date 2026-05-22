@@ -9,6 +9,8 @@ include "consultUserSession.php";
 <html lang="en">
 
 <head>
+
+<link rel="stylesheet" href="../css/lineicons.css" />
     <meta charset="UTF-8">
     <title>TEST</title>
 
@@ -73,3 +75,11 @@ include "consultUserSession.php";
     </div>
 
 </header>
+
+</main>
+
+<script src="../js/bootstrap.bundle.min.js"></script>
+<script src="../js/main.js"></script>
+
+</body>
+</html>
