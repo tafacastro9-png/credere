@@ -82,6 +82,11 @@ if (!isset($_SESSION['permisos']) ||
 require_once("../includes/db.php");
 
 $result = mysqli_query($conexion, "
+if (!$result) {
+
+    die(mysqli_error($conexion));
+
+}
 SELECT 
 c.*, 
 est.estado,
