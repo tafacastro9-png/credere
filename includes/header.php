@@ -74,7 +74,7 @@ include "consultUserSession.php";
                 <span class="text">Clientes</span>
             </a>
 
-            <ul id="ddmenu_2" class="collapse dropdown-nav">
+            <ul id="ddmenu_2" class="dropdown-nav" style="display:none;">
                 <li>
                     <a href="../views/clientes.php"> Lista Clientes </a>
                 </li>
@@ -101,7 +101,7 @@ include "consultUserSession.php";
                 <span class="text">Referencias</span>
             </a>
 
-            <ul id="ddmenu_21" class="collapse dropdown-nav">
+            <ul id="ddmenu_21" class="dropdown-nav" style="display:none;">
                 <li>
                     <a href="../views/avales.php"> Lista de Referencias </a>
                 </li>
@@ -128,7 +128,7 @@ include "consultUserSession.php";
                 <span class="text">Simulador</span>
             </a>
 
-            <ul id="ddmenu_4" class="collapse dropdown-nav">
+            <ul id="ddmenu_4" class="dropdown-nav" style="display:none;">
                 <li>
                     <a href="../views/simulador.php"> Simulador de Crédito </a>
                 </li>
@@ -159,7 +159,7 @@ include "consultUserSession.php";
         <span class="text">Créditos</span>
     </a>
 
-    <ul id="ddmenu_55" class="collapse dropdown-nav">
+    <ul id="ddmenu_55" class="dropdown-nav" style="display:none;">
 
         <?php if (in_array('prestamos.registro', $_SESSION['permisos'])): ?>
         <li>
@@ -204,7 +204,7 @@ include "consultUserSession.php";
         <span class="text">Cartera</span>
     </a>
 
-    <ul id="ddmenu_5" class="collapse dropdown-nav">
+    <ul id="ddmenu_5" class="dropdown-nav" style="display:none;">
 
         <li>
             <a href="../views/registrarPago.php">
@@ -244,7 +244,7 @@ include "consultUserSession.php";
                 <span class="text">Inversionistas</span>
             </a>
 
-            <ul id="ddmenu_6" class="collapse dropdown-nav">
+            <ul id="ddmenu_6" class="dropdown-nav" style="display:none;">
                 <li>
                     <a href="../views/inversionistas.php"> Registrar Inversion </a>
                 </li>
@@ -289,7 +289,7 @@ include "consultUserSession.php";
         <span class="text">Reportes</span>
     </a>
 
-    <ul id="ddmenu_555" class="collapse dropdown-nav">
+   <ul id="ddmenu_555" class="dropdown-nav" style="display:none;">
 
         <?php if (in_array('reportes.cartera', $_SESSION['permisos'])): ?>
         <li>
@@ -351,7 +351,7 @@ include "consultUserSession.php";
         <span class="text">Estadisticas</span>
     </a>
 
-    <ul id="ddmenu_85" class="collapse dropdown-nav">
+    <ul id="ddmenu_85" class="dropdown-nav" style="display:none;">
 
         <?php if (in_array('estadisticas.cartera', $_SESSION['permisos'])): ?>
         <li>

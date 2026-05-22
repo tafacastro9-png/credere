@@ -71,3 +71,32 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 });
+
+/* ========= SUBMENUS MANUALES ========= */
+
+document.querySelectorAll(".nav-item-has-children > a")
+.forEach(function(menu){
+
+    menu.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const submenu = this.parentElement.querySelector(".dropdown-nav");
+
+        if(submenu){
+
+            if(submenu.style.display === "block"){
+
+                submenu.style.display = "none";
+
+            }else{
+
+                submenu.style.display = "block";
+
+            }
+
+        }
+
+    });
+
+});
