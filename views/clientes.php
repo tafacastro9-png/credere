@@ -273,10 +273,6 @@ while ($fila = mysqli_fetch_assoc($result)) :
 
 
 </style>
-//<?php include "../includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>
 
-<h1 style="color:red;">PRUEBA FINAL</h1>
 
-</main>
-</body>
-</html>
