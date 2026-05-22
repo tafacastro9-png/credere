@@ -13,6 +13,7 @@ include "consultUserSession.php";
     <meta charset="UTF-8">
     <title>TEST</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/lineicons.css" />
@@ -20,8 +21,6 @@ include "consultUserSession.php";
 </head>
 
 <body>
-
-
 
 <!-- SIDEBAR -->
 <aside class="sidebar-nav-wrapper">
@@ -41,17 +40,19 @@ include "consultUserSession.php";
     <h1>MAIN WRAPPER OK</h1>
     <h1>HEADER OK</h1>
 
+    <!-- HEADER -->
     <header class="header">
 
         <div class="container-fluid">
 
             <div class="row">
 
-                <div class="col-lg-6 col-md-6 col-6">
+                <!-- LEFT -->
+                <div class="col-lg-5 col-md-5 col-6">
 
                     <div class="header-left d-flex align-items-center">
 
-                        <!-- BOTON MENU -->
+                        <!-- MENU -->
                         <div class="menu-toggle-btn mr-15">
 
                             <button id="menu-toggle"
@@ -64,78 +65,33 @@ include "consultUserSession.php";
 
                         </div>
 
+                        <!-- SEARCH -->
+                        <div class="header-search d-none d-md-flex">
+
+                            <form action="#">
+
+                                <input type="text"
+                                    placeholder="Search..." />
+
+                                <button type="submit">
+                                    <i class="lni lni-search-alt"></i>
+                                </button>
+
+                            </form>
+
+                        </div>
+
                     </div>
 
                 </div>
 
-                <div class="col-lg-6 col-md-6 col-6">
+                <!-- RIGHT -->
+                <div class="col-lg-7 col-md-7 col-6">
 
                     <div class="header-right d-flex justify-content-end align-items-center">
 
-                        <!-- PERFIL -->
+                        <!-- PROFILE -->
                         <div class="profile-box ml-15">
-
-    <button class="dropdown-toggle bg-transparent border-0"
-        type="button"
-        id="profile"
-        data-bs-toggle="dropdown"
-        aria-expanded="false">
-
-        <div class="profile-info">
-
-            <div class="info d-flex align-items-center">
-
-                <div class="image">
-
-                    <img src="/images/user.png"
-                        alt=""
-                        width="40"
-                        style="border-radius:50%;">
-
-                </div>
-
-                <div class="ms-2">
-
-                    <h6 class="fw-500 mb-0">
-                        <?php echo $usuario; ?>
-                    </h6>
-
-                    <p class="mb-0">
-                        <?php echo $user['rol']; ?>
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </button>
-
-    <ul class="dropdown-menu dropdown-menu-end"
-        aria-labelledby="profile">
-
-        <li>
-            <a class="dropdown-item"
-                href="../views/perfilUser.php">
-
-                Perfil
-
-            </a>
-        </li>
-
-        <li>
-            <a class="dropdown-item"
-                href="../views/configuracionEmpresa.php">
-
-                Configuración
-
-            </a>
-        </li>
-
-    </ul>
-
-</div>
 
                             <button class="dropdown-toggle bg-transparent border-0"
                                 type="button"
@@ -149,7 +105,10 @@ include "consultUserSession.php";
 
                                         <div class="image">
 
-                                            <img src="/images/user.png" alt="" width="40">
+                                            <img src="/images/user.png"
+                                                alt=""
+                                                width="40"
+                                                style="border-radius:50%;">
 
                                         </div>
 
@@ -171,6 +130,7 @@ include "consultUserSession.php";
 
                             </button>
 
+                            <!-- DROPDOWN -->
                             <ul class="dropdown-menu dropdown-menu-end"
                                 aria-labelledby="profile">
 
@@ -180,6 +140,17 @@ include "consultUserSession.php";
                                         href="../views/perfilUser.php">
 
                                         Perfil
+
+                                    </a>
+
+                                </li>
+
+                                <li>
+
+                                    <a class="dropdown-item"
+                                        href="../views/configuracionEmpresa.php">
+
+                                        Configuración
 
                                     </a>
 
