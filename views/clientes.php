@@ -174,7 +174,7 @@ while ($fila = mysqli_fetch_assoc($result)) :
 
 </tr>             
 
-                                    <?php include "./forms/editar_client.php"; ?>
+                                    <?php // include "./forms/editar_client.php"; ?>
                                 <?php endwhile; ?>
 
                         </tbody>
