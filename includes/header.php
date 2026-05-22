@@ -513,7 +513,7 @@ include "consultUserSession.php";
 
 </div>
         <?php include "../views/ventanaLogout.php"; ?>
-		<?php // include "../includes/sesion/validarInactividad.php"; ?>
+		<?php  include "../includes/sesion/validarInactividad.php"; ?>
 
         </main>
         <!-- ========== header end ========== -->
@@ -527,7 +527,7 @@ include "consultUserSession.php";
 <script src="../js/dataTables.bootstrap4.min.js"></script>
 
 <!-- Tu JS principal si existe -->
- <script src="../js/main.js"></script>
+<!--  <script src="../js/main.js"></script>-->
 
  </body>
 </html>
