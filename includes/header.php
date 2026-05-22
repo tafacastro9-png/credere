@@ -14,9 +14,9 @@ include "consultUserSession.php";
     <title>TEST</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/lineicons.css" />
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/lineicons.css">
 
 </head>
 
@@ -39,7 +39,7 @@ include "consultUserSession.php";
 
             <li class="nav-item">
 
-                <a href="#">
+                <a href="#0">
 
                     <span class="text">
                         Dashboard
@@ -55,13 +55,13 @@ include "consultUserSession.php";
 
 </aside>
 
-<!-- OVERLAY -->
+<!-- overlay -->
 <div class="overlay"></div>
 
-<!-- MAIN -->
+<!-- ======== main-wrapper start =========== -->
 <main class="main-wrapper">
 
-    <!-- HEADER -->
+    <!-- ======== header start =========== -->
     <header class="header">
 
         <div class="container-fluid">
@@ -94,7 +94,9 @@ include "consultUserSession.php";
 
                     <div class="header-right d-flex justify-content-end align-items-center">
 
-                        <h5>PROFILE TEST</h5>
+                        <h5 class="mb-0">
+                            PROFILE TEST
+                        </h5>
 
                     </div>
 
@@ -105,8 +107,25 @@ include "consultUserSession.php";
         </div>
 
     </header>
+    <!-- ======== header end =========== -->
+
+
+    <!-- CONTENT -->
+    <section class="section">
+
+        <div class="container-fluid">
+
+            <h1>
+                Bienvenido <?php echo $usuario; ?>
+            </h1>
+
+        </div>
+
+    </section>
 
 </main>
+<!-- ======== main-wrapper end =========== -->
+
 
 <!-- JS -->
 <script src="/js/jquery-3.7.1.min.js"></script>
