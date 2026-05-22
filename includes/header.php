@@ -1,4 +1,4 @@
-asi ? <?php
+<?php
 
 include "configSession.php";
 include "consultUserSession.php";
