@@ -553,8 +553,13 @@ console.log(testCollapse);
 <script src="../js/jquery.dataTables.min.js"></script>
 <script src="../js/dataTables.bootstrap4.min.js"></script>
 
+
+
 <!-- Tu JS principal si existe -->
  <script src="../js/main.js"></script>
+
+
+ </main>
         <?php include "../views/ventanaLogout.php"; ?>
 		<?php include "../includes/sesion/validarInactividad.php"; ?>
 
