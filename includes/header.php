@@ -22,7 +22,7 @@ include "consultUserSession.php";
 
 
 <!-- SIDEBAR -->
-<aside class="sidebar-nav-wrapper">
+<aside class="sidebar-nav-wrapper active">
 
     <div class="navbar-logo">
         <h3>SIDEBAR OK</h3>
@@ -34,7 +34,7 @@ include "consultUserSession.php";
 <div class="overlay"></div>
 
 <!-- MAIN -->
-<main class="main-wrapper">
+<main class="main-wrapper active">
 
     <h1>MAIN WRAPPER OK</h1>
     <header class="header">
@@ -147,3 +147,24 @@ include "consultUserSession.php";
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/bootstrap.bundle.min.js"></script>
 <script src="../js/main.js"></script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const menuToggle = document.getElementById("menu-toggle");
+    const sidebar = document.querySelector(".sidebar-nav-wrapper");
+    const mainWrapper = document.querySelector(".main-wrapper");
+    const overlay = document.querySelector(".overlay");
+
+    menuToggle.addEventListener("click", function () {
+
+        sidebar.classList.toggle("active");
+        mainWrapper.classList.toggle("active");
+        overlay.classList.toggle("active");
+
+    });
+
+});
+
+</script>
