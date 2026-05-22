@@ -1,7 +1,12 @@
 <?php
 
-include "configSession.php";
-include "consultUserSession.php";
+// include "configSession.php";
+// include "consultUserSession.php";
+
+
+$usuario = "admin";
+$user['rol'] = "Administrador";
+
 
 ?>
 
