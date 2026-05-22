@@ -460,8 +460,8 @@ include "consultUserSession.php";
                                                 <img src="<?php echo $ruta_imagen; ?>" alt="" />
                                             </div>
                                             <div>
-                                                <h6 class="fw-500"><?php echo $usuario; ?></h6>
-                                                <p><?php echo $user['rol']; ?></p>
+                                                <h6 class="fw-500"><?php echo $nombre_usuario; ?></h6>
+                                                <p><?php echo $rol_usuario; ?></p>
                                             </div>
                                         </div>
                                     </div>
