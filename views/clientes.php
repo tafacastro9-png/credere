@@ -106,10 +106,10 @@ inf.patrimonios
 
 FROM clientes c 
 
-INNER JOIN estado_registros est 
+LEFT JOIN estado_registros est 
     ON c.id_status = est.id 
 
-INNER JOIN tipo_identificacion ide 
+LEFT JOIN tipo_identificacion ide 
     ON c.id_tipoIdentificacion = ide.id
 
 LEFT JOIN informacion_laboral il 
