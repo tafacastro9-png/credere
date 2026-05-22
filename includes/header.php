@@ -1,270 +1,509 @@
-
 <?php
-include "../includes/configSession.php";
-require_once "../includes/permisos.php";
-require_once "../includes/header.php";
-require_once "../includes/db.php";
+include "configSession.php";
+include "consultUserSession.php";
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-if (!isset($_SESSION['permisos']) || 
-    !in_array('clientes.ver', $_SESSION['permisos'])) {
-
-    echo "<h2 style='color:red; text-align:center; margin-top:100px;'>
-    No tienes permisos para acceder a este módulo.
-    </h2>";
-    exit;
-}
 ?>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../images/logo_circular.png" style="border-radius: 50px;" type="image/x-icon" />
+    <title>Credere bank</title>
 
-
-<!-- ========== table components start ========== -->
-<section class="table-components">
-    <div class="container-fluid">
-        <!-- ========== title-wrapper start ========== -->
-        <br>
-        <br>
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="card-style mb-30">
-                    <div class="titulo-modulo mb-4">
-    <i class="fa fa-users me-2"></i>
-    Gestión de Clientes
-</div>
-                    <br>
-					<div class="bloque-acciones">
-                   <?php if (tienePermiso('clientes.crear', $conexion)) { ?>
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
-        Agregar <i class="fa fa-plus"></i>
-    </button>
-<?php } ?>
-                    <?php include("./forms/form_client.php"); ?>
-                    <?php if (tienePermiso('clientes.exportar', $conexion)) { ?>
-<button onclick="exportarCSV()" class="btn btn-primary blue">
-    Exportar a Excel <i class="fas fa-download fa-sm text-white-50"></i>
-</button>
-<?php } ?>
-
- <?php if (tienePermiso('clientes.importar', $conexion)) { ?>
-    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#impt">
-        Importar <i class="fas fa-upload"></i>
-    </button>
-<?php } ?>
-                    <?php include('./forms/formImportar.php'); ?>
-					</div>
-                    <br>
-                    <br>
-					<div class="tabla-clientes">
-                    <div class="table-wrapper table-responsive">
-                        <table class="table" id="datatable">
-<thead>
-    <tr>
-        <th>Action</th>
-        <th>Estado</th>
-        <th>Consecutivo</th>
-        <th>Nombre</th>
-        <th>Tipo de Identificacion</th>
-        <th>Numero identificacion</th>
-        <th>Telefono</th>
-        <th>Correo</th>
-        <th>Direccion</th>
-        <th>FechaRegistro</th>
-    </tr>
-</thead>
-<tbody>
-
-<?php
-
-
-
-require_once("../includes/db.php");
-
-$result = mysqli_query($conexion, "
-SELECT 
-c.*, 
-est.estado,
-ide.nombre,
-
-il.empresa,
-il.tipo_contrato,
-il.fecha_ingreso_laboral,
-il.totalDevengado,
-il.totalDescuentos,
-il.netoPagar,
-
-inf.totalIngresos,
-inf.totalEgresos,
-inf.otrosIngresos,
-inf.activos,
-inf.pasivos,
-inf.patrimonios
-
-FROM clientes c 
-
-INNER JOIN estado_registros est 
-    ON c.id_status = est.id 
-
-INNER JOIN tipo_identificacion ide 
-    ON c.id_tipoIdentificacion = ide.id
-
-LEFT JOIN informacion_laboral il 
-    ON il.cliente_id = c.id
-
-LEFT JOIN informacion_financiera inf 
-    ON inf.cliente_id = c.id
-");
-
-
-
-if (!$result) {
-    die("Error en la consulta: " . mysqli_error($conexion));
-}
-
-
-
-while ($fila = mysqli_fetch_assoc($result)) :
-								
-	?>							
-<tr>
-
-<td>
-
-<?php if (tienePermiso('clientes.ver', $conexion)) { ?>
-<a href="ver_cliente.php?id=<?php echo $fila['id']; ?>" 
-   class="btn btn-primary btn-xs">
-   <i class="fa fa-search"></i>
-</a>
-<?php } ?>
-
-<?php if (tienePermiso('clientes.editar', $conexion)) { ?>
-<button type="button"
-        class="btn btn-warning btn-xs"
-        data-bs-toggle="modal"
-        data-bs-target="#editar<?php echo $fila['id']; ?>">
-    <i class="fa fa-edit"></i>
-</button>
-<?php } ?>
-
-
-
-</td>
-
-<td>
-<span class="estado <?php echo strtolower($fila['estado']) == 'activo' ? 'activo' : 'inactivo'; ?>">
-<?php echo $fila['estado']; ?>
-</span>
-</td>
-
-<td><?php echo $fila['folioClient']; ?></td>
-<td><?php echo $fila['nombreClient'] . ' ' . $fila['apellidoClient']; ?></td>
-<td><?php echo $fila['nombre']; ?></td>
-<td><?php echo $fila['docIdentClient']; ?></td>
-<td><?php echo $fila['telClient']; ?></td>
-<td><?php echo $fila['correoClient']; ?></td>
-<td><?php echo $fila['dirClient']; ?></td>
-<td><?php echo $fila['fecha_registro']; ?></td>
-
-</tr>             
-
-                                    <?php include "./forms/editar_client.php"; ?>
-                                <?php endwhile; ?>
-
-                        </tbody>
-                    </table>
-                </div> <!-- table-wrapper -->
-            </div> <!-- card-style -->
-        </div> <!-- col -->
-    </div> <!-- row -->
-</div> <!-- container-fluid -->
-</section>
-<!-- ========== table components end ========== -->
-
-<script>
-    function exportarCSV() {
-        $.ajax({
-            url: '../includes/exportCSV.php', // Cambia la URL al script que genera el archivo CSV
-            method: 'GET',
-            dataType: 'text', // Cambia a 'text' para recibir datos de tipo texto
-            success: function(response) {
-                // Descargar el archivo CSV
-                var blob = new Blob([response], {
-                    type: 'text/csv;charset=utf-8;'
-                });
-                var link = document.createElement("a");
-                if (link.download !== undefined) {
-                    var url = URL.createObjectURL(blob);
-                    link.setAttribute("href", url);
-                    link.setAttribute("download", "REPORTE_CLIENTES.csv");
-                    link.style.visibility = 'hidden';
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                }
-            },
-            error: function(xhr, status, error) {
-                console.log('Error en la solicitud AJAX:', error);
-            }
-        });
-    }
-</script>
+    <!-- ========== All CSS files linkup ========= -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/lineicons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/fullcalendar.css" />
+    <link rel="stylesheet" href="../css/fullcalendar.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="../js/jquery-3.7.1.min.js"></script>
+</head>
 <style>
-.estado {
-    display: inline-block;
-    padding: 5px 16px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 500;
-}
+    .header .header-right button span {
 
-.estado.activo {
-    background-color: #2e7d32;
-    color: #fff;
-}
+        width: 20px;
+        height: 20px;
 
-.estado.inactivo {
-    background-color: #dc3545;
-    color: #fff;
-}
-.btn-xs {
-    padding: 2px 6px !important;
-    font-size: 12px !important;
-    line-height: 1.2 !important;
-}
-
-.btn-xs i {
-    font-size: 12px !important;
-}
-.titulo-modulo {
-    font-size: 28px;
-    font-weight: 700;
-    color: #0b1e4f;
-    padding-bottom: 8px;
-    border-bottom: 4px solid #0b1e4f;
-    display: inline-block;
-    letter-spacing: 0.5px;
-}
-.titulo-modulo i {
-    color: #1e3a8a;
-}
-
-.bloque-acciones {
-    margin-top: 25px;
-}
-
-.tabla-clientes {
-    margin-top: 25px;
-}
-.tabla-clientes {
-    margin-top: 35px;
-}
-.card {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-}
-
-
-
-
+    }
+	
+	.logo {
+		max-width: 100%;
+		height: auto;
+		display: block;
+		margin: 0 auto;
+	}
+		
 </style>
-<?php include "../includes/footer.php"; ?>
+
+<body>
+    <!-- ======== Preloader =========== -->
+   
+    <!-- ======== Preloader =========== -->
+
+    <!-- ======== sidebar-nav start =========== -->
+    <aside class="sidebar-nav-wrapper">
+        <div class="navbar-logo">
+            <a href="../views/index.php">
+                  <div class="cover-image">
+                            <img src="/CrederePruebas/images/logo.png" alt="" width="200" height="70">
+                        </div>
+            </a>
+        </div>
+
+<nav class="sidebar-nav">
+    <ul>
+
+        <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item nav-item-has-children">
+            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
+                <span class="icon">
+                    <span class="mdi mdi-account-group"></span>
+                </span>
+                <span class="text">Clientes</span>
+            </a>
+
+            <ul id="ddmenu_2" class="collapse dropdown-nav">
+                <li>
+                    <a href="../views/clientes.php"> Lista Clientes </a>
+                </li>
+            </ul>
+        </li>
+
+        <span class="divider">
+            <hr />
+        </span>
+        <?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('referencias.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item nav-item-has-children">
+            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_21">
+                <span class="icon">
+                    <span class="mdi mdi-account-supervisor-circle"></span>
+                </span>
+                <span class="text">Referencias</span>
+            </a>
+
+            <ul id="ddmenu_21" class="collapse dropdown-nav">
+                <li>
+                    <a href="../views/avales.php"> Lista de Referencias </a>
+                </li>
+            </ul>
+        </li>
+
+        <span class="divider">
+            <hr />
+        </span>
+        <?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('simulador.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item nav-item-has-children">
+            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_4">
+                <span class="icon">
+                    <span class="mdi mdi-calculator-variant-outline"></span>
+                </span>
+                <span class="text">Simulador</span>
+            </a>
+
+            <ul id="ddmenu_4" class="collapse dropdown-nav">
+                <li>
+                    <a href="../views/simulador.php"> Simulador de Crédito </a>
+                </li>
+            </ul>
+        </li>
+
+        <span class="divider">
+            <hr />
+        </span>
+        <?php endif; ?>
+
+
+<?php if (
+    in_array('prestamos.registro', $_SESSION['permisos']) ||
+    in_array('prestamos.ver', $_SESSION['permisos'])
+): ?>
+
+<li class="nav-item nav-item-has-children">
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_55">
+        <span class="icon">
+           <span class="mdi mdi-cash-multiple"></span>
+        </span>
+        <span class="text">Créditos</span>
+    </a>
+
+    <ul id="ddmenu_55" class="collapse dropdown-nav">
+
+        <?php if (in_array('prestamos.registro', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/form_prestamo.php">
+                Registro de Créditos
+            </a>
+        </li>
+        <?php endif; ?>
+
+        <?php if (in_array('prestamos.ver', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/prestamos.php">
+                Lista de Créditos
+            </a>
+        </li>
+        <?php endif; ?>
+
+    </ul>
+</li>
+
+
+<span class="divider">
+    <hr />
+</span>
+
+<?php endif; ?>
+
+
+<?php if (isset($_SESSION['permisos']) && in_array('cartera.ver', $_SESSION['permisos'])): ?>
+<li class="nav-item nav-item-has-children">
+
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_5">
+        <span class="icon">
+            <span class="mdi mdi-wallet-outline"></span>
+        </span>
+
+        <span class="text">Cartera</span>
+    </a>
+
+    <ul id="ddmenu_5" class="collapse dropdown-nav">
+
+        <li>
+            <a href="../views/registrarPago.php">
+                Registrar Pago
+            </a>
+        </li>
+
+        <?php if (isset($_SESSION['permisos']) && in_array('gestioncartera.ver', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/gestionCartera.php">
+                Gestión de Cartera
+            </a>
+        </li>
+        <?php endif; ?>
+
+    </ul>
+
+</li>
+
+<span class="divider">
+    <hr />
+</span>
+<?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('inversionistas.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item nav-item-has-children">
+            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_6">
+                <span class="icon">
+                    <span class="mdi mdi-finance"></span>
+                </span>
+                <span class="text">Inversionistas</span>
+            </a>
+
+            <ul id="ddmenu_6" class="collapse dropdown-nav">
+                <li>
+                    <a href="../views/inversionistas.php"> Registrar Inversion </a>
+                </li>
+            </ul>
+        </li>
+
+        <span class="divider">
+            <hr />
+        </span>
+        <?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('caja.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item">
+            <a href="../views/caja.php">
+                <span class="icon">
+                   <span class="mdi mdi-cash-register"></span>
+                </span>
+
+                <span class="text">Caja</span>
+            </a>
+        </li>
+
+        <span class="divider">
+            <hr />
+        </span>
+        <?php endif; ?>
+
+
+<?php if (isset($_SESSION['permisos']) && in_array('reportes.ver', $_SESSION['permisos'])): ?>
+
+<li class="nav-item nav-item-has-children">
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_555">
+        <span class="icon">
+          <span class="mdi mdi-file-chart-outline"></span>
+        </span>
+        <span class="text">Reportes</span>
+    </a>
+
+    <ul id="ddmenu_555" class="collapse dropdown-nav">
+
+        <?php if (in_array('reportes.cartera', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/reportesCartera.php">
+                Reportes Cartera
+            </a>
+        </li>
+        <?php endif; ?>
+
+
+        <?php if (in_array('reportes.comisiones', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/reportesComisiones.php">
+                Reportes Comisiones
+            </a>
+        </li>
+        <?php endif; ?>
+
+
+        <?php if (in_array('reportes.inversionistas', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/reportesInversiones.php">
+                Reportes Inversionistas
+            </a>
+        </li>
+        <?php endif; ?>
+
+
+        <?php if (in_array('reportes.contables', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/reportesContables.php">
+                Reportes Contables
+            </a>
+        </li>
+        <?php endif; ?>
+
+    </ul>
+</li>
+
+<span class="divider">
+    <hr />
+</span>
+
+<?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('estadisticas.ver', $_SESSION['permisos'])): ?>
+
+<li class="nav-item nav-item-has-children">
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_85">
+        <span class="icon">
+           <span class="mdi mdi-chart-line"></span>
+        </span>
+        <span class="text">Estadisticas</span>
+    </a>
+
+    <ul id="ddmenu_85" class="collapse dropdown-nav">
+
+        <?php if (in_array('estadisticas.cartera', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/dashboardCartera.php">
+                Dashboard Cartera
+            </a>
+        </li>
+        <?php endif; ?>
+
+
+        <?php if (in_array('estadisticas.inversionistas', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../views/dashboard_inversionistas.php">
+                Dashboard Inversionistas
+            </a>
+        </li>
+        <?php endif; ?>
+
+
+        <?php if (in_array('estadisticas.contabilidad', $_SESSION['permisos'])): ?>
+        <li>
+            <a href="../ajax/dashboardContable.php">
+                Dashboard Contabilidad
+            </a>
+        </li>
+        <?php endif; ?>
+
+    </ul>
+</li>
+
+<span class="divider">
+    <hr />
+</span>
+
+<?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('parametros.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item">
+            <a href="../views/parametrizacion.php">
+                <span class="icon">
+                    <span class="mdi mdi-cog-outline"></span>
+                </span>
+
+                <span class="text">Parametros</span>
+            </a>
+        </li>
+
+        <span class="divider">
+            <hr />
+        </span>
+        <?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('usuarios.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item">
+            <a href="../views/usuarios.php">
+                <span class="icon">
+                   <span class="mdi mdi-account-multiple"></span>
+                </span>
+
+                <span class="text">Usuarios</span>
+            </a>
+        </li>
+
+        <span class="divider">
+            <hr />
+        </span>
+        <?php endif; ?>
+
+
+        <?php if (isset($_SESSION['permisos']) && in_array('notificaciones.ver', $_SESSION['permisos'])): ?>
+        <li class="nav-item">
+            <a href="../views/notificaciones.php">
+                <span class="icon">
+                   <span class="mdi mdi-bell-outline"></span>
+                </span>
+
+                <span class="text">Notificaciones</span>
+            </a>
+        </li>
+        <?php endif; ?>
+
+    </ul>
+</nav>
+
+    </aside>
+    <div class="overlay"></div>
+    <!-- ======== sidebar-nav end =========== -->
+
+    <!-- ======== main-wrapper start =========== -->
+    <main class="main-wrapper">
+        <!-- ========== header start ========== -->
+        <header class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-6">
+                        <div class="header-left d-flex align-items-center">
+                            <div class="menu-toggle-btn mr-15">
+                                <button id="menu-toggle" class="main-btn primary-btn btn-hover">
+                                    <i class="lni lni-chevron-left me-2"></i> Menu
+                                </button>
+                            </div>
+                            <div class="header-search d-none d-md-flex">
+                                <form action="#">
+                                    <input type="text" placeholder="Search..." />
+                                    <button><i class="lni lni-search-alt"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-6">
+                        <div class="header-right">
+                            <!-- notification start -->
+                            <div class="notification-box ml-15 d-none d-md-flex">
+                                <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11 20.1667C9.88317 20.1667 8.88718 19.63 8.23901 18.7917H13.761C13.113 19.63 12.1169 20.1667 11 20.1667Z" fill="" />
+                                        <path d="M10.1157 2.74999C10.1157 2.24374 10.5117 1.83333 11 1.83333C11.4883 1.83333 11.8842 2.24374 11.8842 2.74999V2.82604C14.3932 3.26245 16.3051 5.52474 16.3051 8.24999V14.287C16.3051 14.5301 16.3982 14.7633 16.564 14.9352L18.2029 16.6342C18.4814 16.9229 18.2842 17.4167 17.8903 17.4167H4.10961C3.71574 17.4167 3.5185 16.9229 3.797 16.6342L5.43589 14.9352C5.6017 14.7633 5.69485 14.5301 5.69485 14.287V8.24999C5.69485 5.52474 7.60672 3.26245 10.1157 2.82604V2.74999Z" fill="" />
+                                    </svg>
+                                    <span id="count-label" class="badge bg-danger position-absolute top-0 start-100 translate-middle" style="display: none;">0</span>
+
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="notification" id="notificationContent">
+                                    <!-- Notificaciones AJAX aquí -->
+                                </ul>
+
+                            </div>
+                            <!-- notification end -->
+
+
+                            <!-- profile start -->
+                            <div class="profile-box ml-15">
+                                <button class="dropdown-toggle bg-transparent border-0" type="button" id="profile"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="profile-info">
+                                        <div class="info">
+                                            <div class="image">
+                                                <img src="<?php echo $ruta_imagen; ?>" alt="" />
+                                            </div>
+                                            <div>
+                                                <h6 class="fw-500"><?php echo $usuario; ?></h6>
+                                                <p><?php echo $user['rol']; ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="../views/perfilUser.php">
+                                            <i class="lni lni-user"></i> Perfil
+                                        </a>
+                                    </li>
+
+                                    <?php if ($_SESSION["type"] == 1 || $_SESSION["type"] == 3) { ?>
+                                        <li>
+                                            <a href="../views/configuracionEmpresa.php"> <i class="lni lni-cog"></i> Configuracion </a>
+                                        </li>
+
+                                    <?php } ?>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="../views/soporte.php">
+
+                                            <span class="mdi mdi-information"></span>Soporte
+                                        </a>
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- profile end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ========== header end ========== -->
+        <script src="../js/notificaciones.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!-- Bootstrap -->
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+<!-- DataTables -->
+<script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Tu JS principal si existe -->
+ <script src="../js/main.js"></script>
+        <?php include "../views/ventanaLogout.php"; ?>
+		<?php include "../includes/sesion/validarInactividad.php"; ?>
