@@ -1,10 +1,26 @@
 
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+echo "INICIO CLIENTES<br>";
+
 include "../includes/configSession.php";
+
+echo "SESSION OK<br>";
+
 require_once "../includes/permisos.php";
+
+echo "PERMISOS OK<br>";
+
 require_once "../includes/header.php";
+
+echo "HEADER OK<br>";
+
 require_once "../includes/db.php";
 
+echo "DB OK<br>";
 
 
 error_reporting(E_ALL);
@@ -174,7 +190,7 @@ while ($fila = mysqli_fetch_assoc($result)) :
 
 </tr>             
 
-                                    <?php // include "./forms/editar_client.php"; ?>
+                                    <?php include "./forms/editar_client.php"; ?>
                                 <?php endwhile; ?>
 
                         </tbody>
