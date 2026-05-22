@@ -499,6 +499,16 @@ include "consultUserSession.php";
 		<!-- Bootstrap -->
 <script src="../js/bootstrap.bundle.min.js"></script>
 
+<script>
+
+console.log("BOOTSTRAP TEST");
+
+const testCollapse = document.querySelector('[data-bs-toggle="collapse"]');
+
+console.log(testCollapse);
+
+</script>
+
 <!-- DataTables -->
 <script src="../js/jquery.dataTables.min.js"></script>
 <script src="../js/dataTables.bootstrap4.min.js"></script>
