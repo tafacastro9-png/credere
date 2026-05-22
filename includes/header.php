@@ -1,170 +1,270 @@
-<?php 
 
-include "configSession.php";
-include "consultUserSession.php";
+<?php
+include "../includes/configSession.php";
+require_once "../includes/permisos.php";
+require_once "../includes/header.php";
+require_once "../includes/db.php";
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (!isset($_SESSION['permisos']) || 
+    !in_array('clientes.ver', $_SESSION['permisos'])) {
+
+    echo "<h2 style='color:red; text-align:center; margin-top:100px;'>
+    No tienes permisos para acceder a este módulo.
+    </h2>";
+    exit;
+}
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>TEST</title>
-
-    <link rel="stylesheet" href="../css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../css/main.css" />
-
-</head>
-
-<body>
 
 
-
-<!-- SIDEBAR -->
-<aside class="sidebar-nav-wrapper active">
-
-    <div class="navbar-logo">
-        <h3>SIDEBAR OK</h3>
-    </div>
-
-</aside>
-
-<!-- OVERLAY -->
-<div class="overlay"></div>
-
-<!-- MAIN -->
-<main class="main-wrapper active">
-
-    <h1>MAIN WRAPPER OK</h1>
-    <header class="header">
+<!-- ========== table components start ========== -->
+<section class="table-components">
     <div class="container-fluid">
-
+        <!-- ========== title-wrapper start ========== -->
+        <br>
+        <br>
         <div class="row">
+            <div class="col-lg-12">
+                <div class="card-style mb-30">
+                    <div class="titulo-modulo mb-4">
+    <i class="fa fa-users me-2"></i>
+    Gestión de Clientes
+</div>
+                    <br>
+					<div class="bloque-acciones">
+                   <?php if (tienePermiso('clientes.crear', $conexion)) { ?>
+    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#addModal">
+        Agregar <i class="fa fa-plus"></i>
+    </button>
+<?php } ?>
+                    <?php include("./forms/form_client.php"); ?>
+                    <?php if (tienePermiso('clientes.exportar', $conexion)) { ?>
+<button onclick="exportarCSV()" class="btn btn-primary blue">
+    Exportar a Excel <i class="fas fa-download fa-sm text-white-50"></i>
+</button>
+<?php } ?>
 
-            <!-- LEFT -->
-            <div class="col-lg-5 col-md-5 col-6">
+ <?php if (tienePermiso('clientes.importar', $conexion)) { ?>
+    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#impt">
+        Importar <i class="fas fa-upload"></i>
+    </button>
+<?php } ?>
+                    <?php include('./forms/formImportar.php'); ?>
+					</div>
+                    <br>
+                    <br>
+					<div class="tabla-clientes">
+                    <div class="table-wrapper table-responsive">
+                        <table class="table" id="datatable">
+<thead>
+    <tr>
+        <th>Action</th>
+        <th>Estado</th>
+        <th>Consecutivo</th>
+        <th>Nombre</th>
+        <th>Tipo de Identificacion</th>
+        <th>Numero identificacion</th>
+        <th>Telefono</th>
+        <th>Correo</th>
+        <th>Direccion</th>
+        <th>FechaRegistro</th>
+    </tr>
+</thead>
+<tbody>
 
-                <div class="header-left d-flex align-items-center">
+<?php
 
-                    <!-- MENU -->
-                    <div class="menu-toggle-btn mr-15">
 
-                        <button id="menu-toggle"
-                            class="main-btn primary-btn btn-hover">
 
-                            Menu
+require_once("../includes/db.php");
 
-                        </button>
+$result = mysqli_query($conexion, "
+SELECT 
+c.*, 
+est.estado,
+ide.nombre,
 
-                    </div>
+il.empresa,
+il.tipo_contrato,
+il.fecha_ingreso_laboral,
+il.totalDevengado,
+il.totalDescuentos,
+il.netoPagar,
 
-                    <!-- SEARCH -->
-                    <div class="header-search d-none d-md-flex">
+inf.totalIngresos,
+inf.totalEgresos,
+inf.otrosIngresos,
+inf.activos,
+inf.pasivos,
+inf.patrimonios
 
-                        <form>
+FROM clientes c 
 
-                            <input type="text"
-                                placeholder="Search..." />
+INNER JOIN estado_registros est 
+    ON c.id_status = est.id 
 
-                        </form>
+INNER JOIN tipo_identificacion ide 
+    ON c.id_tipoIdentificacion = ide.id
 
-                    </div>
+LEFT JOIN informacion_laboral il 
+    ON il.cliente_id = c.id
 
-                </div>
+LEFT JOIN informacion_financiera inf 
+    ON inf.cliente_id = c.id
+");
 
-            </div>
 
-            <!-- RIGHT -->
-            <div class="col-lg-7 col-md-7 col-6">
 
-                <div class="header-right d-flex justify-content-end align-items-center">
+if (!$result) {
+    die("Error en la consulta: " . mysqli_error($conexion));
+}
 
-                    <!-- PROFILE -->
-                    <div class="profile-box ml-15">
 
-                        <button class="dropdown-toggle bg-transparent border-0"
-                            type="button"
-                            data-bs-toggle="dropdown">
 
-                            <div class="profile-info">
+while ($fila = mysqli_fetch_assoc($result)) :
+								
+	?>							
+<tr>
 
-                                <div class="info d-flex align-items-center">
+<td>
 
-                                    <div class="image">
+<?php if (tienePermiso('clientes.ver', $conexion)) { ?>
+<a href="ver_cliente.php?id=<?php echo $fila['id']; ?>" 
+   class="btn btn-primary btn-xs">
+   <i class="fa fa-search"></i>
+</a>
+<?php } ?>
 
-                                        <img src="<?php echo $ruta_imagen; ?>"
-                                            alt=""
-                                            width="40"
-                                            style="border-radius:50%;">
+<?php if (tienePermiso('clientes.editar', $conexion)) { ?>
+<button type="button"
+        class="btn btn-warning btn-xs"
+        data-bs-toggle="modal"
+        data-bs-target="#editar<?php echo $fila['id']; ?>">
+    <i class="fa fa-edit"></i>
+</button>
+<?php } ?>
 
-                                    </div>
 
-                                    <div class="ms-2">
 
-                                        <h6 class="fw-500 mb-0">
-                                            <?php echo $usuario; ?>
-                                        </h6>
+</td>
 
-                                        <p class="mb-0">
-                                            <?php echo $user['rol']; ?>
-                                        </p>
+<td>
+<span class="estado <?php echo strtolower($fila['estado']) == 'activo' ? 'activo' : 'inactivo'; ?>">
+<?php echo $fila['estado']; ?>
+</span>
+</td>
 
-                                    </div>
+<td><?php echo $fila['folioClient']; ?></td>
+<td><?php echo $fila['nombreClient'] . ' ' . $fila['apellidoClient']; ?></td>
+<td><?php echo $fila['nombre']; ?></td>
+<td><?php echo $fila['docIdentClient']; ?></td>
+<td><?php echo $fila['telClient']; ?></td>
+<td><?php echo $fila['correoClient']; ?></td>
+<td><?php echo $fila['dirClient']; ?></td>
+<td><?php echo $fila['fecha_registro']; ?></td>
 
-                                </div>
+</tr>             
 
-                            </div>
+                                    <?php include "./forms/editar_client.php"; ?>
+                                <?php endwhile; ?>
 
-                        </button>
-
-                        <ul class="dropdown-menu dropdown-menu-end">
-
-                            <li>
-
-                                <a class="dropdown-item"
-                                    href="../views/perfilUser.php">
-
-                                    Perfil
-
-                                </a>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-</header>
-
-<script src="../js/jquery-3.7.1.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../js/main.js"></script>
+                        </tbody>
+                    </table>
+                </div> <!-- table-wrapper -->
+            </div> <!-- card-style -->
+        </div> <!-- col -->
+    </div> <!-- row -->
+</div> <!-- container-fluid -->
+</section>
+<!-- ========== table components end ========== -->
 
 <script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const menuToggle = document.getElementById("menu-toggle");
-    const sidebar = document.querySelector(".sidebar-nav-wrapper");
-    const mainWrapper = document.querySelector(".main-wrapper");
-    const overlay = document.querySelector(".overlay");
-
-    menuToggle.addEventListener("click", function () {
-
-        sidebar.classList.toggle("active");
-        mainWrapper.classList.toggle("active");
-        overlay.classList.toggle("active");
-
-    });
-
-});
-
+    function exportarCSV() {
+        $.ajax({
+            url: '../includes/exportCSV.php', // Cambia la URL al script que genera el archivo CSV
+            method: 'GET',
+            dataType: 'text', // Cambia a 'text' para recibir datos de tipo texto
+            success: function(response) {
+                // Descargar el archivo CSV
+                var blob = new Blob([response], {
+                    type: 'text/csv;charset=utf-8;'
+                });
+                var link = document.createElement("a");
+                if (link.download !== undefined) {
+                    var url = URL.createObjectURL(blob);
+                    link.setAttribute("href", url);
+                    link.setAttribute("download", "REPORTE_CLIENTES.csv");
+                    link.style.visibility = 'hidden';
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log('Error en la solicitud AJAX:', error);
+            }
+        });
+    }
 </script>
+<style>
+.estado {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.estado.activo {
+    background-color: #2e7d32;
+    color: #fff;
+}
+
+.estado.inactivo {
+    background-color: #dc3545;
+    color: #fff;
+}
+.btn-xs {
+    padding: 2px 6px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+}
+
+.btn-xs i {
+    font-size: 12px !important;
+}
+.titulo-modulo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0b1e4f;
+    padding-bottom: 8px;
+    border-bottom: 4px solid #0b1e4f;
+    display: inline-block;
+    letter-spacing: 0.5px;
+}
+.titulo-modulo i {
+    color: #1e3a8a;
+}
+
+.bloque-acciones {
+    margin-top: 25px;
+}
+
+.tabla-clientes {
+    margin-top: 25px;
+}
+.tabla-clientes {
+    margin-top: 35px;
+}
+.card {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+
+
+
+</style>
+<?php include "../includes/footer.php"; ?>
