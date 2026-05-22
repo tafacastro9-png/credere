@@ -3,9 +3,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 include "configSession.php";
-// include "consultUserSession.php";
+include "consultUserSession.php";
 
 ?>
 <!DOCTYPE html>
@@ -49,11 +48,9 @@ include "configSession.php";
 
 <body>
     <!-- ======== Preloader =========== -->
-   <!--
-<div id="preloader">
-    <div class="spinner"></div>
-</div>
--->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     <!-- ======== Preloader =========== -->
 
     <!-- ======== sidebar-nav start =========== -->
@@ -408,7 +405,7 @@ include "configSession.php";
 </nav>
 
     </aside>
-    <!-- <div class="overlay"></div> -->
+    <div class="overlay"></div>
     <!-- ======== sidebar-nav end =========== -->
 
     <!-- ======== main-wrapper start =========== -->

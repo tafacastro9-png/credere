@@ -275,3 +275,9 @@ exit;
 
 </style>
 //<?php include "../includes/footer.php"; ?>
+
+<h1 style="color:red;">PRUEBA FINAL</h1>
+
+</main>
+</body>
+</html>
