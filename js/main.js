@@ -70,4 +70,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    /* ========= SIDEBAR SUBMENUS ========= */
+    const allDropdownBtn = document.querySelectorAll(
+        ".sidebar-nav .nav-item-has-children > a"
+    );
+
+    allDropdownBtn.forEach((item) => {
+
+        item.addEventListener("click", function (e) {
+
+            e.preventDefault();
+
+            const parent = this.parentElement;
+            const dropdown = parent.querySelector(".dropdown-nav");
+
+            if (dropdown) {
+
+                dropdown.classList.toggle("show");
+
+                parent.classList.toggle("active");
+
+            }
+
+        });
+
+    });
+
 });
