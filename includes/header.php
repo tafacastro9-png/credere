@@ -23,7 +23,7 @@ include "consultUserSession.php";
 <body>
 
 <!-- SIDEBAR -->
-<aside class="sidebar-nav-wrapper">
+<aside class="sidebar-nav-wrapper active">
 
     <div class="navbar-logo">
 
@@ -59,7 +59,7 @@ include "consultUserSession.php";
 <div class="overlay"></div>
 
 <!-- ======== main-wrapper start =========== -->
-<main class="main-wrapper">
+<main class="main-wrapper active">
 
     <!-- ======== header start =========== -->
     <header class="header">
