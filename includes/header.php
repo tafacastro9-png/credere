@@ -20,17 +20,6 @@ include "consultUserSession.php";
 
 </head>
 
-<style>
-
-.main-wrapper{
-    padding-top: 0 !important;
-}
-
-.header{
-    position: relative !important;
-}
-
-</style>
 
 <body>
 
@@ -62,9 +51,6 @@ include "consultUserSession.php";
 
 <!-- MAIN -->
 <main class="main-wrapper">
-
-    <h1>MAIN WRAPPER OK</h1>
-    <h1>HEADER OK</h1>
 
     <!-- HEADER -->
     <header class="header">
