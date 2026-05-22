@@ -2,21 +2,24 @@
 
 include "../includes/db.php";
 
-$usuario = $_SESSION['usuario'];
+$usuarioSesion = $_SESSION['usuario'];
 
-$sql = "SELECT u.usuario, u.id_rol, u.imagenPerfil, r.rol 
-FROM users u 
-LEFT JOIN roles r ON u.id_rol = r.id  
-WHERE usuario ='$usuario'";
+$sql = "SELECT 
+u.usuario, 
+u.id_rol, 
+u.imagenPerfil, 
+r.rol 
+FROM users u
+LEFT JOIN roles r ON u.id_rol = r.id
+WHERE u.usuario = '$usuarioSesion'
+LIMIT 1";
 
-$usuarios = mysqli_query($conexion, $sql);
+$resultadoUsuario = mysqli_query($conexion, $sql);
 
-if ($usuarios->num_rows > 0) {
+$datosUsuario = mysqli_fetch_assoc($resultadoUsuario);
 
-    foreach ($usuarios as $key => $user) {
+$ruta_imagen = $datosUsuario['imagenPerfil'] ?? '../images/user.png';
 
-        $ruta_imagen = $user["imagenPerfil"];
+$nombre_usuario = $datosUsuario['usuario'] ?? '';
 
-    }
-
-}
+$rol_usuario = $datosUsuario['rol'] ?? '';
