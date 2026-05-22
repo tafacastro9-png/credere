@@ -408,7 +408,7 @@ include "configSession.php";
 </nav>
 
     </aside>
-    <div class="overlay"></div>
+    <!-- <div class="overlay"></div> -->
     <!-- ======== sidebar-nav end =========== -->
 
     <!-- ======== main-wrapper start =========== -->
