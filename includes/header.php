@@ -51,9 +51,11 @@ include "consultUserSession.php";
 <body>
 
     <!-- PRELOADER -->
-    <div id="preloader">
-        <div class="spinner"></div>
-    </div>
+  <style>
+#preloader{
+    display:none !important;
+}
+</style>
 
     <!-- SIDEBAR -->
     <aside class="sidebar-nav-wrapper">
