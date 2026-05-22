@@ -42,7 +42,7 @@ if (!isset($_SESSION['permisos']) ||
         Agregar <i class="fa fa-plus"></i>
     </button>
 <?php } ?>
-                    <?php // include("./forms/form_client.php"); ?>
+                    <?php include("./forms/form_client.php"); ?>
                     <?php if (tienePermiso('clientes.exportar', $conexion)) { ?>
 <button onclick="exportarCSV()" class="btn btn-primary blue">
     Exportar a Excel <i class="fas fa-download fa-sm text-white-50"></i>
@@ -54,7 +54,7 @@ if (!isset($_SESSION['permisos']) ||
         Importar <i class="fas fa-upload"></i>
     </button>
 <?php } ?>
-                    <?php // include('./forms/formImportar.php'); ?>
+                    <?php include('./forms/formImportar.php'); ?>
 					</div>
                     <br>
                     <br>
@@ -175,7 +175,7 @@ exit;
 
 </tr>             
 
-                                    <?php // include "./forms/editar_client.php"; ?>
+                                    <?php include "./forms/editar_client.php"; ?>
                                 <?php endwhile; ?>
 
                         </tbody>
