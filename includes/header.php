@@ -1,19 +1,17 @@
-<?php
-
-include "configSession.php";
-include "consultUserSession.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>TEST</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/main.css" />
+
 </head>
 
 <body>
+
 <div id="preloader">
     <div class="spinner"></div>
 </div>
