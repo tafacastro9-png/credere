@@ -20,13 +20,39 @@ include "consultUserSession.php";
 
 </head>
 
+<style>
+
+.main-wrapper{
+    padding-top: 0 !important;
+}
+
+.header{
+    position: relative !important;
+}
+
+</style>
+
 <body>
 
 <!-- SIDEBAR -->
 <aside class="sidebar-nav-wrapper">
 
     <div class="navbar-logo">
-        <h3>SIDEBAR OK</h3>
+        <ul class="sidebar-nav">
+
+    <li class="nav-item">
+
+        <a href="#">
+
+            <span class="text">
+                Dashboard
+            </span>
+
+        </a>
+
+    </li>
+
+</ul>
     </div>
 
 </aside>
