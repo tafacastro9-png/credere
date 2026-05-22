@@ -90,9 +90,7 @@ include "consultUserSession.php";
 
                                         <div class="image">
 
-                                            <img src="<?php echo $ruta_imagen; ?>"
-                                                alt=""
-                                                width="40">
+                                            <img src="/images/user.png" alt="" width="40">
 
                                         </div>
 
