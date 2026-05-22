@@ -321,7 +321,18 @@ include "consultUserSession.php";
 
     <script src="../js/dataTables.bootstrap4.min.js"></script>
 
-    <!--<script src="../js/main.js"></script>-->
+ <script src="../js/main.js"></script>
+    <script>
+window.onload = function () {
+    const preloader = document.getElementById("preloader");
+
+    if (preloader) {
+        preloader.style.display = "none";
+    }
+};
+</script>
+
+   
 
 </body>
 
