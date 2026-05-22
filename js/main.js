@@ -1,55 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* ========= PRELOADER ======== */
+    /* ========= PRELOADER ========= */
     const preloader = document.getElementById("preloader");
 
     if (preloader) {
         preloader.style.display = "none";
     }
 
-    /* ========= HEADER SHADOW ======== */
+    /* ========= HEADER SHADOW ========= */
     window.addEventListener("scroll", function () {
 
         const header = document.querySelector(".header");
 
         if (header) {
-            header.style.boxShadow =
-                window.scrollY > 0
-                    ? "0px 0px 30px 0px rgba(200, 208, 216, 0.30)"
-                    : "none";
+
+            header.style.boxShadow = window.scrollY > 0
+                ? "0px 0px 30px 0px rgba(200, 208, 216, 0.30)"
+                : "none";
+
         }
 
     });
 
-    /* ========= SIDEBAR ======== */
-
-    const sidebar = document.querySelector(".sidebar-nav-wrapper");
+    /* ========= SIDEBAR TOGGLE ========= */
+    const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
+    const mainWrapper = document.querySelector(".main-wrapper");
+    const menuToggleButton = document.querySelector("#menu-toggle");
+    const menuToggleButtonIcon = document.querySelector("#menu-toggle i");
     const overlay = document.querySelector(".overlay");
-    const menuBtn = document.getElementById("menu-toggle");
 
-    // LIMPIAR estados rotos al iniciar
-    if (overlay) {
-        overlay.classList.remove("active");
-        overlay.style.display = "none";
-    }
+    if (menuToggleButton && sidebarNavWrapper && mainWrapper && overlay) {
 
-    if (sidebar) {
-        sidebar.classList.remove("active");
-    }
+        menuToggleButton.addEventListener("click", () => {
 
-    // TOGGLE MENU
-    if (menuBtn && sidebar) {
+            sidebarNavWrapper.classList.toggle("active");
+            overlay.classList.toggle("active");
+            mainWrapper.classList.toggle("active");
 
-        menuBtn.addEventListener("click", function () {
+            if (menuToggleButtonIcon) {
 
-            sidebar.classList.toggle("active");
+                if (menuToggleButtonIcon.classList.contains("lni-chevron-left")) {
 
-            if (overlay) {
+                    menuToggleButtonIcon.classList.remove("lni-chevron-left");
+                    menuToggleButtonIcon.classList.add("lni-menu");
 
-                if (sidebar.classList.contains("active")) {
-                    overlay.style.display = "block";
                 } else {
-                    overlay.style.display = "none";
+
+                    menuToggleButtonIcon.classList.remove("lni-menu");
+                    menuToggleButtonIcon.classList.add("lni-chevron-left");
+
                 }
 
             }
@@ -58,13 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-    // CERRAR OVERLAY
-    if (overlay && sidebar) {
+    /* ========= OVERLAY CLICK ========= */
+    if (overlay && sidebarNavWrapper && mainWrapper) {
 
-        overlay.addEventListener("click", function () {
+        overlay.addEventListener("click", () => {
 
-            sidebar.classList.remove("active");
-            overlay.style.display = "none";
+            sidebarNavWrapper.classList.remove("active");
+            overlay.classList.remove("active");
+            mainWrapper.classList.remove("active");
 
         });
 
