@@ -516,7 +516,7 @@ console.log(testCollapse);
 
 
 <!-- Tu JS principal si existe -->
- <script src="../js/main.js"></script>
+<script src="/js/main.js"></script>
 
 
  </main>
