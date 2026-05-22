@@ -33,6 +33,8 @@
 
 <!-- 1️⃣ jQuery (OBLIGATORIO primero) -->
 
+<script src="../js/jquery-3.7.1.min.js"></script>
+
 <!-- Bootstrap -->
 <script src="../js/bootstrap.bundle.min.js"></script>
 
