@@ -497,6 +497,9 @@ include "consultUserSession.php";
                 </div>
             </div>
         </header>
+
+        <div class="container-fluid pt-30">
+            </div>
         <?php include "../views/ventanaLogout.php"; ?>
 		<?php include "../includes/sesion/validarInactividad.php"; ?>
 
