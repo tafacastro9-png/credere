@@ -1,9 +1,12 @@
 
 <?php
 include "../includes/configSession.php";
-require_once "../includes/permisos.php";
-require_once "../includes/header.php";
+//require_once "../includes/permisos.php";
+//require_once "../includes/header.php";
 require_once "../includes/db.php";
+
+echo "ENTRO";
+exit;
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
