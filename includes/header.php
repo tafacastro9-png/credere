@@ -52,6 +52,8 @@ include "consultUserSession.php";
 
             <div class="col-lg-5 col-md-5 col-6">
 
+            
+
                 <div class="header-left d-flex align-items-center">
 
                     <div class="menu-toggle-btn mr-15">
