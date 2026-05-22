@@ -1,3 +1,4 @@
+alert("MAIN JS CARGADO");
 document.addEventListener("DOMContentLoaded", function () {
 
     /* ========= PRELOADER ========= */
