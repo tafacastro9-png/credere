@@ -127,6 +127,9 @@ if (!$result) {
 
 
 while ($fila = mysqli_fetch_assoc($result)) :
+
+    echo "SI HAY DATOS";
+exit;
 								
 	?>							
 <tr>
