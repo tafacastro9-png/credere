@@ -457,11 +457,11 @@ include "configSession.php";
                                     <div class="profile-info">
                                         <div class="info">
                                             <div class="image">
-                                                <!-- <img src="<?php echo $ruta_imagen; ?>" alt="" /> -->
+                                                <img src="<?php echo $ruta_imagen; ?>" alt="" />
                                             </div>
                                             <div>
-                                               <!-- <h6 class="fw-500"><?php echo $usuario; ?></h6>-->
-                                                <!-- <p><?php echo $user['rol']; ?></p>-->
+                                                <h6 class="fw-500"><?php echo $usuario; ?></h6>
+                                                <p><?php echo $user['rol']; ?></p>
                                             </div>
                                         </div>
                                     </div>
