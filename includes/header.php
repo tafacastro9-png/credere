@@ -505,8 +505,7 @@ include "consultUserSession.php";
 <!-- MAIN -->
 <script src="/js/main.js?v=999999"></script>
 
-<?php include "../views/ventanaLogout.php"; ?>
-<?php include "../includes/sesion/validarInactividad.php"; ?>
+
 
 </body>
 </html>
