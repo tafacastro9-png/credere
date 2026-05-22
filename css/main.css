@@ -6183,3 +6183,12 @@ h1, h2, h3, h4, h5 {
 .page-link {
     transition: all 0.2s ease;
 }
+/* ===== FIX DROPDOWN SIDEBAR ===== */
+
+.sidebar-nav .dropdown-nav{
+    display: none !important;
+}
+
+.sidebar-nav .dropdown-nav.show{
+    display: block !important;
+}
