@@ -1,7 +1,7 @@
 
 <?php
 include "../includes/configSession.php";
-//require_once "../includes/permisos.php";
+require_once "../includes/permisos.php";
 //require_once "../includes/header.php";
 require_once "../includes/db.php";
 
