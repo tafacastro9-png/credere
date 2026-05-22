@@ -498,8 +498,20 @@ include "consultUserSession.php";
             </div>
         </header>
 
-        <div class="container-fluid pt-30">
+      <div class="container-fluid pt-30">
+
+    <div class="row">
+        <div class="col-12">
+
+            <div class="card-style mb-30">
+                <h6 class="mb-10">Dashboard</h6>
+                <p>Sistema cargado correctamente.</p>
             </div>
+
+        </div>
+    </div>
+
+</div>
         <?php include "../views/ventanaLogout.php"; ?>
 		<?php include "../includes/sesion/validarInactividad.php"; ?>
 
