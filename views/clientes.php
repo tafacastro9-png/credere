@@ -82,12 +82,7 @@ if (!isset($_SESSION['permisos']) ||
 require_once("../includes/db.php");
 
 $result = mysqli_query($conexion, "
-if (!$result) {
 
-    die(mysqli_error($conexion));
-
-}
-    
 SELECT 
 c.*, 
 est.estado,
@@ -120,12 +115,13 @@ LEFT JOIN informacion_laboral il
 
 LEFT JOIN informacion_financiera inf 
     ON inf.cliente_id = c.id
+
 ");
 
-
-
 if (!$result) {
-    die("Error en la consulta: " . mysqli_error($conexion));
+
+    die("Error SQL: " . mysqli_error($conexion));
+
 }
 
 
