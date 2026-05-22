@@ -2,8 +2,28 @@
 <?php
 include "../includes/configSession.php";
 require_once "../includes/permisos.php";
-require_once "../includes/header.php";
+
+echo "ANTES HEADER<br>";
+//require_once "../includes/header.php";
+echo "DESPUES HEADER<br>";
 require_once "../includes/db.php";
+echo "ANTES QUERY<br>";
+$result = mysqli_query($conexion, "SELECT * FROM clientes");
+echo "DESPUES QUERY<br>";
+
+if(!$result){
+
+    die(mysqli_error($conexion));
+
+}
+
+while($fila = mysqli_fetch_assoc($result)){
+
+    echo $fila['nombreClient'] . "<br>";
+
+}
+
+
 
 
 
@@ -274,4 +294,5 @@ exit;
 
 
 </style>
-<?php include "../includes/footer.php"; ?>
+
+// include "../includes/footer.php";
