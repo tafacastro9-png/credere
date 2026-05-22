@@ -110,7 +110,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('simulador.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_4">
+            <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_4">
                 <span class="icon">
                     <span class="mdi mdi-calculator-variant-outline"></span>
                 </span>
@@ -136,7 +136,7 @@ include "consultUserSession.php";
 ): ?>
 
 <li class="nav-item nav-item-has-children">
-    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_55">
+    <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_55">
         <span class="icon">
            <span class="mdi mdi-cash-multiple"></span>
         </span>
@@ -175,7 +175,7 @@ include "consultUserSession.php";
 <?php if (isset($_SESSION['permisos']) && in_array('cartera.ver', $_SESSION['permisos'])): ?>
 <li class="nav-item nav-item-has-children">
 
-    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_5">
+    <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_5">
         <span class="icon">
             <span class="mdi mdi-wallet-outline"></span>
         </span>
@@ -211,7 +211,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('inversionistas.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_6">
+            <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_6">
                 <span class="icon">
                     <span class="mdi mdi-finance"></span>
                 </span>
@@ -251,7 +251,7 @@ include "consultUserSession.php";
 <?php if (isset($_SESSION['permisos']) && in_array('reportes.ver', $_SESSION['permisos'])): ?>
 
 <li class="nav-item nav-item-has-children">
-    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_555">
+    <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_555">
         <span class="icon">
           <span class="mdi mdi-file-chart-outline"></span>
         </span>
@@ -308,7 +308,7 @@ include "consultUserSession.php";
         <?php if (isset($_SESSION['permisos']) && in_array('estadisticas.ver', $_SESSION['permisos'])): ?>
 
 <li class="nav-item nav-item-has-children">
-    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_85">
+    <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_85">
         <span class="icon">
            <span class="mdi mdi-chart-line"></span>
         </span>
