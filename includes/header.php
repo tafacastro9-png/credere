@@ -48,9 +48,11 @@ include "consultUserSession.php";
 
 <body>
     <!-- ======== Preloader =========== -->
-    <div id="preloader">
-        <div class="spinner"></div>
-    </div>
+    <!--
+<div id="preloader">
+    <div class="spinner"></div>
+</div>
+-->
     <!-- ======== Preloader =========== -->
 
     <!-- ======== sidebar-nav start =========== -->
