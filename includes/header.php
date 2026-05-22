@@ -499,16 +499,11 @@ include "consultUserSession.php";
                 </div>
             </div>
         </header>
-        <!-- ========== header end ========== -->
-        <script src="../js/notificaciones.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 
-<!-- DataTables -->
-<script src="../js/jquery.dataTables.min.js"></script>
-<script src="../js/dataTables.bootstrap4.min.js"></script>
 
-<!-- Tu JS principal si existe -->
- <script src="../js/main.js"></script>
+
+
+
         <?php include "../views/ventanaLogout.php"; ?>
 		<?php include "../includes/sesion/validarInactividad.php"; ?>
