@@ -1,9 +1,4 @@
 <?php
-
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
-
 include "configSession.php";
 include "consultUserSession.php";
 
@@ -49,7 +44,7 @@ include "consultUserSession.php";
 
 <body>
     <!-- ======== Preloader =========== -->
-<style>
+     <style>
 #preloader{
     display:none !important;
 }
