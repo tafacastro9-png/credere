@@ -316,30 +316,3 @@ while ($row = mysqli_fetch_assoc($result)) {
     });
 </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-
-    const triggers = document.querySelectorAll('[data-bs-toggle="collapse"]');
-
-    triggers.forEach(function(trigger){
-
-        trigger.addEventListener("click", function(e){
-
-            e.preventDefault();
-
-            const target = this.getAttribute("data-bs-target");
-
-            const element = document.querySelector(target);
-
-            if(element){
-
-                element.classList.toggle("show");
-
-            }
-
-        });
-
-    });
-
-});
-</script>
