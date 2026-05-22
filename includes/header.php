@@ -513,7 +513,7 @@ include "consultUserSession.php";
 
 </div>
         <?php include "../views/ventanaLogout.php"; ?>
-		<?php include "../includes/sesion/validarInactividad.php"; ?>
+		<?php // include "../includes/sesion/validarInactividad.php"; ?>
 
         </main>
         <!-- ========== header end ========== -->
