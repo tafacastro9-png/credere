@@ -282,7 +282,7 @@ include "consultUserSession.php";
    data-bs-toggle="collapse"
    data-bs-target="#ddmenu_555"
    aria-controls="ddmenu_555"
-   aria-expanded="false">">
+   aria-expanded="false">
         <span class="icon">
           <span class="mdi mdi-file-chart-outline"></span>
         </span>
