@@ -108,7 +108,7 @@ include "consultUserSession.php";
 
     </aside>
 
-    <!-- OVERLAY -->
+    <!-- SOLO UNA OVERLAY -->
     <div class="overlay"></div>
 
     <!-- MAIN WRAPPER -->
@@ -301,17 +301,16 @@ include "consultUserSession.php";
 
         </header>
 
-        <!-- AQUI VA EL CONTENIDO DE CADA PAGINA -->
-
-
-
+        <!-- CONTENIDO -->
+        
+        
         <?php include "../views/ventanaLogout.php"; ?>
         <?php include "../includes/sesion/validarInactividad.php"; ?>
 
     </main>
 
     <!-- JS -->
-    <script src="../js/notificaciones.js"></script> 
+    <script src="../js/notificaciones.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
@@ -321,18 +320,19 @@ include "consultUserSession.php";
 
     <script src="../js/dataTables.bootstrap4.min.js"></script>
 
- <script src="../js/main.js"></script>
+    <script src="../js/main.js"></script>
+
     <script>
-window.onload = function () {
-    const preloader = document.getElementById("preloader");
+        window.onload = function () {
 
-    if (preloader) {
-        preloader.style.display = "none";
-    }
-};
-</script>
+            const preloader = document.getElementById("preloader");
 
-   
+            if (preloader) {
+                preloader.style.display = "none";
+            }
+
+        };
+    </script>
 
 </body>
 
