@@ -505,7 +505,7 @@ include "consultUserSession.php";
 <script src="../js/dataTables.bootstrap4.min.js"></script>
 
 <!-- MAIN -->
-<script src="/js/main.js?v=999999"></script>
+<script src="../js/main.js?v=999999"></script>
 
 
 
