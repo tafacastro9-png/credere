@@ -14,5 +14,9 @@ include "consultUserSession.php";
 </head>
 
 <body>
+<div class="overlay"></div>
 
+<main class="main-wrapper">
+
+<h1>MAIN WRAPPER OK</h1>
 <h1>HEADER OK</h1>
