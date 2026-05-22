@@ -517,3 +517,8 @@ console.log(testCollapse);
  <script src="../js/main.js"></script>
         <?php include "../views/ventanaLogout.php"; ?>
 		<?php include "../includes/sesion/validarInactividad.php"; ?>
+
+        </main>
+
+</body>
+</html>
