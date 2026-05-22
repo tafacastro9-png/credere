@@ -87,6 +87,7 @@ if (!$result) {
     die(mysqli_error($conexion));
 
 }
+    
 SELECT 
 c.*, 
 est.estado,
