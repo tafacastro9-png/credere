@@ -83,7 +83,6 @@ if (!isset($_SESSION['permisos']) ||
 
 require_once("../includes/db.php");
 
-echo "ANTES QUERY<br>";
 
 $result = mysqli_query($conexion, "
 
@@ -122,7 +121,7 @@ LEFT JOIN informacion_financiera inf
 
 ");
 
-echo "DESPUES QUERY<br>";
+
 
 if (!$result) {
 
