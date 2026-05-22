@@ -83,6 +83,8 @@ if (!isset($_SESSION['permisos']) ||
 
 require_once("../includes/db.php");
 
+echo "ANTES QUERY<br>";
+
 $result = mysqli_query($conexion, "
 
 SELECT 
@@ -119,6 +121,8 @@ LEFT JOIN informacion_financiera inf
     ON inf.cliente_id = c.id
 
 ");
+
+echo "DESPUES QUERY<br>";
 
 if (!$result) {
 
