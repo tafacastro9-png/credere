@@ -70,7 +70,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
+            <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
                 <span class="icon">
                     <span class="mdi mdi-account-group"></span>
                 </span>
@@ -92,7 +92,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('referencias.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_21">
+            <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_21">
                 <span class="icon">
                     <span class="mdi mdi-account-supervisor-circle"></span>
                 </span>
@@ -491,7 +491,7 @@ include "consultUserSession.php";
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
+                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
                                     </li>
                                 </ul>
                             </div>
