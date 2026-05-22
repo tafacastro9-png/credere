@@ -1,8 +1,4 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 include "configSession.php";
 include "consultUserSession.php";
 
@@ -48,11 +44,9 @@ include "consultUserSession.php";
 
 <body>
     <!-- ======== Preloader =========== -->
-    <!--
-<div id="preloader">
-    <div class="spinner"></div>
-</div>
--->
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     <!-- ======== Preloader =========== -->
 
     <!-- ======== sidebar-nav start =========== -->
@@ -60,7 +54,7 @@ include "consultUserSession.php";
         <div class="navbar-logo">
             <a href="../views/index.php">
                   <div class="cover-image">
-                            <img src="/images/logo.png" alt="" width="200" height="70">
+                            <img src="/CrederePruebas/images/logo.png" alt="" width="200" height="70">
                         </div>
             </a>
         </div>
@@ -70,7 +64,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
+            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
                 <span class="icon">
                     <span class="mdi mdi-account-group"></span>
                 </span>
@@ -92,7 +86,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('referencias.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a href="javascript:void(0)" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_21">
+            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_21">
                 <span class="icon">
                     <span class="mdi mdi-account-supervisor-circle"></span>
                 </span>
@@ -491,7 +485,7 @@ include "consultUserSession.php";
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
                                     </li>
                                 </ul>
                             </div>
@@ -501,11 +495,17 @@ include "consultUserSession.php";
                 </div>
             </div>
         </header>
+        <!-- ========== header end ========== -->
+        <script src="../js/notificaciones.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!-- Bootstrap -->
+<script src="../js/bootstrap.bundle.min.js"></script>
 
+<!-- DataTables -->
+<script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/dataTables.bootstrap4.min.js"></script>
 
-
-
-
-
+<!-- Tu JS principal si existe -->
+ <script src="../js/main.js"></script>
         <?php include "../views/ventanaLogout.php"; ?>
 		<?php include "../includes/sesion/validarInactividad.php"; ?>
