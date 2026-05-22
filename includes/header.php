@@ -10,7 +10,7 @@ include "consultUserSession.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
 
@@ -18,7 +18,9 @@ include "consultUserSession.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="../images/logo_circular.png" type="image/x-icon" />
+    <link rel="shortcut icon"
+          href="../images/logo_circular.png"
+          type="image/x-icon" />
 
     <title>Credere bank</title>
 
@@ -65,6 +67,12 @@ include "consultUserSession.php";
 
 <body>
 
+<!-- ======== PRELOADER ======== -->
+
+<div id="preloader">
+    <div class="spinner"></div>
+</div>
+
 <!-- ======== SIDEBAR ======== -->
 
 <aside class="sidebar-nav-wrapper">
@@ -75,7 +83,10 @@ include "consultUserSession.php";
 
             <div class="cover-image">
 
-                <img src="/images/logo.png" alt="" width="200" height="70">
+                <img src="/images/logo.png"
+                     alt=""
+                     width="200"
+                     height="70">
 
             </div>
 
@@ -83,192 +94,224 @@ include "consultUserSession.php";
 
     </div>
 
-    <nav class="sidebar-nav">
+<nav class="sidebar-nav">
 
-        <ul>
+<ul>
 
-            <!-- CLIENTES -->
-            <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
+<!-- CLIENTES -->
+<?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
 
-            <li class="nav-item nav-item-has-children">
+<li class="nav-item nav-item-has-children">
 
-                <a class="collapsed"
-                   data-bs-toggle="collapse"
-                   href="#ddmenu_2"
-                   role="button"
-                   aria-expanded="false">
+<a href="javascript:void(0)"
+   class="collapsed"
+   data-bs-toggle="collapse"
+   data-bs-target="#ddmenu_2">
 
-                    <span class="icon">
-                        <span class="mdi mdi-account-group"></span>
-                    </span>
+    <span class="icon">
+        <span class="mdi mdi-account-group"></span>
+    </span>
 
-                    <span class="text">Clientes</span>
+    <span class="text">Clientes</span>
 
-                </a>
+</a>
 
-                <ul id="ddmenu_2" class="collapse dropdown-nav">
+<ul id="ddmenu_2" class="collapse dropdown-nav">
 
-                    <li>
+    <li>
+        <a href="../views/clientes.php">
+            Lista Clientes
+        </a>
+    </li>
 
-                        <a href="../views/clientes.php">
-                            Lista Clientes
-                        </a>
+</ul>
 
-                    </li>
+</li>
 
-                </ul>
+<span class="divider">
+    <hr />
+</span>
 
-            </li>
+<?php endif; ?>
 
-            <span class="divider">
-                <hr />
-            </span>
 
-            <?php endif; ?>
+<!-- REFERENCIAS -->
+<?php if (isset($_SESSION['permisos']) && in_array('referencias.ver', $_SESSION['permisos'])): ?>
 
+<li class="nav-item nav-item-has-children">
 
-            <!-- REFERENCIAS -->
-            <?php if (isset($_SESSION['permisos']) && in_array('referencias.ver', $_SESSION['permisos'])): ?>
+<a href="javascript:void(0)"
+   class="collapsed"
+   data-bs-toggle="collapse"
+   data-bs-target="#ddmenu_21">
 
-            <li class="nav-item nav-item-has-children">
+    <span class="icon">
+        <span class="mdi mdi-account-supervisor-circle"></span>
+    </span>
 
-                <a class="collapsed"
-                   data-bs-toggle="collapse"
-                   href="#ddmenu_21"
-                   role="button"
-                   aria-expanded="false">
+    <span class="text">Referencias</span>
 
-                    <span class="icon">
-                        <span class="mdi mdi-account-supervisor-circle"></span>
-                    </span>
+</a>
 
-                    <span class="text">Referencias</span>
+<ul id="ddmenu_21" class="collapse dropdown-nav">
 
-                </a>
+    <li>
+        <a href="../views/avales.php">
+            Lista de Referencias
+        </a>
+    </li>
 
-                <ul id="ddmenu_21" class="collapse dropdown-nav">
+</ul>
 
-                    <li>
+</li>
 
-                        <a href="../views/avales.php">
-                            Lista de Referencias
-                        </a>
+<span class="divider">
+    <hr />
+</span>
 
-                    </li>
+<?php endif; ?>
 
-                </ul>
 
-            </li>
+<!-- SIMULADOR -->
+<?php if (isset($_SESSION['permisos']) && in_array('simulador.ver', $_SESSION['permisos'])): ?>
 
-            <span class="divider">
-                <hr />
-            </span>
+<li class="nav-item nav-item-has-children">
 
-            <?php endif; ?>
+<a href="javascript:void(0)"
+   class="collapsed"
+   data-bs-toggle="collapse"
+   data-bs-target="#ddmenu_4">
 
+    <span class="icon">
+        <span class="mdi mdi-calculator-variant-outline"></span>
+    </span>
 
-            <!-- SIMULADOR -->
-            <?php if (isset($_SESSION['permisos']) && in_array('simulador.ver', $_SESSION['permisos'])): ?>
+    <span class="text">Simulador</span>
 
-            <li class="nav-item nav-item-has-children">
+</a>
 
-                <a class="collapsed"
-                   data-bs-toggle="collapse"
-                   href="#ddmenu_4"
-                   role="button"
-                   aria-expanded="false">
+<ul id="ddmenu_4" class="collapse dropdown-nav">
 
-                    <span class="icon">
-                        <span class="mdi mdi-calculator-variant-outline"></span>
-                    </span>
+    <li>
+        <a href="../views/simulador.php">
+            Simulador de Crédito
+        </a>
+    </li>
 
-                    <span class="text">Simulador</span>
+</ul>
 
-                </a>
+</li>
 
-                <ul id="ddmenu_4" class="collapse dropdown-nav">
+<span class="divider">
+    <hr />
+</span>
 
-                    <li>
+<?php endif; ?>
 
-                        <a href="../views/simulador.php">
-                            Simulador de Crédito
-                        </a>
 
-                    </li>
+<!-- CREDITOS -->
+<?php if (
+    in_array('prestamos.registro', $_SESSION['permisos']) ||
+    in_array('prestamos.ver', $_SESSION['permisos'])
+): ?>
 
-                </ul>
+<li class="nav-item nav-item-has-children">
 
-            </li>
+<a href="javascript:void(0)"
+   class="collapsed"
+   data-bs-toggle="collapse"
+   data-bs-target="#ddmenu_55">
 
-            <span class="divider">
-                <hr />
-            </span>
+    <span class="icon">
+        <span class="mdi mdi-cash-multiple"></span>
+    </span>
 
-            <?php endif; ?>
+    <span class="text">Créditos</span>
 
+</a>
 
-            <!-- CREDITOS -->
-            <?php if (
-                in_array('prestamos.registro', $_SESSION['permisos']) ||
-                in_array('prestamos.ver', $_SESSION['permisos'])
-            ): ?>
+<ul id="ddmenu_55" class="collapse dropdown-nav">
 
-            <li class="nav-item nav-item-has-children">
+<?php if (in_array('prestamos.registro', $_SESSION['permisos'])): ?>
 
-                <a class="collapsed"
-                   data-bs-toggle="collapse"
-                   href="#ddmenu_55"
-                   role="button"
-                   aria-expanded="false">
+<li>
+    <a href="../views/form_prestamo.php">
+        Registro de Créditos
+    </a>
+</li>
 
-                    <span class="icon">
-                        <span class="mdi mdi-cash-multiple"></span>
-                    </span>
+<?php endif; ?>
 
-                    <span class="text">Créditos</span>
+<?php if (in_array('prestamos.ver', $_SESSION['permisos'])): ?>
 
-                </a>
+<li>
+    <a href="../views/prestamos.php">
+        Lista de Créditos
+    </a>
+</li>
 
-                <ul id="ddmenu_55" class="collapse dropdown-nav">
+<?php endif; ?>
 
-                    <?php if (in_array('prestamos.registro', $_SESSION['permisos'])): ?>
+</ul>
 
-                    <li>
+</li>
 
-                        <a href="../views/form_prestamo.php">
-                            Registro de Créditos
-                        </a>
+<span class="divider">
+<hr />
+</span>
 
-                    </li>
+<?php endif; ?>
 
-                    <?php endif; ?>
 
+<!-- CARTERA -->
+<?php if (isset($_SESSION['permisos']) && in_array('cartera.ver', $_SESSION['permisos'])): ?>
 
-                    <?php if (in_array('prestamos.ver', $_SESSION['permisos'])): ?>
+<li class="nav-item nav-item-has-children">
 
-                    <li>
+<a href="javascript:void(0)"
+   class="collapsed"
+   data-bs-toggle="collapse"
+   data-bs-target="#ddmenu_5">
 
-                        <a href="../views/prestamos.php">
-                            Lista de Créditos
-                        </a>
+    <span class="icon">
+        <span class="mdi mdi-wallet-outline"></span>
+    </span>
 
-                    </li>
+    <span class="text">Cartera</span>
 
-                    <?php endif; ?>
+</a>
 
-                </ul>
+<ul id="ddmenu_5" class="collapse dropdown-nav">
 
-            </li>
+<li>
+    <a href="../views/registrarPago.php">
+        Registrar Pago
+    </a>
+</li>
 
-            <span class="divider">
-                <hr />
-            </span>
+<?php if (isset($_SESSION['permisos']) && in_array('gestioncartera.ver', $_SESSION['permisos'])): ?>
 
-            <?php endif; ?>
+<li>
+    <a href="../views/gestionCartera.php">
+        Gestión de Cartera
+    </a>
+</li>
 
-        </ul>
+<?php endif; ?>
 
-    </nav>
+</ul>
+
+</li>
+
+<span class="divider">
+<hr />
+</span>
+
+<?php endif; ?>
+
+</ul>
+
+</nav>
 
 </aside>
 
@@ -278,97 +321,97 @@ include "consultUserSession.php";
 
 <main class="main-wrapper">
 
+<!-- ======== HEADER ======== -->
+
 <header class="header">
 
-    <div class="container-fluid">
+<div class="container-fluid">
 
-        <div class="row">
+<div class="row">
 
-            <div class="col-lg-5 col-md-5 col-6">
+<div class="col-lg-5 col-md-5 col-6">
 
-                <div class="header-left d-flex align-items-center">
+<div class="header-left d-flex align-items-center">
 
-                    <div class="menu-toggle-btn mr-15">
+<div class="menu-toggle-btn mr-15">
 
-                        <button id="menu-toggle"
-                                class="main-btn primary-btn btn-hover">
+<button id="menu-toggle"
+        class="main-btn primary-btn btn-hover">
 
-                            <i class="lni lni-chevron-left me-2"></i>
-                            Menu
+<i class="lni lni-chevron-left me-2"></i>
+Menu
 
-                        </button>
+</button>
 
-                    </div>
+</div>
 
-                    <div class="header-search d-none d-md-flex">
+<div class="header-search d-none d-md-flex">
 
-                        <form action="#">
+<form action="#">
 
-                            <input type="text" placeholder="Search..." />
+<input type="text" placeholder="Search..." />
 
-                            <button>
-                                <i class="lni lni-search-alt"></i>
-                            </button>
+<button>
+<i class="lni lni-search-alt"></i>
+</button>
 
-                        </form>
+</form>
 
-                    </div>
+</div>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-            <div class="col-lg-7 col-md-7 col-6">
+<div class="col-lg-7 col-md-7 col-6">
 
-                <div class="header-right">
+<div class="header-right">
 
-                    <!-- PERFIL -->
+<div class="profile-box ml-15">
 
-                    <div class="profile-box ml-15">
+<button class="dropdown-toggle bg-transparent border-0"
+        type="button"
+        id="profile"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
 
-                        <button class="dropdown-toggle bg-transparent border-0"
-                                type="button"
-                                id="profile"
-                                data-bs-toggle="dropdown"
-                                aria-expanded="false">
+<div class="profile-info">
 
-                            <div class="profile-info">
+<div class="info">
 
-                                <div class="info">
+<div class="image">
 
-                                    <div class="image">
+<img src="<?php echo $ruta_imagen; ?>" alt="" />
 
-                                        <img src="<?php echo $ruta_imagen; ?>" alt="" />
+</div>
 
-                                    </div>
+<div>
 
-                                    <div>
+<h6 class="fw-500">
+<?php echo $usuario; ?>
+</h6>
 
-                                        <h6 class="fw-500">
-                                            <?php echo $usuario; ?>
-                                        </h6>
+<p>
+<?php echo $user['rol']; ?>
+</p>
 
-                                        <p>
-                                            <?php echo $user['rol']; ?>
-                                        </p>
+</div>
 
-                                    </div>
+</div>
 
-                                </div>
+</div>
 
-                            </div>
+</button>
 
-                        </button>
+</div>
 
-                    </div>
+</div>
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-        </div>
-
-    </div>
+</div>
 
 </header>
 
