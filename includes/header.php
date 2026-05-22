@@ -497,18 +497,18 @@ include "consultUserSession.php";
         </header>
         <!-- ========== header end ========== -->
         <script src="../js/notificaciones.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-<script src="/js/bootstrap.bundle.min.js"></script>
 
-<!-- DataTables -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
 <script src="../js/jquery.dataTables.min.js"></script>
 <script src="../js/dataTables.bootstrap4.min.js"></script>
 
-<!-- MAIN -->
+<script src="../js/bootstrap.bundle.min.js"></script>
+
 <script src="../js/main.js?v=999999"></script>
 
-
+<?php include "../views/ventanaLogout.php"; ?>
+<?php include "../includes/sesion/validarInactividad.php"; ?>
 
 </body>
 </html>
-        
