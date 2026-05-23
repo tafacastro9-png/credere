@@ -43,10 +43,10 @@ include "consultUserSession.php";
 </style>
 
 <body>
-
-
     <!-- ======== Preloader =========== -->
-   
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     <!-- ======== Preloader =========== -->
 
     <!-- ======== sidebar-nav start =========== -->
@@ -54,7 +54,7 @@ include "consultUserSession.php";
         <div class="navbar-logo">
             <a href="../views/index.php">
                   <div class="cover-image">
-                            <img src="/images/logo.png" alt="" width="200" height="70">
+                            <img src="/CrederePruebas/images/logo.png" alt="" width="200" height="70">
                         </div>
             </a>
         </div>
@@ -64,14 +64,14 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-           <a href="javascript:void(0)" class="collapsed">
+            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
                 <span class="icon">
                     <span class="mdi mdi-account-group"></span>
                 </span>
                 <span class="text">Clientes</span>
             </a>
 
-            <ul id="ddmenu_2" class="dropdown-nav" style="display:none;">
+            <ul id="ddmenu_2" class="collapse dropdown-nav">
                 <li>
                     <a href="../views/clientes.php"> Lista Clientes </a>
                 </li>
@@ -86,14 +86,14 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('referencias.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-           <a href="javascript:void(0)" class="collapsed">
+            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_21">
                 <span class="icon">
                     <span class="mdi mdi-account-supervisor-circle"></span>
                 </span>
                 <span class="text">Referencias</span>
             </a>
 
-            <ul id="ddmenu_21" class="dropdown-nav" style="display:none;">
+            <ul id="ddmenu_21" class="collapse dropdown-nav">
                 <li>
                     <a href="../views/avales.php"> Lista de Referencias </a>
                 </li>
@@ -108,14 +108,14 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('simulador.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-           <a href="javascript:void(0)" class="collapsed">
+            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_4">
                 <span class="icon">
                     <span class="mdi mdi-calculator-variant-outline"></span>
                 </span>
                 <span class="text">Simulador</span>
             </a>
 
-            <ul id="ddmenu_4" class="dropdown-nav" style="display:none;">
+            <ul id="ddmenu_4" class="collapse dropdown-nav">
                 <li>
                     <a href="../views/simulador.php"> Simulador de Crédito </a>
                 </li>
@@ -134,14 +134,14 @@ include "consultUserSession.php";
 ): ?>
 
 <li class="nav-item nav-item-has-children">
-<a href="javascript:void(0)" class="collapsed">
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_55">
         <span class="icon">
            <span class="mdi mdi-cash-multiple"></span>
         </span>
         <span class="text">Créditos</span>
     </a>
 
-    <ul id="ddmenu_55" class="dropdown-nav" style="display:none;">
+    <ul id="ddmenu_55" class="collapse dropdown-nav">
 
         <?php if (in_array('prestamos.registro', $_SESSION['permisos'])): ?>
         <li>
@@ -173,7 +173,7 @@ include "consultUserSession.php";
 <?php if (isset($_SESSION['permisos']) && in_array('cartera.ver', $_SESSION['permisos'])): ?>
 <li class="nav-item nav-item-has-children">
 
-  <a href="javascript:void(0)" class="collapsed">
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_5">
         <span class="icon">
             <span class="mdi mdi-wallet-outline"></span>
         </span>
@@ -181,7 +181,7 @@ include "consultUserSession.php";
         <span class="text">Cartera</span>
     </a>
 
-    <ul id="ddmenu_5" class="dropdown-nav" style="display:none;">
+    <ul id="ddmenu_5" class="collapse dropdown-nav">
 
         <li>
             <a href="../views/registrarPago.php">
@@ -209,14 +209,14 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('inversionistas.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-       <a href="javascript:void(0)" class="collapsed">
+            <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_6">
                 <span class="icon">
                     <span class="mdi mdi-finance"></span>
                 </span>
                 <span class="text">Inversionistas</span>
             </a>
 
-            <ul id="ddmenu_6" class="dropdown-nav" style="display:none;">
+            <ul id="ddmenu_6" class="collapse dropdown-nav">
                 <li>
                     <a href="../views/inversionistas.php"> Registrar Inversion </a>
                 </li>
@@ -249,14 +249,14 @@ include "consultUserSession.php";
 <?php if (isset($_SESSION['permisos']) && in_array('reportes.ver', $_SESSION['permisos'])): ?>
 
 <li class="nav-item nav-item-has-children">
-<a href="javascript:void(0)" class="collapsed">
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_555">
         <span class="icon">
           <span class="mdi mdi-file-chart-outline"></span>
         </span>
         <span class="text">Reportes</span>
     </a>
 
-   <ul id="ddmenu_555" class="dropdown-nav" style="display:none;">
+    <ul id="ddmenu_555" class="collapse dropdown-nav">
 
         <?php if (in_array('reportes.cartera', $_SESSION['permisos'])): ?>
         <li>
@@ -306,14 +306,14 @@ include "consultUserSession.php";
         <?php if (isset($_SESSION['permisos']) && in_array('estadisticas.ver', $_SESSION['permisos'])): ?>
 
 <li class="nav-item nav-item-has-children">
-   <a href="javascript:void(0)" class="collapsed">
+    <a href="#0" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_85">
         <span class="icon">
            <span class="mdi mdi-chart-line"></span>
         </span>
         <span class="text">Estadisticas</span>
     </a>
 
-    <ul id="ddmenu_85" class="dropdown-nav" style="display:none;">
+    <ul id="ddmenu_85" class="collapse dropdown-nav">
 
         <?php if (in_array('estadisticas.cartera', $_SESSION['permisos'])): ?>
         <li>
@@ -405,7 +405,7 @@ include "consultUserSession.php";
     <!-- ======== sidebar-nav end =========== -->
 
     <!-- ======== main-wrapper start =========== -->
-    <main class="main-wrapper active">
+    <main class="main-wrapper">
         <!-- ========== header start ========== -->
         <header class="header">
             <div class="container-fluid">
@@ -485,7 +485,7 @@ include "consultUserSession.php";
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
                                     </li>
                                 </ul>
                             </div>
@@ -495,4 +495,17 @@ include "consultUserSession.php";
                 </div>
             </div>
         </header>
+        <!-- ========== header end ========== -->
+        <script src="../js/notificaciones.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!-- Bootstrap -->
+<script src="../js/bootstrap.bundle.min.js"></script>
 
+<!-- DataTables -->
+<script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Tu JS principal si existe -->
+ <script src="../js/main.js"></script>
+        <?php include "../views/ventanaLogout.php"; ?>
+		<?php include "../includes/sesion/validarInactividad.php"; ?>

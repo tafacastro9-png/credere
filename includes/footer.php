@@ -33,74 +33,28 @@
 
 <!-- 1️⃣ jQuery (OBLIGATORIO primero) -->
 
-<script src="../js/jquery-3.7.1.min.js"></script>
 
-<!-- Bootstrap -->
-<script src="../js/bootstrap.bundle.min.js"></script>
-
-<!-- Notificaciones -->
-<script src="../js/notificaciones.js"></script>
-
-<!-- Select2 -->
-<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-<!-- DataTables -->
+<!-- 3️⃣ DataTables -->
 <script src="../js/jquery.dataTables.min.js"></script>
-<script src="../js/dataTables.bootstrap4.min.js"></script>
 
-<!-- SweetAlert -->
+
+<!-- 4️⃣ SweetAlert (solo uno) -->
 <script src="../js/SweetAlert2/sweetalert2.all.min.js"></script>
 
-<!-- Librerías adicionales -->
+<!-- 5️⃣ Librerías adicionales -->
 <script src="../js/xlsx.full.min.js"></script>
 <script src="../js/moment.min.js"></script>
 <script src="../js/fullcalendar.js"></script>
 <script src="../js/polyfill.js"></script>
 
-<!-- Charts -->
+<!-- 6️⃣ Chart -->
 <script src="../js/Chart.min.js"></script>
 <script src="../js/dynamic-pie-chart.js"></script>
 
-<!-- Scripts personalizados -->
+<!-- 7️⃣ Tus scripts personalizados (SIEMPRE al final) -->
 <script src="../js/filterTable.js"></script>
 <script src="../js/delete.js"></script>
-<script>
-
-alert("MAIN INLINE FUNCIONA");
-
-document.querySelectorAll(".nav-item-has-children > a")
-.forEach(function(menu){
-
-    menu.addEventListener("click", function(e){
-
-        e.preventDefault();
-
-        const submenu = this.parentElement.querySelector(".dropdown-nav");
-
-        if(submenu){
-
-            if(submenu.style.display === "block"){
-
-                submenu.style.display = "none";
-
-            }else{
-
-                submenu.style.display = "block";
-
-            }
-
-        }
-
-    });
-
-});
-
-<script src="../js/main.js?v=555"></script>
-
-<?php include "../views/ventanaLogout.php"; ?>
-<?php include "../includes/sesaion/validrInactividad.php"; ?>
-
-</script>
+<script src="../js/main.js"></script>
 
 </body>
 </html>
