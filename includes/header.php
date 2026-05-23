@@ -499,5 +499,5 @@ include "consultUserSession.php";
         </header>
         <!-- ========== header end ========== -->
 
-        <?php include __DIR__ . "/../views/ventanaLogout.php"; ?>
-<?php include __DIR__ . "/sesion/validarInactividad.php"; ?>
+<?php // include __DIR__ . "/../views/ventanaLogout.php"; ?>
+<?php // include __DIR__ . "/sesion/validarInactividad.php"; ?>
