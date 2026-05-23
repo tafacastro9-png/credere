@@ -46,13 +46,21 @@ if (!$query) {
 $sql = "SELECT tc.nombre, COUNT(*) as cantidad FROM prestamos p INNER JOIN tipo_credito tc ON p.id_tipo_credito = tc.id GROUP BY tc.nombre";
 $result = mysqli_query($conexion, $sql);
 
+if (!$result) {
+    die("ERROR SQL GRAFICA: " . mysqli_error($conexion));
+}
+
 $tipos = [];
 $totales = [];
+
+echo "ANTES WHILE";
 
 while ($row = mysqli_fetch_assoc($result)) {
     $tipos[] = $row['nombre'];
     $totales[] = $row['cantidad'];
 }
+
+echo "DESPUES WHILE";
 ?>
 
 
