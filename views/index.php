@@ -285,10 +285,10 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 </section>
 <!-- ========== section end ========== -->
-
-<?php include "../includes/footer.php"; ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
+<?php include "../includes/footer.php"; ?>
+
 <script>
     const ctx = document.getElementById('prestamosChart').getContext('2d');
     const prestamosChart = new Chart(ctx, {
