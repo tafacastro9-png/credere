@@ -65,7 +65,7 @@
 <script src="/js/delete.js"></script>
 <script src="/js/notificaciones.js"></script>
 
-<!-- 9️⃣ MAIN SIEMPRE DE ÚLTIMO -->
+
 <script src="/js/main.js"></script>
 
 <script>
