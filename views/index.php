@@ -352,16 +352,4 @@ if (mysqli_num_rows($query) > 0) {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
 
-echo "ANTES CHART";
-?>
-
-
-
-
-<?php echo "DESPUES CHART"; ?>
-
-<?php echo "ANTES FOOTER"; ?>
-
 <?php include "../includes/footer.php"; ?>
-
-<?php echo "DESPUES FOOTER"; ?>
