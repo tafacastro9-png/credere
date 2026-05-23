@@ -8,7 +8,8 @@ include "../includes/header.php";
 
 $usuario = $_SESSION['usuario'];
 
-date_default_timezone_set('America/Bogota');
+date_default_timezone_set('America/Mexico_City');
+
 include "../includes/db.php";
 
 $hoy = date('Y-m-d');
@@ -44,10 +45,6 @@ if (!$query) {
 // SQL para la grafica
 $sql = "SELECT tc.nombre, COUNT(*) as cantidad FROM prestamos p INNER JOIN tipo_credito tc ON p.id_tipo_credito = tc.id GROUP BY tc.nombre";
 $result = mysqli_query($conexion, $sql);
-
-if (!$result) {
-    die(mysqli_error($conexion));
-}
 
 $tipos = [];
 $totales = [];
@@ -290,7 +287,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 <!-- ========== section end ========== -->
 
 <?php include "../includes/footer.php"; ?>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="../js/contadorCuotas.js"></script>
 <script>
     const ctx = document.getElementById('prestamosChart').getContext('2d');
     const prestamosChart = new Chart(ctx, {
@@ -317,4 +315,3 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     });
 </script>
-
