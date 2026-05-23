@@ -35,9 +35,7 @@
 
 
 <!-- 1️⃣ jQuery -->
- <script>
-alert("FOOTER CARGADO");
-</script>
+
 <script src="/js/jquery-3.7.1.min.js"></script>
 
 <!-- 2️⃣ Bootstrap -->
