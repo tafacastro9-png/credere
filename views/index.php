@@ -220,7 +220,6 @@ while ($row = mysqli_fetch_assoc($result)) {
                             </thead>
                             <tbody>
                                 <?php
-                <?php
 if (mysqli_num_rows($query) > 0) {
 
     echo "TABLA OK";
@@ -346,6 +345,7 @@ if (mysqli_num_rows($query) > 0) {
 <script src="/js/contadorCuotas.js"></script>
 
 echo "ANTES CHART";
+?>
 
 
 <script>
