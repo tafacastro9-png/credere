@@ -95,6 +95,11 @@ document.querySelectorAll(".nav-item-has-children > a")
 
 });
 
+<script src="../js/main.js?v=999999"></script>
+
+<?php include "../views/ventanaLogout.php"; ?>
+<?php include "../includes/sesaion/validrInactividad.php"; ?>
+
 </script>
 
 </body>
