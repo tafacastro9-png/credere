@@ -220,62 +220,118 @@ while ($row = mysqli_fetch_assoc($result)) {
                             </thead>
                             <tbody>
                                 <?php
-                                if (mysqli_num_rows($query) > 0) {
-                                    while ($cuota = mysqli_fetch_assoc($query)) {
-                                        $folioPrest = $cuota['folioPrest'];
-                                        $cliente = $cuota['nombreClient'] . ' ' . $cuota['apellidoClient'];
-                                        $fecha_pago = $cuota['fecha_pago'];
-                                        $cuota_num = $cuota['numero_cuota'];
-                                        $num_cuotas = $cuota['num_cuotas'];
-                                        $monto = $cuota['monto'];
+                <?php
+if (mysqli_num_rows($query) > 0) {
 
-                                        // Estado: si es hoy -> Pendiente, si es anterior -> Atrasado
-                                        $status = ($fecha_pago == $hoy) ? 'Pendiente' : 'En Mora';
-                                        $bgStatus = ($status == 'Pendiente') ? 'bg-warning text-dark' : 'bg-danger text-white';
-                                ?>
-                                        <tr>
-                                            <td>
-                                                <p class="text-sm" style="color: green;"><?= htmlspecialchars($folioPrest) ?></p>
-                                            </td>
-                                            <td>
-                                                <p class="text-sm"><?= htmlspecialchars($cliente) ?></p>
-                                            </td>
-                                            <td>
-                                                <p class="text-sm"><?= htmlspecialchars($fecha_pago) ?></p>
-                                            </td>
-                                            <td>
-                                                <p class="text-sm"><?= htmlspecialchars($cuota_num) . '/' . $num_cuotas ?></p>
-                                            </td>
-                                            <td>
-                                                <p class="text-sm">$<?= number_format($monto, 2) ?></p>
-                                            </td>
-                                            <td class="text-end">
-                                                <span class="badge <?= $bgStatus ?> px-3 py-1 rounded-pill"><?= $status ?></span>
-                                            </td>
-                                        </tr>
+    echo "TABLA OK";
 
-                                    <?php
-                                    }
-                                } else {
-                                    ?>
-                                    <tr>
-                                        <td colspan="5" class="text-center">
-                                            <p class="text-sm text-muted">No hay cuotas vencidas ni programadas para hoy.</p>
-                                        </td>
-                                    </tr>
+    while ($cuota = mysqli_fetch_assoc($query)) {
 
-                                <?php } ?>
+        $folioPrest = $cuota['folioPrest'];
 
-                            </tbody>
+        $cliente = $cuota['nombreClient'] . ' ' . $cuota['apellidoClient'];
 
-                        </table>
-                        <!-- End Table -->
-                        <a href="dashboardCartera.php">Ver la lista completa.</a>
-                    </div>
-                </div>
-            </div>
-            <!-- End Col -->
-        </div>
+        $fecha_pago = $cuota['fecha_pago'];
+
+        $cuota_num = $cuota['numero_cuota'];
+
+        $num_cuotas = isset($cuota['num_cuotas'])
+            ? $cuota['num_cuotas']
+            : 0;
+
+        $monto = $cuota['monto'];
+
+        // Estado
+        $status = ($fecha_pago == $hoy)
+            ? 'Pendiente'
+            : 'En Mora';
+
+        $bgStatus = ($status == 'Pendiente')
+            ? 'bg-warning text-dark'
+            : 'bg-danger text-white';
+?>
+
+        <tr>
+
+            <td>
+                <p class="text-sm" style="color: green;">
+                    <?= htmlspecialchars($folioPrest) ?>
+                </p>
+            </td>
+
+            <td>
+                <p class="text-sm">
+                    <?= htmlspecialchars($cliente) ?>
+                </p>
+            </td>
+
+            <td>
+                <p class="text-sm">
+                    <?= htmlspecialchars($fecha_pago) ?>
+                </p>
+            </td>
+
+            <td>
+                <p class="text-sm">
+                    <?= htmlspecialchars($cuota_num) . '/' . $num_cuotas ?>
+                </p>
+            </td>
+
+            <td>
+                <p class="text-sm">
+                    $<?= number_format($monto, 2) ?>
+                </p>
+            </td>
+
+            <td class="text-end">
+                <span class="badge <?= $bgStatus ?> px-3 py-1 rounded-pill">
+                    <?= $status ?>
+                </span>
+            </td>
+
+        </tr>
+
+<?php
+
+    }
+
+} else {
+
+?>
+
+    <tr>
+
+        <td colspan="5" class="text-center">
+
+            <p class="text-sm text-muted">
+                No hay cuotas vencidas ni programadas para hoy.
+            </p>
+
+        </td>
+
+    </tr>
+
+<?php
+}
+?>
+
+</tbody>
+
+</table>
+
+<!-- End Table -->
+
+<a href="dashboardCartera.php">
+    Ver la lista completa.
+</a>
+
+</div>
+</div>
+</div>
+
+<!-- End Col -->
+
+</div>
 
 
 
@@ -289,7 +345,12 @@ while ($row = mysqli_fetch_assoc($result)) {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
 
+echo "ANTES CHART";
+
+
 <script>
+
+
     const ctx = document.getElementById('prestamosChart').getContext('2d');
 
     const prestamosChart = new Chart(ctx, {
@@ -321,6 +382,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     });
 </script>
+
+<?php echo "DESPUES CHART"; ?>
 
 <?php echo "ANTES FOOTER"; ?>
 
