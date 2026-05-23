@@ -356,40 +356,7 @@ echo "ANTES CHART";
 ?>
 
 
-<script>
 
-
-    const ctx = document.getElementById('prestamosChart').getContext('2d');
-
-    const prestamosChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: <?= json_encode($tipos) ?>,
-            datasets: [{
-                label: 'Cantidad de Préstamos',
-                data: <?= json_encode($totales) ?>,
-                backgroundColor: [
-                    '#4e73df',
-                    '#1cc88a',
-                    '#36b9cc',
-                    '#f6c23e',
-                    '#e74a3b',
-                    '#858796'
-                ],
-                borderColor: '#fff',
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'bottom'
-                }
-            }
-        }
-    });
-</script>
 
 <?php echo "DESPUES CHART"; ?>
 
