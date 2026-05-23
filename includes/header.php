@@ -1,6 +1,4 @@
 <?php
-
-
 include "configSession.php";
 include "consultUserSession.php";
 
@@ -12,20 +10,20 @@ include "consultUserSession.php";
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/images/logo_circular.png" style="border-radius: 50px;" type="image/x-icon" />
+    <link rel="shortcut icon" href="../images/logo_circular.png" style="border-radius: 50px;" type="image/x-icon" />
     <title>Credere bank</title>
 
     <!-- ========== All CSS files linkup ========= -->
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/css/lineicons.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="/css/fullcalendar.css" />
-    <link rel="stylesheet" href="/css/fullcalendar.css" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/lineicons.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../css/fullcalendar.css" />
+    <link rel="stylesheet" href="../css/fullcalendar.css" />
+    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-    <link rel="stylesheet" href="/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="../css/dataTables.bootstrap4.min.css">
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="/js/jquery-3.7.1.min.js"></script>
+    <script src="../js/jquery-3.7.1.min.js"></script>
 </head>
 <style>
     .header .header-right button span {
@@ -46,17 +44,17 @@ include "consultUserSession.php";
 
 <body>
     <!-- ======== Preloader =========== -->
-    <div id="preloader" style="display:none;">
-    <div class="spinner"></div>
-</div>
+    <div id="preloader">
+        <div class="spinner"></div>
+    </div>
     <!-- ======== Preloader =========== -->
 
     <!-- ======== sidebar-nav start =========== -->
     <aside class="sidebar-nav-wrapper">
         <div class="navbar-logo">
-            <a href="/views/index.php">
+            <a href="../views/index.php">
                   <div class="cover-image">
-                            <img src="/images/logo.png" alt="" width="200" height="70">
+                            <img src="/CrederePruebas/images/logo.png" alt="" width="200" height="70">
                         </div>
             </a>
         </div>
@@ -75,7 +73,7 @@ include "consultUserSession.php";
 
             <ul id="ddmenu_2" class="collapse dropdown-nav">
                 <li>
-                    <a href="/views/clientes.php"> Lista Clientes </a>
+                    <a href="../views/clientes.php"> Lista Clientes </a>
                 </li>
             </ul>
         </li>
@@ -97,7 +95,7 @@ include "consultUserSession.php";
 
             <ul id="ddmenu_21" class="collapse dropdown-nav">
                 <li>
-                    <a href="/views/avales.php"> Lista de Referencias </a>
+                    <a href="../views/avales.php"> Lista de Referencias </a>
                 </li>
             </ul>
         </li>
@@ -119,7 +117,7 @@ include "consultUserSession.php";
 
             <ul id="ddmenu_4" class="collapse dropdown-nav">
                 <li>
-                    <a href="/views/simulador.php"> Simulador de Crédito </a>
+                    <a href="../views/simulador.php"> Simulador de Crédito </a>
                 </li>
             </ul>
         </li>
@@ -147,7 +145,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('prestamos.registro', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/form_prestamo.php">
+            <a href="../views/form_prestamo.php">
                 Registro de Créditos
             </a>
         </li>
@@ -155,7 +153,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('prestamos.ver', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/prestamos.php">
+            <a href="../views/prestamos.php">
                 Lista de Créditos
             </a>
         </li>
@@ -186,14 +184,14 @@ include "consultUserSession.php";
     <ul id="ddmenu_5" class="collapse dropdown-nav">
 
         <li>
-            <a href="/views/registrarPago.php">
+            <a href="../views/registrarPago.php">
                 Registrar Pago
             </a>
         </li>
 
         <?php if (isset($_SESSION['permisos']) && in_array('gestioncartera.ver', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/gestionCartera.php">
+            <a href="../views/gestionCartera.php">
                 Gestión de Cartera
             </a>
         </li>
@@ -220,7 +218,7 @@ include "consultUserSession.php";
 
             <ul id="ddmenu_6" class="collapse dropdown-nav">
                 <li>
-                    <a href="/views/inversionistas.php"> Registrar Inversion </a>
+                    <a href="../views/inversionistas.php"> Registrar Inversion </a>
                 </li>
             </ul>
         </li>
@@ -233,7 +231,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('caja.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item">
-            <a href="/views/caja.php">
+            <a href="../views/caja.php">
                 <span class="icon">
                    <span class="mdi mdi-cash-register"></span>
                 </span>
@@ -262,7 +260,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('reportes.cartera', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/reportesCartera.php">
+            <a href="../views/reportesCartera.php">
                 Reportes Cartera
             </a>
         </li>
@@ -271,7 +269,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('reportes.comisiones', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/reportesComisiones.php">
+            <a href="../views/reportesComisiones.php">
                 Reportes Comisiones
             </a>
         </li>
@@ -280,7 +278,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('reportes.inversionistas', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/reportesInversiones.php">
+            <a href="../views/reportesInversiones.php">
                 Reportes Inversionistas
             </a>
         </li>
@@ -289,7 +287,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('reportes.contables', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/reportesContables.php">
+            <a href="../views/reportesContables.php">
                 Reportes Contables
             </a>
         </li>
@@ -319,7 +317,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('estadisticas.cartera', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/dashboardCartera.php">
+            <a href="../views/dashboardCartera.php">
                 Dashboard Cartera
             </a>
         </li>
@@ -328,7 +326,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('estadisticas.inversionistas', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/views/dashboard_inversionistas.php">
+            <a href="../views/dashboard_inversionistas.php">
                 Dashboard Inversionistas
             </a>
         </li>
@@ -337,7 +335,7 @@ include "consultUserSession.php";
 
         <?php if (in_array('estadisticas.contabilidad', $_SESSION['permisos'])): ?>
         <li>
-            <a href="/ajax/dashboardContable.php">
+            <a href="../ajax/dashboardContable.php">
                 Dashboard Contabilidad
             </a>
         </li>
@@ -355,7 +353,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('parametros.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item">
-            <a href="/views/parametrizacion.php">
+            <a href="../views/parametrizacion.php">
                 <span class="icon">
                     <span class="mdi mdi-cog-outline"></span>
                 </span>
@@ -372,7 +370,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('usuarios.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item">
-            <a href="/views/usuarios.php">
+            <a href="../views/usuarios.php">
                 <span class="icon">
                    <span class="mdi mdi-account-multiple"></span>
                 </span>
@@ -389,7 +387,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('notificaciones.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item">
-            <a href="/views/notificaciones.php">
+            <a href="../views/notificaciones.php">
                 <span class="icon">
                    <span class="mdi mdi-bell-outline"></span>
                 </span>
@@ -421,7 +419,7 @@ include "consultUserSession.php";
                             </div>
                             <div class="header-search d-none d-md-flex">
                                 <form action="#">
-                                    <input type="text" placeholder="Search." />
+                                    <input type="text" placeholder="Search..." />
                                     <button><i class="lni lni-search-alt"></i></button>
                                 </form>
                             </div>
@@ -454,11 +452,11 @@ include "consultUserSession.php";
                                     <div class="profile-info">
                                         <div class="info">
                                             <div class="image">
-                                                <img src="<?php echo $ruta_imagen ?? ''; ?>" alt="" />
+                                                <img src="<?php echo $ruta_imagen; ?>" alt="" />
                                             </div>
                                             <div>
                                                 <h6 class="fw-500"><?php echo $usuario; ?></h6>
-                                                <p><?php echo $user['rol'] ?? ''; ?></p>
+                                                <p><?php echo $user['rol']; ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -467,20 +465,20 @@ include "consultUserSession.php";
 
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="/views/perfilUser.php">
+                                        <a href="../views/perfilUser.php">
                                             <i class="lni lni-user"></i> Perfil
                                         </a>
                                     </li>
 
                                     <?php if ($_SESSION["type"] == 1 || $_SESSION["type"] == 3) { ?>
                                         <li>
-                                            <a href="/views/configuracionEmpresa.php"> <i class="lni lni-cog"></i> Configuracion </a>
+                                            <a href="../views/configuracionEmpresa.php"> <i class="lni lni-cog"></i> Configuracion </a>
                                         </li>
 
                                     <?php } ?>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="/views/soporte.php">
+                                        <a href="../views/soporte.php">
 
                                             <span class="mdi mdi-information"></span>Soporte
                                         </a>
@@ -498,6 +496,16 @@ include "consultUserSession.php";
             </div>
         </header>
         <!-- ========== header end ========== -->
+        <script src="../js/notificaciones.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!-- Bootstrap -->
+<script src="../js/bootstrap.bundle.min.js"></script>
 
+<!-- DataTables -->
+<script src="../js/jquery.dataTables.min.js"></script>
+<script src="../js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Tu JS principal si existe -->
+ <script src="../js/main.js"></script>
 <?php // include __DIR__ . "/../views/ventanaLogout.php"; ?>
 <?php // include __DIR__ . "/sesion/validarInactividad.php"; ?>
