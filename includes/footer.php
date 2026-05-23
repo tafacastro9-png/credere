@@ -64,7 +64,38 @@
 <!-- Scripts personalizados -->
 <script src="../js/filterTable.js"></script>
 <script src="../js/delete.js"></script>
-<script src="../js/main.js"></script>
+<script>
+
+alert("MAIN INLINE FUNCIONA");
+
+document.querySelectorAll(".nav-item-has-children > a")
+.forEach(function(menu){
+
+    menu.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const submenu = this.parentElement.querySelector(".dropdown-nav");
+
+        if(submenu){
+
+            if(submenu.style.display === "block"){
+
+                submenu.style.display = "none";
+
+            }else{
+
+                submenu.style.display = "block";
+
+            }
+
+        }
+
+    });
+
+});
+
+</script>
 
 </body>
 </html>
