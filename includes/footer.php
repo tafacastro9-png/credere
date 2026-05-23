@@ -35,26 +35,26 @@
 
 
 <!-- 3️⃣ DataTables -->
-<script src="../js/jquery.dataTables.min.js"></script>
+<script src="/js/jquery.dataTables.min.js"></script>
 
 
 <!-- 4️⃣ SweetAlert (solo uno) -->
-<script src="../js/SweetAlert2/sweetalert2.all.min.js"></script>
+<script src="/js/SweetAlert2/sweetalert2.all.min.js"></script>
 
 <!-- 5️⃣ Librerías adicionales -->
-<script src="../js/xlsx.full.min.js"></script>
-<script src="../js/moment.min.js"></script>
-<script src="../js/fullcalendar.js"></script>
-<script src="../js/polyfill.js"></script>
+<script src="/js/xlsx.full.min.js"></script>
+<script src="/js/moment.min.js"></script>
+<script src="/js/fullcalendar.js"></script>
+<script src="/js/polyfill.js"></script>
 
 <!-- 6️⃣ Chart -->
-<script src="../js/Chart.min.js"></script>
-<script src="../js/dynamic-pie-chart.js"></script>
+<script src="/js/Chart.min.js"></script>
+<script src="/js/dynamic-pie-chart.js"></script>
 
 <!-- 7️⃣ Tus scripts personalizados (SIEMPRE al final) -->
-<script src="../js/filterTable.js"></script>
-<script src="../js/delete.js"></script>
-<script src="../js/main.js"></script>
+<script src="/js/filterTable.js"></script>
+<script src="/js/delete.js"></script>
+<script src="/js/main.js"></script>
 
 </body>
 </html>
