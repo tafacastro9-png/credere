@@ -8,8 +8,7 @@ include "../includes/header.php";
 
 $usuario = $_SESSION['usuario'];
 
-date_default_timezone_set('America/Mexico_City');
-
+date_default_timezone_set('America/Bogota');
 include "../includes/db.php";
 
 $hoy = date('Y-m-d');
@@ -45,6 +44,10 @@ if (!$query) {
 // SQL para la grafica
 $sql = "SELECT tc.nombre, COUNT(*) as cantidad FROM prestamos p INNER JOIN tipo_credito tc ON p.id_tipo_credito = tc.id GROUP BY tc.nombre";
 $result = mysqli_query($conexion, $sql);
+
+if (!$result) {
+    die(mysqli_error($conexion));
+}
 
 $tipos = [];
 $totales = [];
