@@ -34,27 +34,48 @@
 <!-- 1️⃣ jQuery (OBLIGATORIO primero) -->
 
 
-<!-- 3️⃣ DataTables -->
+<!-- 1️⃣ jQuery -->
+ <script>
+alert("FOOTER CARGADO");
+</script>
+<script src="/js/jquery-3.7.1.min.js"></script>
+
+<!-- 2️⃣ Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- 3️⃣ Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<!-- 4️⃣ DataTables -->
 <script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap4.min.js"></script>
 
-
-<!-- 4️⃣ SweetAlert (solo uno) -->
+<!-- 5️⃣ SweetAlert -->
 <script src="/js/SweetAlert2/sweetalert2.all.min.js"></script>
 
-<!-- 5️⃣ Librerías adicionales -->
+<!-- 6️⃣ Librerías -->
 <script src="/js/xlsx.full.min.js"></script>
 <script src="/js/moment.min.js"></script>
 <script src="/js/fullcalendar.js"></script>
 <script src="/js/polyfill.js"></script>
 
-<!-- 6️⃣ Chart -->
+<!-- 7️⃣ Charts -->
 <script src="/js/Chart.min.js"></script>
 <script src="/js/dynamic-pie-chart.js"></script>
 
-<!-- 7️⃣ Tus scripts personalizados (SIEMPRE al final) -->
+<!-- 8️⃣ Scripts personalizados -->
 <script src="/js/filterTable.js"></script>
 <script src="/js/delete.js"></script>
+<script src="/js/notificaciones.js"></script>
+
+
 <script src="/js/main.js"></script>
+
+<script>
+console.log("BOOTSTRAP TEST");
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
