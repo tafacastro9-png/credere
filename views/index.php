@@ -4,8 +4,7 @@ include "../includes/sesion/auth.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-echo "HEADER OK";
-exit;
+include "../includes/header.php";
 
 $usuario = $_SESSION['usuario'];
 
