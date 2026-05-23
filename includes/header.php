@@ -405,7 +405,7 @@ include "consultUserSession.php";
     <!-- ======== sidebar-nav end =========== -->
 
     <!-- ======== main-wrapper start =========== -->
-    <main class="main-wrapper">
+    <main class="main-wrapper active">
         <!-- ========== header start ========== -->
         <header class="header">
             <div class="container-fluid">
