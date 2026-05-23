@@ -1,52 +1,45 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-  // PRELOADER
-  const preloader = document.getElementById("preloader");
+    // PRELOADER
+    const preloader = document.getElementById("preloader");
 
-  if (preloader) {
-    preloader.style.display = "none";
-  }
+    if (preloader) {
+        preloader.style.display = "none";
+    }
 
-  // SIDEBAR
-  const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
-  const mainWrapper = document.querySelector(".main-wrapper");
-  const menuToggleButton = document.querySelector("#menu-toggle");
-  const menuToggleButtonIcon = document.querySelector("#menu-toggle i");
-  const overlay = document.querySelector(".overlay");
+    // SIDEBAR
+    const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
+    const mainWrapper = document.querySelector(".main-wrapper");
+    const menuToggleButton = document.querySelector("#menu-toggle");
+    const overlay = document.querySelector(".overlay");
 
-  if (menuToggleButton) {
+    // BOTÓN MENU
+    if (menuToggleButton) {
 
-    menuToggleButton.addEventListener("click", function () {
+        menuToggleButton.addEventListener("click", function () {
 
-      sidebarNavWrapper.classList.toggle("active");
-      mainWrapper.classList.toggle("active");
-      overlay.classList.toggle("active");
+            sidebarNavWrapper.classList.toggle("active");
+            mainWrapper.classList.toggle("active");
 
-      if (menuToggleButtonIcon.classList.contains("lni-chevron-left")) {
+            if (overlay) {
+                overlay.classList.toggle("active");
+            }
 
-        menuToggleButtonIcon.classList.remove("lni-chevron-left");
-        menuToggleButtonIcon.classList.add("lni-menu");
+        });
 
-      } else {
+    }
 
-        menuToggleButtonIcon.classList.remove("lni-menu");
-        menuToggleButtonIcon.classList.add("lni-chevron-left");
-      }
+    // OVERLAY
+    if (overlay) {
 
-    });
+        overlay.addEventListener("click", function () {
 
-  }
+            sidebarNavWrapper.classList.remove("active");
+            mainWrapper.classList.remove("active");
+            overlay.classList.remove("active");
 
-  if (overlay) {
+        });
 
-    overlay.addEventListener("click", function () {
-
-      sidebarNavWrapper.classList.remove("active");
-      mainWrapper.classList.remove("active");
-      overlay.classList.remove("active");
-
-    });
-
-  }
+    }
 
 });
