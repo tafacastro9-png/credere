@@ -262,36 +262,37 @@ if (mysqli_num_rows($query) > 0) {
 
             <td>
                 <p class="text-sm" style="color: green;">
-                    <?php echo algo; ?>
+                    <?= htmlspecialchars($folioPrest) ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    <?php echo algo; ?>
+                    <?= htmlspecialchars($cliente) ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    <?php echo algo; ?>
+                    <?= htmlspecialchars($fecha_pago) ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    <?php echo algo; ?>
+                    <?= htmlspecialchars($cuota_num) . '/' . $num_cuotas ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    <?php echo algo; ?>
+                    $<?= number_format($monto, 2) ?>
                 </p>
             </td>
 
             <td class="text-end">
-              <?php echo algo; ?>
+                <span class="badge <?= $bgStatus ?> px-3 py-1 rounded-pill">
+                    <?= $status ?>
                 </span>
             </td>
 
@@ -351,4 +352,11 @@ if (mysqli_num_rows($query) > 0) {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
 
-<?php include "../includes/footer.php"; ?>
+
+
+<?php
+echo "LLEGO AL FOOTER";
+include "../includes/footer.php";
+?>
+
+<?php echo "SALIO DEL FOOTER"; ?>
