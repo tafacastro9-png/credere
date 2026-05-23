@@ -322,4 +322,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     });
 </script>
 
+<?php echo "ANTES FOOTER"; ?>
+
 <?php include "../includes/footer.php"; ?>
+
+<?php echo "DESPUES FOOTER"; ?>
