@@ -4,8 +4,6 @@ include "../includes/sesion/auth.php";
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$usuario = $_SESSION['usuario'] ?? '';
-
 include "../includes/header.php";
 
 $usuario = $_SESSION['usuario'];
@@ -48,21 +46,13 @@ if (!$query) {
 $sql = "SELECT tc.nombre, COUNT(*) as cantidad FROM prestamos p INNER JOIN tipo_credito tc ON p.id_tipo_credito = tc.id GROUP BY tc.nombre";
 $result = mysqli_query($conexion, $sql);
 
-if (!$result) {
-    die("ERROR SQL GRAFICA: " . mysqli_error($conexion));
-}
-
 $tipos = [];
 $totales = [];
-
-echo "ANTES WHILE";
 
 while ($row = mysqli_fetch_assoc($result)) {
     $tipos[] = $row['nombre'];
     $totales[] = $row['cantidad'];
 }
-
-echo "DESPUES WHILE";
 ?>
 
 
@@ -230,117 +220,62 @@ echo "DESPUES WHILE";
                             </thead>
                             <tbody>
                                 <?php
-if (mysqli_num_rows($query) > 0) {
+                                if (mysqli_num_rows($query) > 0) {
+                                    while ($cuota = mysqli_fetch_assoc($query)) {
+                                        $folioPrest = $cuota['folioPrest'];
+                                        $cliente = $cuota['nombreClient'] . ' ' . $cuota['apellidoClient'];
+                                        $fecha_pago = $cuota['fecha_pago'];
+                                        $cuota_num = $cuota['numero_cuota'];
+                                        $num_cuotas = $cuota['num_cuotas'];
+                                        $monto = $cuota['monto'];
 
-    echo "TABLA OK";
+                                        // Estado: si es hoy -> Pendiente, si es anterior -> Atrasado
+                                        $status = ($fecha_pago == $hoy) ? 'Pendiente' : 'En Mora';
+                                        $bgStatus = ($status == 'Pendiente') ? 'bg-warning text-dark' : 'bg-danger text-white';
+                                ?>
+                                        <tr>
+                                            <td>
+                                                <p class="text-sm" style="color: green;"><?= htmlspecialchars($folioPrest) ?></p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm"><?= htmlspecialchars($cliente) ?></p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm"><?= htmlspecialchars($fecha_pago) ?></p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm"><?= htmlspecialchars($cuota_num) . '/' . $num_cuotas ?></p>
+                                            </td>
+                                            <td>
+                                                <p class="text-sm">$<?= number_format($monto, 2) ?></p>
+                                            </td>
+                                            <td class="text-end">
+                                                <span class="badge <?= $bgStatus ?> px-3 py-1 rounded-pill"><?= $status ?></span>
+                                            </td>
+                                        </tr>
 
-    while ($cuota = mysqli_fetch_assoc($query)) {
+                                    <?php
+                                    }
+                                } else {
+                                    ?>
+                                    <tr>
+                                        <td colspan="5" class="text-center">
+                                            <p class="text-sm text-muted">No hay cuotas vencidas ni programadas para hoy.</p>
+                                        </td>
+                                    </tr>
 
-        $folioPrest = $cuota['folioPrest'];
+                                <?php } ?>
 
-        $cliente = $cuota['nombreClient'] . ' ' . $cuota['apellidoClient'];
+                            </tbody>
 
-        $fecha_pago = $cuota['fecha_pago'];
-
-        $cuota_num = $cuota['numero_cuota'];
-
-        $num_cuotas = isset($cuota['num_cuotas'])
-            ? $cuota['num_cuotas']
-            : 0;
-
-        $monto = $cuota['monto'];
-
-        // Estado
-        $status = ($fecha_pago == $hoy)
-            ? 'Pendiente'
-            : 'En Mora';
-
-        $bgStatus = ($status == 'Pendiente')
-            ? 'bg-warning text-dark'
-            : 'bg-danger text-white';
-?>
-
-        <tr>
-
-            <td>
-                <p class="text-sm" style="color: green;">
-                    <?= htmlspecialchars($folioPrest) ?>
-                </p>
-            </td>
-
-            <td>
-                <p class="text-sm">
-                    <?= htmlspecialchars($cliente) ?>
-                </p>
-            </td>
-
-            <td>
-                <p class="text-sm">
-                    <?= htmlspecialchars($fecha_pago) ?>
-                </p>
-            </td>
-
-            <td>
-                <p class="text-sm">
-                    <?= htmlspecialchars($cuota_num) . '/' . $num_cuotas ?>
-                </p>
-            </td>
-
-            <td>
-                <p class="text-sm">
-                    $<?= number_format($monto, 2) ?>
-                </p>
-            </td>
-
-            <td class="text-end">
-                <span class="badge <?= $bgStatus ?> px-3 py-1 rounded-pill">
-                    <?= $status ?>
-                </span>
-            </td>
-
-        </tr>
-
-<?php
-
-    }
-
-} else {
-
-?>
-
-    <tr>
-
-        <td colspan="5" class="text-center">
-
-            <p class="text-sm text-muted">
-                No hay cuotas vencidas ni programadas para hoy.
-            </p>
-
-        </td>
-
-    </tr>
-
-<?php
-}
-?>
-
-</tbody>
-
-</table>
-
-<!-- End Table -->
-
-<a href="dashboardCartera.php">
-    Ver la lista completa.
-</a>
-
-</div>
-</div>
-</div>
-
-<!-- End Col -->
-
-</div>
+                        </table>
+                        <!-- End Table -->
+                        <a href="dashboardCartera.php">Ver la lista completa...</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Col -->
+        </div>
 
 
 
@@ -351,14 +286,32 @@ if (mysqli_num_rows($query) > 0) {
 </section>
 <!-- ========== section end ========== -->
 
+<?php include "../includes/footer.php"; ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
-
-
-
-<?php
-echo "LLEGO AL FOOTER";
-include "../includes/footer.php";
-?>
-
-<?php echo "SALIO DEL FOOTER"; ?>
+<script>
+    const ctx = document.getElementById('prestamosChart').getContext('2d');
+    const prestamosChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: <?= json_encode($tipos) ?>,
+            datasets: [{
+                label: 'Cantidad de Préstamos',
+                data: <?= json_encode($totales) ?>,
+                backgroundColor: [
+                    '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796'
+                ],
+                borderColor: '#fff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+</script>

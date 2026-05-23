@@ -1,6 +1,4 @@
 <?php
-
-
 include "configSession.php";
 include "consultUserSession.php";
 
@@ -46,9 +44,7 @@ include "consultUserSession.php";
 
 <body>
     <!-- ======== Preloader =========== -->
-    <div id="preloader" style="display:none;">
-    <div class="spinner"></div>
-</div>
+
     <!-- ======== Preloader =========== -->
 
     <!-- ======== sidebar-nav start =========== -->
@@ -421,7 +417,7 @@ include "consultUserSession.php";
                             </div>
                             <div class="header-search d-none d-md-flex">
                                 <form action="#">
-                                    <input type="text" placeholder="Search." />
+                                    <input type="text" placeholder="Search..." />
                                     <button><i class="lni lni-search-alt"></i></button>
                                 </form>
                             </div>
@@ -454,11 +450,11 @@ include "consultUserSession.php";
                                     <div class="profile-info">
                                         <div class="info">
                                             <div class="image">
-                                                <img src="<?php echo $ruta_imagen ?? ''; ?>" alt="" />
+                                                <img src="<?php echo $ruta_imagen; ?>" alt="" />
                                             </div>
                                             <div>
                                                 <h6 class="fw-500"><?php echo $usuario; ?></h6>
-                                                <p><?php echo $user['rol'] ?? ''; ?></p>
+                                                <p><?php echo $user['rol']; ?></p>
                                             </div>
                                         </div>
                                     </div>
@@ -498,6 +494,16 @@ include "consultUserSession.php";
             </div>
         </header>
         <!-- ========== header end ========== -->
+        <script src="/js/notificaciones.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!-- Bootstrap -->
+<script src="/js/bootstrap.bundle.min.js"></script>
 
+<!-- DataTables -->
+<script src="/js/jquery.dataTables.min.js"></script>
+<script src="/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Tu JS principal si existe -->
+ <script src="/js/main.js"></script>
 <?php // include __DIR__ . "/../views/ventanaLogout.php"; ?>
 <?php // include __DIR__ . "/sesion/validarInactividad.php"; ?>

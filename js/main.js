@@ -1,45 +1,55 @@
-document.addEventListener("DOMContentLoaded", function () {
+(function () {
 
-    // PRELOADER
-    const preloader = document.getElementById("preloader");
+  /* ========= Preloader ======== */
+  const preloader = document.querySelectorAll('#preloader');
 
-    if (preloader) {
-        preloader.style.display = "none";
+  window.addEventListener('load', function () {
+    if (preloader.length) {
+      document.getElementById('preloader').style.display = 'none';
     }
+  });
 
-    // SIDEBAR
-    const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
-    const mainWrapper = document.querySelector(".main-wrapper");
-    const menuToggleButton = document.querySelector("#menu-toggle");
-    const overlay = document.querySelector(".overlay");
-
-    // BOTÓN MENU
-    if (menuToggleButton) {
-
-        menuToggleButton.addEventListener("click", function () {
-
-            sidebarNavWrapper.classList.toggle("active");
-            mainWrapper.classList.toggle("active");
-
-            if (overlay) {
-                overlay.classList.toggle("active");
-            }
-
-        });
-
+  /* ========= Add Box Shadow in Header on Scroll ======== */
+  window.addEventListener('scroll', function () {
+    const header = document.querySelector('.header');
+    if (header) {
+      header.style.boxShadow = window.scrollY > 0
+        ? '0px 0px 30px 0px rgba(200, 208, 216, 0.30)'
+        : 'none';
     }
+  });
 
-    // OVERLAY
-    if (overlay) {
+  /* ========= sidebar toggle ======== */
+  const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
+  const mainWrapper = document.querySelector(".main-wrapper");
+  const menuToggleButton = document.querySelector("#menu-toggle");
+  const menuToggleButtonIcon = document.querySelector("#menu-toggle i");
+  const overlay = document.querySelector(".overlay");
 
-        overlay.addEventListener("click", function () {
+  if (menuToggleButton && sidebarNavWrapper && mainWrapper && overlay) {
+    menuToggleButton.addEventListener("click", () => {
+      sidebarNavWrapper.classList.toggle("active");
+      overlay.classList.add("active");
+      mainWrapper.classList.toggle("active");
 
-            sidebarNavWrapper.classList.remove("active");
-            mainWrapper.classList.remove("active");
-            overlay.classList.remove("active");
+      if (menuToggleButtonIcon) {
+        if (menuToggleButtonIcon.classList.contains("lni-chevron-left")) {
+          menuToggleButtonIcon.classList.remove("lni-chevron-left");
+          menuToggleButtonIcon.classList.add("lni-menu");
+        } else {
+          menuToggleButtonIcon.classList.remove("lni-menu");
+          menuToggleButtonIcon.classList.add("lni-chevron-left");
+        }
+      }
+    });
+  }
 
-        });
+  if (overlay && sidebarNavWrapper && mainWrapper) {
+    overlay.addEventListener("click", () => {
+      sidebarNavWrapper.classList.remove("active");
+      overlay.classList.remove("active");
+      mainWrapper.classList.remove("active");
+    });
+  }
 
-    }
-
-});
+})();
