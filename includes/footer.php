@@ -55,6 +55,16 @@
 <script src="../js/filterTable.js"></script>
 <script src="../js/delete.js"></script>
 <script src="../js/main.js"></script>
+  <script src="../js/notificaciones.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+		<!-- Bootstrap -->
+<script src="../js/bootstrap.bundle.min.js"></script>
+
+<!-- DataTables -->
+
+<script src="../js/dataTables.bootstrap4.min.js"></script>
+
+
 
 </body>
 </html>
