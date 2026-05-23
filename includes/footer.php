@@ -95,7 +95,7 @@ document.querySelectorAll(".nav-item-has-children > a")
 
 });
 
-<script src="../js/main.js?v=999999"></script>
+<script src="../js/main.js?v=555"></script>
 
 <?php include "../views/ventanaLogout.php"; ?>
 <?php include "../includes/sesaion/validrInactividad.php"; ?>

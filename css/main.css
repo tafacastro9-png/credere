@@ -6192,3 +6192,11 @@ h1, h2, h3, h4, h5 {
 .sidebar-nav .dropdown-nav.show{
     display: block !important;
 }
+
+.dropdown-nav{
+    display:none !important;
+}
+
+.dropdown-nav.show{
+    display:block !important;
+}

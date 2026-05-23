@@ -1,20 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    const menuToggleButton = document.querySelector("#menu-toggle");
-    const sidebarNavWrapper = document.querySelector(".sidebar-nav-wrapper");
-    const mainWrapper = document.querySelector(".main-wrapper");
-    const overlay = document.querySelector(".overlay");
+    console.log("MAIN OK");
 
-    if(menuToggleButton){
+    document.querySelectorAll(".nav-item-has-children > a")
+    .forEach(function(menu){
 
-        menuToggleButton.addEventListener("click", function(){
+        menu.addEventListener("click", function(e){
 
-            sidebarNavWrapper.classList.toggle("active");
-            mainWrapper.classList.toggle("active");
-            overlay.classList.toggle("active");
+            e.preventDefault();
+
+            const parent = this.parentElement;
+            const submenu = parent.querySelector(".dropdown-nav");
+
+            if(submenu){
+
+                submenu.classList.toggle("show");
+
+            }
 
         });
 
-    }
+    });
 
 });
