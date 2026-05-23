@@ -1,16 +1,16 @@
 <?php
-include "/includes/sesion/auth.php";
+include "../includes/sesion/auth.php";
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include "/includes/header.php";
+include "../includes/header.php";
 
 $usuario = $_SESSION['usuario'];
 
 date_default_timezone_set('America/Mexico_City');
 
-include "/includes/db.php";
+include "../includes/db.php";
 
 $hoy = date('Y-m-d');
 
@@ -286,7 +286,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 </section>
 <!-- ========== section end ========== -->
 
-<?php include "/includes/footer.php"; ?>
+<?php include "../includes/footer.php"; ?>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
 <script>

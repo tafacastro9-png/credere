@@ -497,5 +497,5 @@ include "consultUserSession.php";
         </header>
         <!-- ========== header end ========== -->
 
-        <?php include "/views/ventanaLogout.php"; ?>
-		<?php include "/includes/sesion/validarInactividad.php"; ?>
+        <?php include "../views/ventanaLogout.php"; ?>
+		<?php include "../includes/sesion/validarInactividad.php"; ?>
