@@ -285,12 +285,13 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 </section>
 <!-- ========== section end ========== -->
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
-<?php include "../includes/footer.php"; ?>
 
 <script>
     const ctx = document.getElementById('prestamosChart').getContext('2d');
+
     const prestamosChart = new Chart(ctx, {
         type: 'pie',
         data: {
@@ -299,7 +300,12 @@ while ($row = mysqli_fetch_assoc($result)) {
                 label: 'Cantidad de Préstamos',
                 data: <?= json_encode($totales) ?>,
                 backgroundColor: [
-                    '#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b', '#858796'
+                    '#4e73df',
+                    '#1cc88a',
+                    '#36b9cc',
+                    '#f6c23e',
+                    '#e74a3b',
+                    '#858796'
                 ],
                 borderColor: '#fff',
                 borderWidth: 2
@@ -315,3 +321,5 @@ while ($row = mysqli_fetch_assoc($result)) {
         }
     });
 </script>
+
+<?php include "../includes/footer.php"; ?>
