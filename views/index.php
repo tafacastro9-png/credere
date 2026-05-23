@@ -262,37 +262,36 @@ if (mysqli_num_rows($query) > 0) {
 
             <td>
                 <p class="text-sm" style="color: green;">
-                    <?= htmlspecialchars($folioPrest) ?>
+                    <?php echo algo; ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    <?= htmlspecialchars($cliente) ?>
+                    <?php echo algo; ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    <?= htmlspecialchars($fecha_pago) ?>
+                    <?php echo algo; ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    <?= htmlspecialchars($cuota_num) . '/' . $num_cuotas ?>
+                    <?php echo algo; ?>
                 </p>
             </td>
 
             <td>
                 <p class="text-sm">
-                    $<?= number_format($monto, 2) ?>
+                    <?php echo algo; ?>
                 </p>
             </td>
 
             <td class="text-end">
-                <span class="badge <?= $bgStatus ?> px-3 py-1 rounded-pill">
-                    <?= $status ?>
+              <?php echo algo; ?>
                 </span>
             </td>
 
