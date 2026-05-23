@@ -64,13 +64,7 @@ include "consultUserSession.php";
 
         <?php if (isset($_SESSION['permisos']) && in_array('clientes.ver', $_SESSION['permisos'])): ?>
         <li class="nav-item nav-item-has-children">
-            <a 
-class="collapsed"
-data-bs-toggle="collapse"
-data-bs-target="#ddmenu_2"
-aria-controls="ddmenu_2"
-href="javascript:void(0)"
->
+            <a href="#" class="collapsed" data-bs-toggle="collapse" data-bs-target="#ddmenu_2">
                 <span class="icon">
                     <span class="mdi mdi-account-group"></span>
                 </span>
