@@ -4,6 +4,17 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 echo "INICIO";
+
+$archivo = "../plantillas/SOLICITUD DE CREDITO.pdf";
+
+echo "<br>";
+
+if(file_exists($archivo)){
+    echo "PDF EXISTE";
+}else{
+    echo "PDF NO EXISTE";
+}
+
 exit;
 
 require_once('../fpdf/fpdf.php');
