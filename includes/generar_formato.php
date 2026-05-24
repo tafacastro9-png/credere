@@ -15,6 +15,14 @@ if(file_exists($archivo)){
     echo "PDF NO EXISTE";
 }
 
+$pdf = new \setasign\Fpdi\Fpdi();
+
+echo "<br>FPDI OK";
+
+$pageCount = $pdf->setSourceFile($archivo);
+
+echo "<br>PAGINAS: " . $pageCount;
+
 exit;
 
 require_once('../fpdf/fpdf.php');
