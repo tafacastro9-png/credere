@@ -1,4 +1,11 @@
 <?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+echo "INICIO";
+exit;
+
 require_once('../fpdf/fpdf.php');
 require_once('../fpdi/src/autoload.php');
 include("db.php");
