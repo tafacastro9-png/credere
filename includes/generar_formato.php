@@ -10,6 +10,6 @@ require_once('../fpdi/src/autoload.php');
 
 echo "3<br>";
 
-require_once('../db.php');
+require_once(__DIR__ . '/db.php');
 
 echo "4<br>";
