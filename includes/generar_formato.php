@@ -3,39 +3,29 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-echo "INICIO";
-
-$archivo = "../plantillas/SOLICITUD DE CREDITO.pdf";
-
-echo "<br>";
-
-if(file_exists($archivo)){
-    echo "PDF EXISTE";
-}else{
-    echo "PDF NO EXISTE";
-}
-
-$pdf = new \setasign\Fpdi\Fpdi();
-
-echo "<br>FPDI OK";
-
-$pageCount = $pdf->setSourceFile($archivo);
-
-echo "<br>PAGINAS: " . $pageCount;
-
-exit;
-
 require_once('../fpdf/fpdf.php');
-require_once('../fpdi/src/Fpdi.php');
-require_once(__DIR__ . '/db.php');
+require_once('../fpdi/src/autoload.php');
 
 use setasign\Fpdi\Fpdi;
 
-echo "FPDI CARGADO<br>";
+echo "INICIO<br>";
+
+$archivo = "../plantillas/SOLICITUD DE CREDITO.pdf";
+
+if(file_exists($archivo)){
+    echo "PDF EXISTE<br>";
+}else{
+    echo "PDF NO EXISTE<br>";
+}
 
 $pdf = new Fpdi();
 
-echo "OBJETO FPDI OK<br>";
+echo "FPDI OK<br>";
+
+$pageCount = $pdf->setSourceFile($archivo);
+
+echo "PAGINAS: " . $pageCount;
+
 exit;
 
 function limpiar($texto){
