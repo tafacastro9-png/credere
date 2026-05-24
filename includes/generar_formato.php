@@ -1830,26 +1830,34 @@ if (strpos($archivo, 'Contrato Garantía Inmobiliaria') !== false && $i == 10) {
 
  $pdf->SetFont('Arial','',10);
 
-    // Ciudad
-    $pdf->SetXY(135, 100); // Ajustar si es necesario
-    $pdf->Write(5, $nombre_ciudad_residencia);
+// Ciudad
+$pdf->SetXY(135, 100);
+$pdf->Write(5, $nombre_ciudad_residencia);
 
-    // Fecha
-   $fechaContrato = new DateTime($prestamo['fechaRegistro']);
+// Fecha segura
+if(!empty($prestamo['fechaRegistro'])){
+
+    $fechaContrato = new DateTime($prestamo['fechaRegistro']);
 
     $diaContrato  = $fechaContrato->format('d');
     $mesContrato  = $fechaContrato->format('m');
     $anioContrato = $fechaContrato->format('y');
 
-    $pdf->SetXY(48, 105);
-    $pdf->Write(5, $diaContrato);
+} else {
 
-    $pdf->SetXY(69, 105);
-    $pdf->Write(5, $mesContrato);
+    $diaContrato  = '';
+    $mesContrato  = '';
+    $anioContrato = '';
+}
 
-    $pdf->SetXY(81, 105);
-    $pdf->Write(5, $anioContrato);
+$pdf->SetXY(48, 105);
+$pdf->Write(5, $diaContrato);
 
+$pdf->SetXY(69, 105);
+$pdf->Write(5, $mesContrato);
+
+$pdf->SetXY(81, 105);
+$pdf->Write(5, $anioContrato);
     // Firma cliente
     if(!empty($prestamo['firma_cliente'])){
 
