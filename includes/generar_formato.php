@@ -5,28 +5,11 @@ error_reporting(E_ALL);
 
 require_once('../fpdf/fpdf.php');
 require_once('../fpdi/src/autoload.php');
+require_once(__DIR__ . '/db.php');
+
+date_default_timezone_set('America/Bogota');
 
 use setasign\Fpdi\Fpdi;
-
-echo "INICIO<br>";
-
-$archivo = "../plantillas/SOLICITUD DE CREDITO.pdf";
-
-if(file_exists($archivo)){
-    echo "PDF EXISTE<br>";
-}else{
-    echo "PDF NO EXISTE<br>";
-}
-
-$pdf = new Fpdi();
-
-echo "FPDI OK<br>";
-
-$pageCount = $pdf->setSourceFile($archivo);
-
-echo "PAGINAS: " . $pageCount;
-
-exit;
 
 function limpiar($texto){
     return utf8_decode($texto ?? '');
