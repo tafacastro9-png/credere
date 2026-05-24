@@ -31,6 +31,20 @@ function mayusculas($texto){
 }
 
 
+function fechaSegura($fecha, $formato = 'd/m/y'){
+    if(empty($fecha) || $fecha == '0000-00-00'){
+        return '';
+    }
+
+    try{
+        return (new DateTime($fecha))->format($formato);
+    } catch(Exception $e){
+        return '';
+    }
+}
+
+
+
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
@@ -227,7 +241,7 @@ LEFT JOIN codeudor_prestamo cod ON cod.cliente_id = c.id
 LEFT JOIN ciudades ciucodexp ON cod.lugarexpedicioncodeudor = ciucodexp.id
 LEFT JOIN ciudades ciuconaci ON cod.lugarnacimientocodeudor = ciuconaci.id
 LEFT JOIN ciudades ciucoresi ON cod.ciudadresidenciacodeudor = ciucoresi.id
-LEFT JOIN departamentos dep ON ciucoresi.departamento_id = dep.id
+LEFT JOIN departamentos dep ON LEFT(ciucoresi.id, 2) = dep.id
 LEFT JOIN ciudades ciulacod ON cod.ciudad_laboral_codeudor = ciulacod.id
 WHERE p.id = ?
 ";
@@ -246,10 +260,22 @@ $id_tipo_credito = $prestamo['id_tipo_credito'];
 
 
 
-$fecha = new DateTime($prestamo['fechaRegistro']);
-$dia = $fecha->format('d');
-$mes = $fecha->format('m');
-$anio = $fecha->format('y');
+if(!empty($prestamo['fechaRegistro'])){
+
+    $fecha = new DateTime($prestamo['fechaRegistro']);
+
+    $dia = $fecha->format('d');
+    $mes = $fecha->format('m');
+    $anio = $fecha->format('y');
+
+} else {
+
+    $dia = '';
+    $mes = '';
+    $anio = '';
+}
+
+
 
 $nombreCompleto = formatearTexto($prestamo['nombreClient'].' '.$prestamo['apellidoClient']);
 $monto = number_format($prestamo['monto_prestado'],0,',','.');
@@ -419,15 +445,9 @@ if($id_tipo_credito == 3){
 $pdf = new Fpdi();
     foreach($documentos as $archivo){
 
-    echo $archivo . "<br>";
-flush();
-
-        if(!file_exists($archivo)){
-    echo "NO EXISTE: " . $archivo . "<br>";
+if(!file_exists($archivo)){
     continue;
 }
-echo "ABRIENDO: " . $archivo . "<br>";
-flush();
         $pageCount = $pdf->setSourceFile($archivo);
 
         for($i = 1; $i <= $pageCount; $i++){
@@ -549,7 +569,7 @@ $pdf->SetFont('Arial','',10);
 
 
   $pdf->SetXY(43, 67);
-$pdf->Write(5, strtoupper($placacodeudor));
+$pdf->Write(5, strtoupper($placa_vehiculo));
 	
 					
 					
@@ -697,7 +717,7 @@ else {
 			      $pdf->Write(5, $lugarexpedicioncodeudor);
 				  
 				  
-				   $timestamp = strtotime($fechaexpedicioncodeudor);
+				   $timestamp = !empty($fechaexpedicioncodeudor) ? strtotime($fechaexpedicioncodeudor) : false;
 
 $dia  = date('d', $timestamp);
 $mes  = date('m', $timestamp);
@@ -722,7 +742,7 @@ $pdf->Write(5, $anio);
    $pdf->Write(5, $lugarnacimientocodeudor);
    
    
-   $timestamp = strtotime($fechanacimientocodeudor);
+   $timestamp = !empty($fechanacimientocodeudor) ? strtotime($fechanacimientocodeudor) : false;
 
 $dia  = date('d', $timestamp);
 $mes  = date('m', $timestamp);
@@ -1148,7 +1168,7 @@ else {
  $pdf->Write(5, $nombre_ciudad_expedicion);
  
  
- $timestamp = strtotime($fecha_expedicion);
+ $timestamp = !empty($fecha_expedicion) ? strtotime($fecha_expedicion) : false;
 
 $dia  = date('d', $timestamp);
 $mes  = date('m', $timestamp);
@@ -1175,7 +1195,7 @@ $pdf->Write(5, $anio);
  
  
  
- $timestamp = strtotime($fecha_nacimiento);
+ $timestamp = !empty($fecha_nacimiento) ? strtotime($fecha_nacimiento) : false;
 
 $dia  = date('d', $timestamp);
 $mes  = date('m', $timestamp);
@@ -1853,7 +1873,7 @@ if (strpos($archivo, 'Mandato tránsito.pdf') !== false && $i == 1) {
 	
 	
 $pdf->SetXY(145, 49);
-$pdf->Write(5, (new DateTime($prestamo['fechaRegistro']))->format('d/m/y'));
+$pdf->Write(5, (!empty($prestamo['fechaRegistro']) ? (new DateTime($prestamo['fechaRegistro']))->format('d/m/y') : ''));
 	
 
 
@@ -1922,7 +1942,7 @@ if (strpos($archivo, 'SOLICITUD DE INGRESO ASOCIADO.pdf') !== false && $i == 1) 
 					
 						
 $pdf->SetXY(47, 89);
-$pdf->Write(5, (new DateTime($prestamo['fechaRegistro']))->format('d/m/y'));
+$pdf->Write(5, (!empty($prestamo['fechaRegistro']) ? (new DateTime($prestamo['fechaRegistro']))->format('d/m/y') : ''));
 
 
 
@@ -2048,7 +2068,7 @@ if (strpos($archivo, 'SOLICITUD DE INGRESO ASOCIADO.pdf') !== false && $i == 2) 
 					
 					
 $pdf->SetXY(28, 80);
-$pdf->Write(5, (new DateTime($prestamo['fechaRegistro']))->format('d/m/y'));
+$pdf->Write(5, (!empty($prestamo['fechaRegistro']) ? (new DateTime($prestamo['fechaRegistro']))->format('d/m/y') : ''));
 
 
 	
@@ -2087,7 +2107,7 @@ $pdf->Write(5, (new DateTime($prestamo['fechaRegistro']))->format('d/m/y'));
 	  
 	  
 	  $pdf->SetXY(35, 189);
-$pdf->Write(5, (new DateTime($prestamo['fechaRegistro']))->format('d/m/y'));
+$pdf->Write(5, (!empty($prestamo['fechaRegistro']) ? (new DateTime($prestamo['fechaRegistro']))->format('d/m/y') : ''));
 	  
 	
 	
