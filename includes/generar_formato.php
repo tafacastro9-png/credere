@@ -380,30 +380,30 @@ if($id_tipo_credito == 3){
 
     // HIPOTECA
     $documentos = [
-        "/plantillas/SOLICITUD DE CREDITO.pdf",
-        "/plantillas/9 AUTORIZACION DECLARACION DE INFORMACION DE CONDICIONES DE CRÉDITO.pdf",
-        "/plantillas/AUTORIZACION CONSULTA SUDAMERIS (8) (8).pdf",
-        "/plantillas/Contrato Garantía Inmobiliaria.pdf",
-        "/plantillas/PAGARE CREDERE.pdf",
-        "/plantillas/SOLICITUD DE INGRESO ASOCIADO.pdf",
-        "/plantillas/SOLICITUD DE RETIRO ASOCIADO.pdf"
+        "../plantillas/SOLICITUD DE CREDITO.pdf",
+        "../plantillas/9 AUTORIZACION DECLARACION DE INFORMACION DE CONDICIONES DE CRÉDITO.pdf",
+        "../plantillas/AUTORIZACION CONSULTA SUDAMERIS (8) (8).pdf",
+        "../plantillas/Contrato Garantía Inmobiliaria.pdf",
+        "../plantillas/PAGARE CREDERE.pdf",
+        "../plantillas/SOLICITUD DE INGRESO ASOCIADO.pdf",
+        "../plantillas/SOLICITUD DE RETIRO ASOCIADO.pdf"
     ];
 
 } elseif($id_tipo_credito == 1 || $id_tipo_credito == 2){
 
     // CARRO Y MOTO
     $documentos = [
-        "/plantillas/vehiculosymoto/SOLICITUD DE CREDITO.pdf",
-        "/plantillas/vehiculosymoto/9 AUTORIZACION DECLARACION DE INFORMACION DE CONDICIONES DE CRÉDITO.pdf",
-        "/plantillas/vehiculosymoto/AUTORIZACION CONSULTA SUDAMERIS (8) (8).pdf",
-        "/plantillas/vehiculosymoto/Contrato de Mandato ( VYM ).pdf",
-        "/plantillas/vehiculosymoto/Contrato Garantía Inmobiliaria.pdf",
-        "/plantillas/vehiculosymoto/Contrato mandato PJ.pdf",
-        "/plantillas/vehiculosymoto/FUNRUNT (1).pdf",
-        "/plantillas/vehiculosymoto/Mandato tránsito.pdf",
-        "/plantillas/vehiculosymoto/PAGARE CREDERE.pdf",
-        "/plantillas/vehiculosymoto/SOLICITUD DE INGRESO ASOCIADO.pdf",
-        "/plantillas/vehiculosymoto/SOLICITUD DE RETIRO ASOCIADO.pdf"
+        "../plantillas/vehiculosymoto/SOLICITUD DE CREDITO.pdf",
+        "../plantillas/vehiculosymoto/9 AUTORIZACION DECLARACION DE INFORMACION DE CONDICIONES DE CRÉDITO.pdf",
+        "../plantillas/vehiculosymoto/AUTORIZACION CONSULTA SUDAMERIS (8) (8).pdf",
+        "../plantillas/vehiculosymoto/Contrato de Mandato ( VYM ).pdf",
+        "../plantillas/vehiculosymoto/Contrato Garantía Inmobiliaria.pdf",
+        "../plantillas/vehiculosymoto/Contrato mandato PJ.pdf",
+        "../plantillas/vehiculosymoto/FUNRUNT (1).pdf",
+        "../plantillas/vehiculosymoto/Mandato tránsito.pdf",
+        "../plantillas/vehiculosymoto/PAGARE CREDERE.pdf",
+        "../plantillas/vehiculosymoto/SOLICITUD DE INGRESO ASOCIADO.pdf",
+        "../plantillas/vehiculosymoto/SOLICITUD DE RETIRO ASOCIADO.pdf"
     ];
 
 } else {
