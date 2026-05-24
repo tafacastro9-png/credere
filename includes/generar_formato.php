@@ -451,7 +451,7 @@ $pdf->Write(5, substr($anio,-2));
                     $pdf->Write(5, $folio);
 
                     // Ciudad
-					  $pdf->SetFont('helvetica','B',10);
+					  $pdf->SetFont('Arial','B',10);
                     $pdf->SetXY(25, 24);
                     $pdf->Write(5, "Cali");
 
@@ -465,9 +465,9 @@ if($id_tipo_credito == 3){
 $pdf->SetXY(77, 24);
 $pdf->Write(5, $textoCredito);
 
-$pdf->SetFont('helvetica','',10);
+$pdf->SetFont('Arial','',10);
 					
-					     $pdf->SetFont('helvetica','',10);
+					     $pdf->SetFont('Arial','',10);
 
                     // Nombre cliente
                     $pdf->SetXY(45, 40);
@@ -492,7 +492,7 @@ $pdf->SetFont('helvetica','',10);
                     }
 
                     // Documento
-                     $pdf->SetFont('helvetica','',10);
+                     $pdf->SetFont('Arial','',10);
                     $pdf->SetXY(87, 45);
                     $pdf->Write(5, $doccliente);
 
@@ -559,10 +559,10 @@ $pdf->Write(5, strtoupper($placacodeudor));
                     $pdf->SetXY(86, 144);
                     $pdf->Write(5, $dirAvalFamiliar);
                     
-					 $pdf->SetFont('helvetica','',8);
+					 $pdf->SetFont('Arial','',8);
                     $pdf->SetXY(132, 144);
                     $pdf->Write(5, $corAvalFamiliar);
-					 $pdf->SetFont('helvetica','',10);
+					 $pdf->SetFont('Arial','',10);
 					
 					$pdf->SetXY(183, 144);
                     $pdf->Write(5, $parentesco);
@@ -598,10 +598,10 @@ $pdf->Write(5, strtoupper($placacodeudor));
                     $pdf->SetXY(86, 162);
                     $pdf->Write(5, $dirAval);
 
-				    $pdf->SetFont  ('helvetica','',8);
+				    $pdf->SetFont  ('Arial','',8);
                     $pdf->SetXY(132, 162);
                     $pdf->Write(5, $corAval);
-					$pdf->SetFont('helvetica','',10);
+					$pdf->SetFont('Arial','',10);
 
                     $pdf->SetXY(131, 166);
                     $pdf->Write(5, $telAval);
@@ -624,10 +624,10 @@ $pdf->Write(5, strtoupper($placacodeudor));
 					
 					
 					
-					 $pdf->SetFont('helvetica','',8);
+					 $pdf->SetFont('Arial','',8);
 				    $pdf->SetXY(152, 40);
                     $pdf->Write(5, $estado_civil);
-					 $pdf->SetFont('helvetica','',10);
+					 $pdf->SetFont('Arial','',10);
 					 
 					 
 					 
@@ -1193,10 +1193,10 @@ $pdf->Write(5, $anio);
    $pdf->SetXY(112, 54);
  $pdf->Write(5, $nombre_ciudad_residencia);
  
- $pdf->SetFont('helvetica','',8);
+ $pdf->SetFont('Arial','',8);
     $pdf->SetXY(152, 54);
  $pdf->Write(5, $nombre_departamento_residencia);
- $pdf->SetFont('helvetica','',10);
+ $pdf->SetFont('Arial','',10);
  
   
     $pdf->SetXY(20, 58);
@@ -1379,13 +1379,13 @@ $pdf->Write(5, $anio);
  
  
 // Guardar tamaño actual (opcional si luego quieres restaurarlo)
- $pdf->SetFont('helvetica','',8);
+ $pdf->SetFont('Arial','',8);
 
 $pdf->SetXY(113, 95);
 $pdf->Write(5, $empresa_conyugue);
 
 // Volver al tamaño normal (ejemplo 12)
- $pdf->SetFont('helvetica','',10);
+ $pdf->SetFont('Arial','',10);
 
 
 
@@ -1630,7 +1630,7 @@ $pdf->Write(5, $anio);
 
 
         // Documento Firma
-                     $pdf->SetFont('helvetica','',10);
+                     $pdf->SetFont('Arial','',10);
                     $pdf->SetXY(22, 40);
                     $pdf->Write(5, $doccliente);
 					
@@ -1639,7 +1639,7 @@ $pdf->Write(5, $anio);
 					
 					
 
-                     $pdf->SetFont('helvetica','',10);
+                     $pdf->SetFont('Arial','',10);
                     $pdf->SetXY(52, 40);
                     $pdf->Write(5, $nombre_ciudad_expedicion);
 					
@@ -1647,7 +1647,7 @@ $pdf->Write(5, $anio);
 					
 					
         // Documento Firma deudor
-                     $pdf->SetFont('helvetica','',10);
+                     $pdf->SetFont('Arial','',10);
                     $pdf->SetXY(120, 40);
                     $pdf->Write(5, $numerodocumentocodeudor);
 					
@@ -1657,7 +1657,7 @@ $pdf->Write(5, $anio);
    					
 					
         // Documento Firma deudor
-                     $pdf->SetFont('helvetica','',10);
+                     $pdf->SetFont('Arial','',10);
                     $pdf->SetXY(165, 40);
                     $pdf->Write(5, $lugarexpedicioncodeudor);
 					
@@ -1676,7 +1676,7 @@ $pdf->Write(5, $anio);
 // 🔥 AHORA VA EL OTRO PDF
 if(strpos($archivo, 'AUTORIZACION DECLARACION') !== false && $i == 1){
 
- $pdf->SetFont('helvetica','',15);
+ $pdf->SetFont('Arial','',15);
     $pdf->SetXY(36, 50);
     $pdf->Write(5, $nombreCompleto);
 
@@ -1753,7 +1753,7 @@ if(strpos($archivo, 'AUTORIZACION CONSULTA SUDAMERIS') !== false && $i == 1){
 
 
 
- $pdf->SetFont('helvetica','',10);
+ $pdf->SetFont('Arial','',10);
     $pdf->SetXY(49, 145);
     $pdf->Write(5, $nombreCompleto);
 	
@@ -1784,7 +1784,7 @@ if(strpos($archivo, 'AUTORIZACION CONSULTA SUDAMERIS') !== false && $i == 1){
 
 if (strpos($archivo, 'Contrato de Mandato') !== false && $i == 1) {
 
-  $pdf->SetFont('helvetica','',10);
+  $pdf->SetFont('Arial','',10);
     $pdf->SetXY(47, 78);
     $pdf->Write(5, $nombreCompleto);
 	
@@ -1798,7 +1798,7 @@ if (strpos($archivo, 'Contrato de Mandato') !== false && $i == 1) {
 
 if (strpos($archivo, 'Contrato Garantía Inmobiliaria') !== false && $i == 10) {
 
- $pdf->SetFont('helvetica','',10);
+ $pdf->SetFont('Arial','',10);
 
     // Ciudad
     $pdf->SetXY(135, 100); // Ajustar si es necesario
@@ -1834,7 +1834,7 @@ if (strpos($archivo, 'Contrato Garantía Inmobiliaria') !== false && $i == 10) {
 
 if (strpos($archivo, 'Mandato tránsito.pdf') !== false && $i == 1) {
 	
-	   $pdf->SetFont('helvetica','',10);
+	   $pdf->SetFont('Arial','',10);
 
     // Ciudad
     $pdf->SetXY(29, 49); // Ajustar si es necesario
@@ -1862,7 +1862,7 @@ if (strpos($archivo, 'PAGARE CREDERE.pdf') !== false && $i == 2) {
         }
     }
 	
-	 $pdf->SetFont('helvetica','',10);
+	 $pdf->SetFont('Arial','',10);
     $pdf->SetXY(49, 292);
     $pdf->Write(5, $nombreCompleto);
 	
@@ -1889,7 +1889,7 @@ if (strpos($archivo, 'PAGARE CREDERE.pdf') !== false && $i == 2) {
 
 if (strpos($archivo, 'SOLICITUD DE INGRESO ASOCIADO.pdf') !== false && $i == 1) {
 
- $pdf->SetFont('helvetica','',10);
+ $pdf->SetFont('Arial','',10);
     $pdf->SetXY(15, 46);
     $pdf->Write(5, $nombreCompleto);
 
