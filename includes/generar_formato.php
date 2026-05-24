@@ -414,10 +414,15 @@ if($id_tipo_credito == 3){
 $pdf = new Fpdi();
     foreach($documentos as $archivo){
 
-        if(!file_exists($archivo)){
-            continue;
-        }
+    echo $archivo . "<br>";
+flush();
 
+        if(!file_exists($archivo)){
+    echo "NO EXISTE: " . $archivo . "<br>";
+    continue;
+}
+echo "ABRIENDO: " . $archivo . "<br>";
+flush();
         $pageCount = $pdf->setSourceFile($archivo);
 
         for($i = 1; $i <= $pageCount; $i++){
