@@ -26,11 +26,17 @@ echo "<br>PAGINAS: " . $pageCount;
 exit;
 
 require_once('../fpdf/fpdf.php');
-require_once('../fpdi/src/autoload.php');
+require_once('../fpdi/src/Fpdi.php');
 require_once(__DIR__ . '/db.php');
-date_default_timezone_set('America/Bogota');
 
 use setasign\Fpdi\Fpdi;
+
+echo "FPDI CARGADO<br>";
+
+$pdf = new Fpdi();
+
+echo "OBJETO FPDI OK<br>";
+exit;
 
 function limpiar($texto){
     return utf8_decode($texto ?? '');
