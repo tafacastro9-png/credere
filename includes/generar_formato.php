@@ -202,24 +202,24 @@ SELECT
 	
 
 FROM prestamos p
-INNER JOIN clientes c ON p.id_cliente = c.id
-INNER JOIN tipo_prestamo tp ON p.id_tp = tp.id
-INNER JOIN tipo_credito tc ON p.id_tipo_credito = tc.id
-INNER JOIN tipo_identificacion ti ON c.id_tipoIdentificacion = ti.id
-INNER JOIN avales av ON av.id = p.id_aval
-INNER JOIN avales avf ON avf.id = p.id_avalFamiliar
-INNER JOIN ciudades ciurf ON avf.id_municipioAval = ciurf.id
-INNER JOIN ciudades ciurp ON av.id_municipioAval = ciurp.id
-INNER JOIN ciudades ciu ON c.municipio_expedicion_id = ciu.id
-INNER JOIN ciudades ciuna ON c.municipio_nacimiento_id = ciuna.id
-INNER JOIN ciudades ciure ON c.municipio_residencia_id = ciure.id
-INNER JOIN departamentos d  ON LEFT(ciure.id, 2) = d.id
+LEFT JOIN clientes c ON p.id_cliente = c.id
+LEFT JOIN tipo_prestamo tp ON p.id_tp = tp.id
+LEFT JOIN tipo_credito tc ON p.id_tipo_credito = tc.id
+LEFT JOIN tipo_identificacion ti ON c.id_tipoIdentificacion = ti.id
+LEFT JOIN avales av ON av.id = p.id_aval
+LEFT JOIN avales avf ON avf.id = p.id_avalFamiliar
+LEFT JOIN ciudades ciurf ON avf.id_municipioAval = ciurf.id
+LEFT JOIN ciudades ciurp ON av.id_municipioAval = ciurp.id
+LEFT JOIN ciudades ciu ON c.municipio_expedicion_id = ciu.id
+LEFT JOIN ciudades ciuna ON c.municipio_nacimiento_id = ciuna.id
+LEFT JOIN ciudades ciure ON c.municipio_residencia_id = ciure.id
+LEFT JOIN departamentos d  ON LEFT(ciure.id, 2) = d.id
 LEFT JOIN conyuges con ON c.id = con.cliente_id
 LEFT JOIN tipo_identificacion tidconyugue ON con.tipo_identificacion_id = tidconyugue.id
 LEFT JOIN ciudades ciuc ON con.municipio_expedicion_id = ciuc.id
-INNER JOIN informacion_laboral infola ON c.id = infola.cliente_id
-INNER JOIN ciudades ciul ON  infola.id_municipio_laboral = ciul.id
-INNER JOIN informacion_financiera infofi ON c.id = infofi.cliente_id
+LEFT JOIN informacion_laboral infola ON c.id = infola.cliente_id
+LEFT JOIN ciudades ciul ON  infola.id_municipio_laboral = ciul.id
+LEFT JOIN informacion_financiera infofi ON c.id = infofi.cliente_id
 LEFT JOIN (SELECT cp1.id_prestamo, cp1.fecha_pago, cp1.monto FROM cuotas_prestamo cp1 INNER JOIN (SELECT id_prestamo, MIN(fecha_pago) AS primera_fecha FROM cuotas_prestamo GROUP BY id_prestamo) cp2 
 ON cp1.id_prestamo = cp2.id_prestamo AND cp1.fecha_pago = cp2.primera_fecha) cp ON cp.id_prestamo = p.id
 LEFT JOIN detalle_prestamo dp ON dp.id_prestamo = p.id
