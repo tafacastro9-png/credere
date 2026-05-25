@@ -354,7 +354,36 @@ if (mysqli_num_rows($query) > 0) {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/contadorCuotas.js"></script>
 
+<script>
 
+const ctx = document.getElementById('prestamosChart').getContext('2d');
+
+new Chart(ctx, {
+    type: 'pie',
+    data: {
+        labels: <?php echo json_encode($tipos); ?>,
+        datasets: [{
+            label: 'Tipos de préstamos',
+            data: <?php echo json_encode($totales); ?>,
+            backgroundColor: [
+                '#4e73df',
+                '#1cc88a',
+                '#36b9cc',
+                '#f6c23e',
+                '#e74a3b',
+                '#858796',
+                '#5a5c69'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false
+    }
+});
+
+</script>
 
 <?php
 
