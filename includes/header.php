@@ -517,7 +517,9 @@ include "consultUserSession.php";
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal"> <i class="lni lni-exit"></i> Logout </a>
+                                        <a href="/includes/logout.php">
+    <i class="lni lni-exit"></i> Logout
+</a>
                                     </li>
                                 </ul>
                             </div>
