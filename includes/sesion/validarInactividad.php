@@ -34,6 +34,9 @@ $tiempoMilisegundos =
 $tiempo * 60 * 1000;
 ?>
 
+echo "<script>console.log('TIEMPO DEBUG:', ".$tiempoMilisegundos.");</script>";
+?>
+
 <script>
 
 let tiempoInactividad =
