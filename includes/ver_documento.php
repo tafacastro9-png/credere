@@ -1,35 +1,34 @@
 <?php
-session_start();
 
 if(!isset($_GET['archivo'])){
-    die("Archivo no especificado.");
+    die("Archivo no especificado");
 }
 
 $archivo = $_GET['archivo'];
 
-// Seguridad
 $archivo = str_replace(["..", "\\"], "", $archivo);
 
-// Ruta real
 $ruta = __DIR__ . "/../documentos/" . $archivo;
 
-// DEBUG
-if(!file_exists($ruta)){
-    die("Archivo no encontrado: " . $ruta);
+echo "<h3>DEBUG</h3>";
+
+echo "<b>Ruta:</b><br>";
+echo $ruta . "<br><br>";
+
+echo "<b>Existe:</b> ";
+echo file_exists($ruta) ? "SI" : "NO";
+echo "<br><br>";
+
+echo "<b>Readable:</b> ";
+echo is_readable($ruta) ? "SI" : "NO";
+echo "<br><br>";
+
+echo "<b>Tamaño:</b> ";
+echo file_exists($ruta) ? filesize($ruta) : "0";
+echo "<br><br>";
+
+if(file_exists($ruta)){
+    echo "<a href='/documentos/$archivo' target='_blank'>
+            ABRIR DIRECTO
+          </a>";
 }
-
-// Limpiar buffers
-if (ob_get_length()) {
-    ob_end_clean();
-}
-
-// Headers
-header('Content-Type: application/pdf');
-header('Content-Disposition: inline; filename="' . basename($ruta) . '"');
-header('Content-Length: ' . filesize($ruta));
-header('Cache-Control: private');
-header('Pragma: public');
-
-readfile($ruta);
-exit;
-?>
