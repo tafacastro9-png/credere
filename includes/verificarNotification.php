@@ -20,7 +20,7 @@ if (mysqli_num_rows($result) > 0) {
         echo '<li>
                 <a href="#0">
                     <div class="image">
-                        <img src="../images/undraw_profile.svg" alt="" />
+                        <img src="/images/undraw_profile.svg" alt="" />
                     </div>
                     <div class="content">
                         <h6>' . $row['nombreClient'] . ' ' . $row['apellidoClient'] . '
@@ -34,7 +34,7 @@ if (mysqli_num_rows($result) > 0) {
                 </a>
             </li>
             <br>
-             <a href="notificaciones.php" class="text-primary"><center>Ver todas las notificaciones</center></a>
+             <a href="/views/notificaciones.php" class="text-primary"><center>Ver todas las notificaciones</center></a>
             ';
     }
 } else {
