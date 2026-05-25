@@ -64,7 +64,7 @@
 <!-- 8️⃣ Scripts personalizados -->
 <script src="/js/filterTable.js"></script>
 <script src="/js/delete.js"></script>
-<!-- <script src="/js/notificaciones.js"></script> -->
+<script src="/js/notificaciones.js"></script>
 
 
 <script src="/js/main.js"></script>
