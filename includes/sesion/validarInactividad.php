@@ -3,7 +3,16 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require_once(__DIR__ . '/../db.php');
+require_once $_SERVER['DOCUMENT_ROOT'].'/includes/db.php';
+
+echo "<script>console.log('ENTRO VALIDAR');</script>";
+
+if(!isset($conexion)){
+    echo "<script>console.log('NO EXISTE CONEXION');</script>";
+}else{
+    echo "<script>console.log('SI EXISTE CONEXION');</script>";
+}
+?>
 
 // =========================================
 // OBTENER TIEMPO DESDE BD
