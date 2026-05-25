@@ -67,10 +67,11 @@
 <script src="/js/notificaciones.js"></script>
 
 
-<script src="/js/main.js?v=2"></script>
+<script src="/js/main.js"></script>
 
+<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/ventanaLogout.php'; ?>
 
+<?php require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/sesion/validarInactividad.php'); ?>
 
-<?php include $_SERVER['DOCUMENT_ROOT'].'/views/ventanaLogout.php'; ?>
 </body>
 </html>
