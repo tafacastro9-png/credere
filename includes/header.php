@@ -517,7 +517,7 @@ include "consultUserSession.php";
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="/includes/logout.php">
+                                        <a href="/views/ventanaLogout.php">
     <i class="lni lni-exit"></i> Logout
 </a>
                                     </li>
