@@ -510,11 +510,11 @@ include "consultUserSession.php";
                                         </a>
                                     </li>
                                     <li class="divider"></li>
-                                    <li>
-                                        <a href="/views/ventanaLogout.php">
-    <i class="lni lni-exit"></i> Logout
-</a>
-                                    </li>
+<li>
+    <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
+        <i class="lni lni-exit"></i> Logout
+    </a>
+</li>
                                 </ul>
                             </div>
                             <!-- profile end -->
