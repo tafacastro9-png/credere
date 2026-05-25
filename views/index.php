@@ -55,14 +55,14 @@ if (!$result) {
 $tipos = [];
 $totales = [];
 
-echo "ANTES WHILE";
+
 
 while ($row = mysqli_fetch_assoc($result)) {
     $tipos[] = $row['nombre'];
     $totales[] = $row['cantidad'];
 }
 
-echo "DESPUES WHILE";
+
 ?>
 
 
