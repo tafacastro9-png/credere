@@ -41,7 +41,25 @@ include "consultUserSession.php";
 		display: block;
 		margin: 0 auto;
 	}
-		
+
+    .dropdown-menu {
+        z-index: 999999 !important;
+    }
+
+    .header-right {
+        overflow: visible !important;
+    }
+
+    .notification-box {
+        position: relative;
+    }
+
+    #notificationContent {
+        min-width: 350px;
+        max-height: 500px;
+        overflow-y: auto;
+    }
+
 </style>
 
 <body>
