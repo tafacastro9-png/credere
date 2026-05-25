@@ -222,26 +222,23 @@ if ($estado == 'Rechazado') {
                 </div>
 
              <div>
-    <?php
-        $estadoPrestamoActual = trim($data['statusPrest']);
+<?php
 
-        // 1️⃣ Si tiene registro en rechazo_documentos
-        if ($prestamoRechazado) {
+    if ($doc['estado'] == 'Rechazado') {
 
-            echo '<span class="badge bg-danger">Rechazado</span>';
+        echo '<span class="badge bg-danger">Rechazado</span>';
 
-        // 2️⃣ Si NO está rechazado y está en revisión
-        } elseif ($estadoPrestamoActual == 'Revision' || $estadoPrestamoActual == 'Revisión') {
+    } elseif ($doc['estado'] == 'Aprobado') {
 
-            echo '<span class="badge bg-warning text-dark">Pendiente de Revisión</span>';
+        echo '<span class="badge bg-success">Aprobado</span>';
 
-        // 3️⃣ Si no está rechazado y no está en revisión
-        } else {
+    } else {
 
-            echo '<span class="badge bg-success">Aprobado</span>';
+        echo '<span class="badge bg-warning text-dark">Pendiente de Revisión</span>';
 
-        }
-    ?>
+    }
+
+?>
 </div>
             </div>
 
