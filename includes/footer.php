@@ -73,6 +73,10 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
+    // =========================
+    // NOTIFICACIONES
+    // =========================
+
     const notificationBtn = document.getElementById('notification');
 
     if(notificationBtn){
@@ -89,9 +93,31 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
+    // =========================
+    // PERFIL
+    // =========================
+
+    const profileBtn = document.getElementById('profile');
+
+    if(profileBtn){
+
+        profileBtn.addEventListener('click', function(e){
+
+            e.preventDefault();
+
+            const profileMenu = profileBtn.nextElementSibling;
+
+            profileMenu.classList.toggle('show');
+
+        });
+
+    }
+
 });
 
 </script>
+
+
 
 <script>
 console.log("BOOTSTRAP TEST");

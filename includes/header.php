@@ -67,6 +67,10 @@ include "consultUserSession.php";
     transform: translate3d(-300px, 40px, 0px);
 }
 
+.profile-box .dropdown-menu.show{
+    display: block !important;
+}
+
 </style>
 
 <body>
