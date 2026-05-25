@@ -39,7 +39,7 @@ if(isset($_GET['id'])){
 
     while($doc = mysqli_fetch_assoc($query)){
 
-        $ruta = "../documentos/" . $doc['nombre_archivo'];
+        $ruta = "../includes/ver_documento.php?archivo=" . urlencode($doc['nombre_archivo']);
 
         // =========================================
         // ICONO SEGÚN ESTADO
