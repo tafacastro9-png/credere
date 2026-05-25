@@ -60,12 +60,6 @@ include "consultUserSession.php";
         overflow-y: auto;
     }
 
-#notificationContent.show{
-    display: block !important;
-    position: absolute;
-    inset: 0px auto auto 0px;
-    transform: translate3d(-300px, 40px, 0px);
-}
 
 .profile-box .dropdown-menu.show{
     display: block !important;

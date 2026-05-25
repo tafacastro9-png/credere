@@ -69,61 +69,9 @@
 
 <script src="/js/main.js"></script>
 
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    // =========================
-    // NOTIFICACIONES
-    // =========================
-
-    const notificationBtn = document.getElementById('notification');
-
-    if(notificationBtn){
-
-        notificationBtn.addEventListener('click', function(e){
-
-            e.preventDefault();
-
-            const dropdownMenu = document.getElementById('notificationContent');
-
-            dropdownMenu.classList.toggle('show');
-
-        });
-
-    }
-
-    // =========================
-    // PERFIL
-    // =========================
-
-    const profileBtn = document.getElementById('profile');
-
-    if(profileBtn){
-
-        profileBtn.addEventListener('click', function(e){
-
-            e.preventDefault();
-
-            const profileMenu = profileBtn.nextElementSibling;
-
-            profileMenu.classList.toggle('show');
-
-        });
-
-    }
-
-});
-
-</script>
 
 
 
-<script>
-console.log("BOOTSTRAP TEST");
-</script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
