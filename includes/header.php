@@ -61,9 +61,7 @@ include "consultUserSession.php";
     }
 
 
-.profile-box .dropdown-menu.show{
-    display: block !important;
-}
+
 
 </style>
 
