@@ -42,9 +42,7 @@ include "consultUserSession.php";
 		margin: 0 auto;
 	}
 
-    .dropdown-menu {
-        z-index: 999999 !important;
-    }
+
 
     .header-right {
         overflow: visible !important;
