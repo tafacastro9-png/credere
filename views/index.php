@@ -357,8 +357,7 @@ if (mysqli_num_rows($query) > 0) {
 
 
 <?php
-echo "LLEGO AL FOOTER";
+
 include "../includes/footer.php";
 ?>
 
-<?php echo "SALIO DEL FOOTER"; ?>
