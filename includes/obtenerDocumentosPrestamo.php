@@ -62,7 +62,7 @@ if(isset($_GET['id'])){
             <button
                 class='btn btn-outline-primary w-100 text-start'
 
-                onclick=\"verDocumentoPanel('$ruta', {$doc['id']})\">
+                onclick='verDocumentoPanel(\"$ruta\", {$doc["id"]})'>
 
                 $icono {$doc['tipo_documento']}
 
