@@ -1345,11 +1345,12 @@ window.history.replaceState({}, document.title, "prestamos.php");
                     </button>
 
                     <button type="submit"
-                            class="btn btn-success">
+        class="btn btn-success"
+        id="btnSubirDocs">
 
-                        Subir
+    Subir
 
-                    </button>
+</button>
 
                 </div>
 
@@ -2075,5 +2076,65 @@ else if(json.status == "pendiente"){
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 <?php include "./forms/modal_firma.php"; ?>
 <script src="../js/filtertable.js"></script>
+
+<!-- ===================================== -->
+<!-- LOADER SUBIENDO DOCUMENTOS -->
+<!-- ===================================== -->
+
+<div id="loaderSubida" style="
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(255,255,255,0.85);
+    z-index:999999;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+">
+
+    <div class="spinner-border text-primary"
+         style="width:4rem;height:4rem;">
+    </div>
+
+    <h4 class="mt-4 fw-bold text-dark">
+        Subiendo documentos...
+    </h4>
+
+    <p class="text-muted">
+        Por favor espere
+    </p>
+
+</div>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const formulario = document.querySelector(
+        '#modalSubirDocumentos form'
+    );
+
+    formulario.addEventListener("submit", function(){
+
+        // MOSTRAR LOADER
+        document.getElementById(
+            "loaderSubida"
+        ).style.display = "flex";
+
+        // DESACTIVAR BOTÓN
+        document.getElementById(
+            "btnSubirDocs"
+        ).disabled = true;
+
+    });
+
+});
+
+</script>
+
+
 <?php include "../includes/footer.php"; ?>
 
