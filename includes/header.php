@@ -12,7 +12,7 @@ include "consultUserSession.php";
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="/images/logo_circular.png" style="border-radius: 50px;" type="image/x-icon" />
+    <link rel="shortcut icon" href="/images/logo.png" style="border-radius: 50px;" type="image/x-icon" />
     <title>Credere bank</title>
 
     <!-- ========== All CSS files linkup ========= -->
