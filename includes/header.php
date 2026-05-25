@@ -509,9 +509,14 @@ include "consultUserSession.php";
                                     </li>
                                     <li class="divider"></li>
 <li>
-    <a href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">
-        <i class="lni lni-exit"></i> Logout
-    </a>
+   <button type="button"
+        class="dropdown-item"
+        data-bs-toggle="modal"
+        data-bs-target="#logoutModal">
+
+    <i class="lni lni-exit"></i> Logout
+
+</button>
 </li>
                                 </ul>
                             </div>
