@@ -62,7 +62,7 @@
 <script src="/js/dynamic-pie-chart.js"></script>
 
 <!-- 8️⃣ Scripts personalizados -->
-<!--<script src="/js/filterTable.js"></script>-->
+<script src="/js/filterTable.js"></script>
 <script src="/js/delete.js"></script>
 <script src="/js/notificaciones.js"></script>
 
