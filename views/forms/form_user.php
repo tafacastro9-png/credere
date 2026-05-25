@@ -5,9 +5,11 @@
 
             <div class="modal-header">
                 <h5 class="modal-title">Formulario Usuarios</h5>
-                <button type="button" class="close btn btn-light" data-bs-dismiss="modal">
-                    <span class="mdi mdi-window-close"></span>
-                </button>
+                <button type="button"
+        class="btn-close"
+        data-bs-dismiss="modal"
+        aria-label="Close">
+</button>
             </div>
 
             <div class="modal-body">
