@@ -7,20 +7,28 @@ if(!isset($_GET['archivo'])){
 
 $archivo = $_GET['archivo'];
 
-// Seguridad básica
+// Seguridad
 $archivo = str_replace(["..", "\\"], "", $archivo);
 
-// Ruta física REAL
+// Ruta real
 $ruta = __DIR__ . "/../documentos/" . $archivo;
 
-// Verificar si existe
+// DEBUG
 if(!file_exists($ruta)){
-    die("Archivo no encontrado.");
+    die("Archivo no encontrado: " . $ruta);
 }
 
-header("Content-Type: application/pdf");
-header("Content-Disposition: inline; filename=\"" . basename($ruta) . "\"");
-header("Content-Length: " . filesize($ruta));
+// Limpiar buffers
+if (ob_get_length()) {
+    ob_end_clean();
+}
+
+// Headers
+header('Content-Type: application/pdf');
+header('Content-Disposition: inline; filename="' . basename($ruta) . '"');
+header('Content-Length: ' . filesize($ruta));
+header('Cache-Control: private');
+header('Pragma: public');
 
 readfile($ruta);
 exit;
