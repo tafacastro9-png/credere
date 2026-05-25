@@ -69,7 +69,28 @@
 
 <script src="/js/main.js"></script>
 
-<?php include $_SERVER['DOCUMENT_ROOT'] . '/views/ventanaLogout.php'; ?>
+<?php include $_SERVER['DOCUMENT_ROOT'].'/views/ventanaLogout.php'; ?>
+
+<?php
+
+$ruta =
+$_SERVER['DOCUMENT_ROOT'] .
+'/includes/sesion/validarInactividad.php';
+
+echo "<script>console.log('RUTA TIMER:', '$ruta');</script>";
+
+if(file_exists($ruta)){
+
+    echo "<script>console.log('EXISTE TIMER');</script>";
+
+    require_once $ruta;
+
+}else{
+
+    echo "<script>console.log('NO EXISTE TIMER');</script>";
+}
+?>
+
 
 <?php require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/sesion/validarInactividad.php'); ?>
 
