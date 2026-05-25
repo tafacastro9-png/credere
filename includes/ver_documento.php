@@ -5,7 +5,7 @@ if(!isset($_GET['archivo'])){
     die("Archivo no especificado.");
 }
 
-$archivo = $_GET['archivo'];
+$archivo = urldecode($_GET['archivo']);
 
 // Seguridad básica
 $archivo = str_replace(["..", "\\"], "", $archivo);
