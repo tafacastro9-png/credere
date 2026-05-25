@@ -208,10 +208,7 @@ if ($estado == 'Rechazado') {
             $nombreBonito = basename($doc['nombre_archivo']);
             $rutaArchivo = $doc['nombre_archivo'];
 
-            $partes = explode('/', $rutaArchivo);
-            $nombreFinal = rawurlencode(end($partes));
-            $carpeta = implode('/', array_slice($partes, 0, -1));
-            $rutaCompleta = "documentos/" . $carpeta . "/" . $nombreFinal;
+            $rutaCompleta = "../includes/ver_documento.php?archivo=" . urlencode($rutaArchivo);
         ?>
 
         <div class="border rounded p-3 mb-3 bg-light">
@@ -254,11 +251,11 @@ if ($estado == 'Rechazado') {
                 </div>
             <?php endif; ?>
 
-            <a href="<?= $rutaCompleta; ?>" 
-               target="_blank"
-               class="btn btn-sm btn-primary mt-3">
-               Ver Documento
-            </a>
+           <a href="<?= $rutaCompleta; ?>" 
+   target="_blank"
+   class="btn btn-sm btn-primary mt-3">
+   Ver Documento
+</a>
 
         </div>
 
