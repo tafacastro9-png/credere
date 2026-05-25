@@ -60,6 +60,13 @@ include "consultUserSession.php";
         overflow-y: auto;
     }
 
+#notificationContent.show{
+    display: block !important;
+    position: absolute;
+    inset: 0px auto auto 0px;
+    transform: translate3d(-300px, 40px, 0px);
+}
+
 </style>
 
 <body>
@@ -449,7 +456,7 @@ include "consultUserSession.php";
                         <div class="header-right">
                             <!-- notification start -->
                             <div class="notification-box ml-15 d-none d-md-flex">
-                                <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown" aria-expanded="false"  onclick="alert('CLICK OK')">
+                                <button class="dropdown-toggle" type="button" id="notification" data-bs-toggle="dropdown" aria-expanded="false">
                                    
                                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M11 20.1667C9.88317 20.1667 8.88718 19.63 8.23901 18.7917H13.761C13.113 19.63 12.1169 20.1667 11 20.1667Z" fill="" />

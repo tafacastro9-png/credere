@@ -70,6 +70,30 @@
 <script src="/js/main.js"></script>
 
 <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const notificationBtn = document.getElementById('notification');
+
+    if(notificationBtn){
+
+        notificationBtn.addEventListener('click', function(e){
+
+            e.preventDefault();
+
+            const dropdownMenu = document.getElementById('notificationContent');
+
+            dropdownMenu.classList.toggle('show');
+
+        });
+
+    }
+
+});
+
+</script>
+
+<script>
 console.log("BOOTSTRAP TEST");
 </script>
 
