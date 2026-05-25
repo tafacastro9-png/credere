@@ -12,7 +12,6 @@ if(!isset($conexion)){
 }else{
     echo "<script>console.log('SI EXISTE CONEXION');</script>";
 }
-?>
 
 // =========================================
 // OBTENER TIEMPO DESDE BD
@@ -21,7 +20,7 @@ if(!isset($conexion)){
 $query = mysqli_query(
     $conexion,
     "SELECT valor
-     FROM parametrosInternos
+     FROM parametrosinternos
      WHERE nombre = 'tiempoInactividad'
      LIMIT 1"
 );
@@ -41,15 +40,17 @@ if($query && mysqli_num_rows($query) > 0){
 
 $tiempoMilisegundos =
 $tiempo * 60 * 1000;
-?>
 
 echo "<script>console.log('TIEMPO DEBUG:', ".$tiempoMilisegundos.");</script>";
+
 ?>
 
 <script>
 
 let tiempoInactividad =
 <?php echo $tiempoMilisegundos; ?>;
+
+console.log("TIEMPO INACTIVIDAD:", tiempoInactividad);
 
 let temporizador;
 
@@ -61,37 +62,22 @@ function reiniciarTemporizador(){
 
     clearTimeout(temporizador);
 
-temporizador = setTimeout(function(){
+    temporizador = setTimeout(function(){
 
-    window.location.href =
-    '../includes/sesion/cerrarSesion.php?inactividad=1';
+        window.location.href =
+        '/includes/sesion/cerrarSesion.php?inactividad=1';
 
-}, tiempoInactividad);
+    }, tiempoInactividad);
 }
 
 // =========================================
 // EVENTOS ACTIVIDAD
 // =========================================
 
-document.addEventListener(
-    'mousemove',
-    reiniciarTemporizador
-);
-
-document.addEventListener(
-    'keypress',
-    reiniciarTemporizador
-);
-
-document.addEventListener(
-    'click',
-    reiniciarTemporizador
-);
-
-document.addEventListener(
-    'scroll',
-    reiniciarTemporizador
-);
+document.addEventListener('mousemove', reiniciarTemporizador);
+document.addEventListener('keypress', reiniciarTemporizador);
+document.addEventListener('click', reiniciarTemporizador);
+document.addEventListener('scroll', reiniciarTemporizador);
 
 // =========================================
 // INICIAR
