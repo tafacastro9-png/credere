@@ -70,61 +70,7 @@
 <script src="/js/main.js?v=2"></script>
 
 
-<script>
 
-document.addEventListener("DOMContentLoaded", function () {
-
-    console.log("BOOTSTRAP DEBUG");
-
-    // BOTON LOGOUT
-    const logoutBtn = document.querySelector('[data-bs-target="#logoutModal"]');
-
-    console.log("BOTON:", logoutBtn);
-
-    // MODAL
-    const modal = document.getElementById('logoutModal');
-
-    console.log("MODAL:", modal);
-
-    if(modal){
-
-        console.log("MODAL HTML:", modal.outerHTML);
-
-    }
-
-    // TEST MANUAL
-    if(logoutBtn){
-
-        logoutBtn.addEventListener('click', function(){
-
-            console.log("CLICK LOGOUT");
-
-            console.log("BOOTSTRAP:", bootstrap);
-
-            console.log("MODAL INSTANCE TEST");
-
-            try {
-
-                const modalInstance = new bootstrap.Modal(modal);
-
-                console.log("INSTANCE OK:", modalInstance);
-
-                modalInstance.show();
-
-            } catch(error){
-
-                console.error("ERROR MODAL:", error);
-
-            }
-
-        });
-
-    }
-
-});
-
-</script>
-
-
+<?php include $_SERVER['DOCUMENT_ROOT'].'/views/ventanaLogout.php'; ?>
 </body>
 </html>
