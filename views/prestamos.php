@@ -942,9 +942,9 @@ function verDocumentoPanel(ruta, idDocumento){
     documentoSeleccionado = idDocumento;
 
     // PDF
-  document.getElementById(
-    "iframeDocumento"
-).src = window.location.origin + "/includes/ver_documento.php?archivo=" + encodeURIComponent(ruta.split("archivo=")[1]);
+    document.getElementById(
+        "iframeDocumento"
+    ).src = ruta;
 
     // DESCARGA
     document.getElementById(

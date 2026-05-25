@@ -39,7 +39,7 @@ if(isset($_GET['id'])){
 
     while($doc = mysqli_fetch_assoc($query)){
 
-        $ruta = "../includes/ver_documento.php?archivo=" . urlencode($doc['nombre_archivo']);
+        $ruta = "../documentos/" . $doc['nombre_archivo'];
 
         // =========================================
         // ICONO SEGÚN ESTADO
@@ -62,7 +62,7 @@ if(isset($_GET['id'])){
             <button
                 class='btn btn-outline-primary w-100 text-start'
 
-                onclick='verDocumentoPanel(\"$ruta\", {$doc["id"]})'>
+                onclick=\"verDocumentoPanel('$ruta', {$doc['id']})\">
 
                 $icono {$doc['tipo_documento']}
 
