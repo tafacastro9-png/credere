@@ -13,5 +13,7 @@ $row = mysqli_fetch_assoc($queryMantenimiento);
 
 if($row['valor'] == 1){
 
-    die('MANTENIMIENTO ACTIVADO');
+    include $_SERVER['DOCUMENT_ROOT'] . '/includes/mantenimiento.php';
+
+    exit();
 }
