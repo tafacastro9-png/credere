@@ -816,28 +816,32 @@ if($timestamp){
    
    
    
-   $tipoviviendacodeudor = strtolower(trim($tipoviviendacodeudor));
+$tipoviviendacodeudor = strtolower(trim($tipoviviendacodeudor ?? ''));
 
-if ($tipoviviendacodeudor == 'propia') {
+if (!empty($tipoviviendacodeudor)) {
 
-    $pdf->SetXY(98, 198);  // ← ajustar
-    $pdf->Write(5, 'X');
+    if ($tipoviviendacodeudor == 'propia') {
 
-} elseif ($tipoviviendacodeudor == 'arrendada') {
+        $pdf->SetXY(98, 198);
+        $pdf->Write(5, 'X');
 
-    $pdf->SetXY(115, 198);  // ← ajustar
-    $pdf->Write(5, 'X');
+    } elseif ($tipoviviendacodeudor == 'arrendada') {
 
-} elseif ($tipoviviendacodeudor == 'familiar') {
+        $pdf->SetXY(115, 198);
+        $pdf->Write(5, 'X');
 
-    $pdf->SetXY(131, 198); // ← ajustar
-    $pdf->Write(5, 'X');
-	
+    } elseif ($tipoviviendacodeudor == 'familiar') {
 
-} else {
+        $pdf->SetXY(131, 198);
+        $pdf->Write(5, 'X');
 
-    $pdf->SetXY(142, 198); // ← ajustar (OTRO)
-    $pdf->Write(5, 'X');
+    } else {
+
+        // Otro
+        $pdf->SetXY(142, 198);
+        $pdf->Write(5, 'X');
+    }
+
 }
    
    
