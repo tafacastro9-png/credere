@@ -259,7 +259,10 @@ if(!$prestamo){
 $id_tipo_credito = $prestamo['id_tipo_credito'];
 
 
-
+echo '<pre>';
+var_dump($prestamo['fechaRegistro']);
+echo '</pre>';
+exit;
 
 
 if(!empty($prestamo['fechaRegistro'])){
@@ -267,9 +270,6 @@ if(!empty($prestamo['fechaRegistro'])){
 
 
     $fecha = new DateTime($prestamo['fechaRegistro']);
-
-    echo $prestamo['fechaRegistro'];
-exit;
 
     $dia = $fecha->format('d');
     $mes = $fecha->format('m');
