@@ -1,33 +1,17 @@
 $(document).ready(function () {
 
-    console.log("Esperando DataTable existente...");
+    var table = $('#datatable').DataTable();
 
-    let interval = setInterval(function () {
+    $('#filtroEstado').on('change', function () {
 
-        if ($.fn.DataTable.isDataTable('#datatable')) {
+        let valor = $(this).val();
 
-            clearInterval(interval);
-
-            var table = $('#datatable').DataTable();
-
-            $('#filtroEstado').on('change', function () {
-
-                let valor = $(this).val();
-
-                if (valor === "") {
-
-                    table.column(0).search('').draw();
-
-                } else {
-
-                    table.column(0).search(valor, true, false).draw();
-
-                }
-
-            });
-
+        if (valor === '') {
+            table.column(0).search('').draw();
+        } else {
+            table.column(0).search(valor).draw();
         }
 
-    }, 200);
+    });
 
 });
