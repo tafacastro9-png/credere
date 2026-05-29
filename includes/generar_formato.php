@@ -259,9 +259,7 @@ if(!$prestamo){
 $id_tipo_credito = $prestamo['id_tipo_credito'];
 
 
-echo '<pre>';
-print_r($prestamo);
-exit;
+
 
 
 if(!empty($prestamo['fechaRegistro'])){
