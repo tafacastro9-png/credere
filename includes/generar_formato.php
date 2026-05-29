@@ -743,27 +743,23 @@ $pdf->Write(5, $anio);
    $pdf->SetXY(45, 184);
    $pdf->Write(5, $lugarnacimientocodeudor);
    
-   
-   $timestamp = !empty($fechanacimientocodeudor) ? strtotime($fechanacimientocodeudor) : false;
+$timestamp = !empty($fechanacimientocodeudor)
+    ? strtotime($fechanacimientocodeudor)
+    : false;
 
-$dia  = date('d', $timestamp);
-$mes  = date('m', $timestamp);
-$anio = date('y', $timestamp); // solo 2 dígitos
- 
- 
+if($timestamp){
 
+    $dia  = date('d', $timestamp);
+    $mes  = date('m', $timestamp);
+    $anio = date('y', $timestamp);
 
-// Día
-$pdf->SetXY(118, 184);
-$pdf->Write(5, $dia);
+} else {
 
-// Mes
-$pdf->SetXY(125, 184);
-$pdf->Write(5, $mes);
+    $dia  = '';
+    $mes  = '';
+    $anio = '';
 
-// Año (2 dígitos)
-$pdf->SetXY(131, 184);
-$pdf->Write(5, $anio);
+}
    
    
       $pdf->SetXY(152, 184);
