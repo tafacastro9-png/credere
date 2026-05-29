@@ -360,3 +360,4 @@ function exportarExcel(){
 
 </script>
 
+<?php include "../includes/footer.php"; ?>
