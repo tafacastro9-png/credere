@@ -328,31 +328,29 @@ table tbody tr:hover {
 <br><br>
 
 
-<div class="row mb-3">
+<div class="row mb-3 align-items-end">
+
     <div class="col-md-4">
         <label class="fw-bold mb-1">Filtrar por estado:</label>
-<select id="filtroEstado" class="form-select">
-    <option value="">Todos</option>
-    <option value="Radicado">Radicado</option>
-    <option value="Desembolsado">Desembolsado</option>
-    <option value="Pendiente desembolso">Pendiente desembolso</option>
-    <option value="Revision">Revision</option>
-</select>
-
-
-        <label class="fw-bold">Desde</label>
-        <input type="date" id="fechaDesde" class="form-control">
- 
-
-
-        <label class="fw-bold">Hasta</label>
-        <input type="date" id="fechaHasta" class="form-control">
-
-
-</div>
-
-
+        <select id="filtroEstado" class="form-select">
+            <option value="">Todos</option>
+            <option value="Radicado">Radicado</option>
+            <option value="Desembolsado">Desembolsado</option>
+            <option value="Pendiente desembolso">Pendiente desembolso</option>
+            <option value="Revision">Revision</option>
+        </select>
     </div>
+
+    <div class="col-md-3">
+        <label class="fw-bold mb-1">Desde</label>
+        <input type="date" id="fechaDesde" class="form-control">
+    </div>
+
+    <div class="col-md-3">
+        <label class="fw-bold mb-1">Hasta</label>
+        <input type="date" id="fechaHasta" class="form-control">
+    </div>
+
 </div>
 
 <div class="table-wrapper table-responsive">
