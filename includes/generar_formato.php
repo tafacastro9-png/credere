@@ -259,12 +259,14 @@ if(!$prestamo){
 $id_tipo_credito = $prestamo['id_tipo_credito'];
 
 
+echo '<pre>';
+print_r($prestamo);
+exit;
+
 
 if(!empty($prestamo['fechaRegistro'])){
 
-echo '<pre>';
-var_dump($prestamo['fechaRegistro']);
-exit;
+
 
     $fecha = new DateTime($prestamo['fechaRegistro']);
 
@@ -471,9 +473,6 @@ if(!file_exists($archivo)){
 
                     // Fecha
 
-$dia = '22';
-$mes = '05';
-$anio = '26';
 
                     $pdf->SetFont('Arial','B',15);
 
