@@ -1619,8 +1619,14 @@ function validarDocumentos(){
         return false;
     }
 
-    return true;
+    // =====================================
+    // MOSTRAR LOADER SOLO SI TODO ES VÁLIDO
+    // =====================================
 
+    document.getElementById("loaderSubida").style.display = "flex";
+    document.getElementById("btnSubirDocs").disabled = true;
+
+    return true;
 }
 
 </script>
@@ -2117,19 +2123,7 @@ document.addEventListener("DOMContentLoaded", function(){
         '#modalSubirDocumentos form'
     );
 
-    formulario.addEventListener("submit", function(){
 
-        // MOSTRAR LOADER
-        document.getElementById(
-            "loaderSubida"
-        ).style.display = "flex";
-
-        // DESACTIVAR BOTÓN
-        document.getElementById(
-            "btnSubirDocs"
-        ).disabled = true;
-
-    });
 
 });
 
