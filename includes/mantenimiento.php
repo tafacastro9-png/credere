@@ -299,7 +299,7 @@
 
         <div class="badge">
 
-            SISPRE PLUS · ACTUALIZACIÓN EN PROGRESO
+            PrestApp · ACTUALIZACIÓN EN PROGRESO
 
         </div>
 
