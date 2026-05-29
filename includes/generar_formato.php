@@ -951,14 +951,23 @@ if (!empty($condicion_codeudor)) {
    
    
       
-   $timestamp = strtotime($fecha_ingreso_codeudor);
+   $timestamp = !empty($fecha_ingreso_codeudor)
+    ? strtotime($fecha_ingreso_codeudor)
+    : false;
 
-$dia  = date('d', $timestamp);
-$mes  = date('m', $timestamp);
-$anio = date('y', $timestamp); // solo 2 dígitos
- 
- 
+if ($timestamp) {
 
+    $dia  = date('d', $timestamp);
+    $mes  = date('m', $timestamp);
+    $anio = date('y', $timestamp);
+
+} else {
+
+    $dia  = '';
+    $mes  = '';
+    $anio = '';
+
+}
 
 // Día
 $pdf->SetXY(180, 220);
@@ -968,7 +977,7 @@ $pdf->Write(5, $dia);
 $pdf->SetXY(190, 220);
 $pdf->Write(5, $mes);
 
-// Año (2 dígitos)
+// Año
 $pdf->SetXY(200, 220);
 $pdf->Write(5, $anio);
 
