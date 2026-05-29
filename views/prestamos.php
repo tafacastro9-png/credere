@@ -2090,7 +2090,7 @@ else if(json.status == "pendiente"){
 
 <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
 <?php include "./forms/modal_firma.php"; ?>
-<script src="../js/filtertable.js"></script>
+<script src="../js/filterTable.js"></script>
 
 <!-- ===================================== -->
 <!-- LOADER SUBIENDO DOCUMENTOS -->
