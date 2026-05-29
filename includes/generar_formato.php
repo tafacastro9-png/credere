@@ -468,6 +468,12 @@ if(!file_exists($archivo)){
                     // Fecha
                     $pdf->SetFont('Arial','B',15);
 
+                    
+                    
+var_dump($dia, $mes, $anio);
+exit;
+
+
 $pdf->SetXY(133, 17);
 $pdf->Write(5, $dia);
 
