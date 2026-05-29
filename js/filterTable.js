@@ -2,11 +2,30 @@ $(document).ready(function () {
 
     console.log("JS cargado");
 
-    var table = $('#datatable').DataTable();
+    var table = $('#datatable').DataTable({
+
+        pageLength: 10,
+
+        language: {
+            url: "//cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json"
+        },
+
+        dom: 'Bfrtip',
+
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '📊 Exportar Excel',
+                className: 'btn btn-success'
+            }
+        ]
+
+    });
 
     // ==========================
     // FILTRO ESTADO
     // ==========================
+
     $('#filtroEstado').on('change', function () {
 
         let valor = $(this).val();
@@ -22,6 +41,7 @@ $(document).ready(function () {
     // ==========================
     // FILTRO FECHAS
     // ==========================
+
     $.fn.dataTable.ext.search.push(function(settings, data) {
 
         let fechaDesde = $('#fechaDesde').val();

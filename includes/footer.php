@@ -47,6 +47,11 @@
 <!-- 4️⃣ DataTables -->
 <script src="/js/jquery.dataTables.min.js"></script>
 <script src="/js/dataTables.bootstrap4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
 
 <!-- 5️⃣ SweetAlert -->
 <script src="/js/SweetAlert2/sweetalert2.all.min.js"></script>
