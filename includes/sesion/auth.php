@@ -7,7 +7,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 require_once($_SERVER['DOCUMENT_ROOT'] . '/includes/db.php');
 
-die('ENTRO AL AUTH');
+
 
 // =========================================
 // MODO MANTENIMIENTO
@@ -21,18 +21,17 @@ $queryMantenimiento = mysqli_query(
      LIMIT 1"
 );
 
-if($queryMantenimiento && mysqli_num_rows($queryMantenimiento) > 0){
-
-    $rowMantenimiento = mysqli_fetch_assoc($queryMantenimiento);
-
-    if($rowMantenimiento['valor'] == 1){
-
-        include $_SERVER['DOCUMENT_ROOT'] .
-        '/includes/mantenimiento.php';
-
-        exit();
-    }
+if(!$queryMantenimiento){
+    die(mysqli_error($conexion));
 }
+
+$row = mysqli_fetch_assoc($queryMantenimiento);
+
+echo '<pre>';
+print_r($row);
+echo '</pre>';
+
+exit();
 
 // =========================================
 // EVITAR CACHE
