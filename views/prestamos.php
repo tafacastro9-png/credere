@@ -1591,6 +1591,11 @@ function validarDocumentos(){
         docCredito.files.length === 0
     ){
 
+        Swal.close();
+
+        document.getElementById("loaderSubida").style.display = "none";
+        document.getElementById("btnSubirDocs").disabled = false;
+
         Swal.fire({
             icon: 'warning',
             title: 'Documentos requeridos',
@@ -1610,6 +1615,11 @@ function validarDocumentos(){
         docIdentidad.files.length === 0
     ){
 
+        Swal.close();
+
+        document.getElementById("loaderSubida").style.display = "none";
+        document.getElementById("btnSubirDocs").disabled = false;
+
         Swal.fire({
             icon: 'warning',
             title: 'Documentos requeridos',
@@ -1628,7 +1638,6 @@ function validarDocumentos(){
 
     return true;
 }
-
 </script>
 
 
