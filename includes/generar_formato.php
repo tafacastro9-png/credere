@@ -913,19 +913,23 @@ if ($ocupacioncodeudor == 'empleado') {
 }
    
  
-    $condicion_codeudor = strtolower(trim($condicion_codeudor));
-   
-   if ($condicion_codeudor == 'si') {
+$condicion_codeudor = strtolower(trim($condicion_codeudor ?? ''));
 
-    $pdf->SetXY(67, 211);  // ← ajustar
-    $pdf->Write(5, 'X');
-   
-   } else {
+if (!empty($condicion_codeudor)) {
 
-    $pdf->SetXY(71, 211); // ← ajustar (OTRO)
-    $pdf->Write(5, 'X');
+    if ($condicion_codeudor == 'si') {
+
+        $pdf->SetXY(67, 211);
+        $pdf->Write(5, 'X');
+
+    } elseif ($condicion_codeudor == 'no') {
+
+        $pdf->SetXY(71, 211);
+        $pdf->Write(5, 'X');
+
+    }
+
 }
- 
              $pdf->SetXY(84, 211);
    $pdf->Write(5, $detalle_condicion_codeudor);
    
