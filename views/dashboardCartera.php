@@ -181,3 +181,5 @@ function verTodosCartera(){
 
 
 </script>
+
+<?php include "../includes/footer.php"; ?>

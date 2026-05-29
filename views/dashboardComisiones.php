@@ -173,3 +173,5 @@ function cargarDashboard(){
     });
 }
 </script>
+
+<?php include "../includes/footer.php"; ?>

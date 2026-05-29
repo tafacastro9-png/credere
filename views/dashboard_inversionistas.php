@@ -334,3 +334,5 @@ function verTodos(){
 }
 
 </script>
+
+<?php include "../includes/footer.php"; ?>
