@@ -165,7 +165,7 @@ SELECT
 	cod.placacodeudor,
 	cod.condicion_codeudor,
 	cod.detalle_condicion_codeudor,
-	cod.fechaRegistro,
+	cod.fechaRegistro AS fechaRegistroCodeudor,
 	cod.empresa_codeudor,
 	cod.fecha_ingreso_codeudor,
 	cod.devengado_codeudor,
@@ -258,11 +258,6 @@ if(!$prestamo){
 
 $id_tipo_credito = $prestamo['id_tipo_credito'];
 
-
-echo '<pre>';
-var_dump($prestamo['fechaRegistro']);
-echo '</pre>';
-exit;
 
 
 if(!empty($prestamo['fechaRegistro'])){
@@ -389,7 +384,7 @@ $tienevehiculocodeudor = formatearTexto($prestamo['tienevehiculocodeudor']);
 $placacodeudor = formatearTexto($prestamo['placacodeudor']);
 $condicion_codeudor  = formatearTexto($prestamo['condicion_codeudor']);
 $detalle_condicion_codeudor = formatearTexto($prestamo['detalle_condicion_codeudor']);
-$fechaRegistro = $prestamo['fechaRegistro'];
+$fechaRegistroCodeudor = $prestamo['fechaRegistroCodeudor'];
 $empresa_codeudor = formatearTexto($prestamo['empresa_codeudor']);
 $fecha_ingreso_codeudor = formatearTexto($prestamo['fecha_ingreso_codeudor']);
 $devengado_codeudor = $prestamo['devengado_codeudor'];
