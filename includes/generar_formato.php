@@ -675,24 +675,28 @@ $pdf->Write(5, strtoupper($placa_vehiculo));
 			      $pdf->Write(5, $estadocivilcodeudor);
 				  
 				  
-				  $generocodeudor = strtolower(trim($generocodeudor));
+				  $generocodeudor = strtolower(trim($generocodeudor ?? ''));
 
-if ($generocodeudor == 'femenino' || $genero == 'f') {
-    // Posición de la casilla F
-    $pdf->SetXY(192, 175); 
-    $pdf->Write(5, 'X');
+if (!empty($generocodeudor)) {
+
+    if ($generocodeudor == 'femenino' || $generocodeudor == 'f') {
+
+        $pdf->SetXY(192, 175);
+        $pdf->Write(5, 'X');
+
+    } elseif ($generocodeudor == 'masculino' || $generocodeudor == 'm') {
+
+        $pdf->SetXY(201, 175);
+        $pdf->Write(5, 'X');
+
+    } else {
+
+        // Otro
+        $pdf->SetXY(180, 175);
+        $pdf->Write(5, 'X');
+    }
+
 }
-elseif ($generocodeudor == 'masculino' || $genero == 'm') {
-    // Posición de la casilla M
-    $pdf->SetXY(201, 175); 
-    $pdf->Write(5, 'X');
-}
-else {
-    // Posición de la casilla Otro
-    $pdf->SetXY(180, 175); 
-    $pdf->Write(5, 'X');
-}
-					 
 					 
 					 
 					 
