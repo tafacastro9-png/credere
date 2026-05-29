@@ -339,6 +339,18 @@ table tbody tr:hover {
     <option value="Revision">Revision</option>
 </select>
 
+ <div class="col-md-3">
+        <label class="fw-bold">Desde</label>
+        <input type="date" id="fechaDesde" class="form-control">
+    </div>
+
+    <div class="col-md-3">
+        <label class="fw-bold">Hasta</label>
+        <input type="date" id="fechaHasta" class="form-control">
+    </div>
+
+</div>
+
 
     </div>
 </div>
