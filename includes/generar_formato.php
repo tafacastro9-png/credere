@@ -850,19 +850,22 @@ if (!empty($tipoviviendacodeudor)) {
    
    
 
-   $tienevehiculocodeudor = strtolower(trim($tienevehiculocodeudor));
-   
-   if ($tienevehiculocodeudor == 'si') {
+   $tienevehiculocodeudor = strtolower(trim($tienevehiculocodeudor ?? ''));
 
-    $pdf->SetXY(143, 202);  // ← ajustar
-    $pdf->Write(5, 'X');
-   
-   } else {
+if (!empty($tienevehiculocodeudor)) {
 
-    $pdf->SetXY(148, 202); // ← ajustar (OTRO)
-    $pdf->Write(5, 'X');
+    if ($tienevehiculocodeudor == 'si') {
+
+        $pdf->SetXY(143, 202);
+        $pdf->Write(5, 'X');
+
+    } elseif ($tienevehiculocodeudor == 'no') {
+
+        $pdf->SetXY(148, 202);
+        $pdf->Write(5, 'X');
+    }
+
 }
-   
    
    
  $pdf->SetXY(165, 202);
