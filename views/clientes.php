@@ -1,5 +1,6 @@
 
 <?php
+require_once('../includes/sesion/auth.php');
 include "../includes/configSession.php";
 require_once "../includes/permisos.php";
 require_once "../includes/header.php";
