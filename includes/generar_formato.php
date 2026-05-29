@@ -470,6 +470,11 @@ if(!file_exists($archivo)){
                     $pdf->SetTextColor(0,0,0);
 
                     // Fecha
+
+$dia = '22';
+$mes = '05';
+$anio = '26';
+
                     $pdf->SetFont('Arial','B',15);
 
                     
