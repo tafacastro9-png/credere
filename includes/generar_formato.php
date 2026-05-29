@@ -723,14 +723,23 @@ if (!empty($generocodeudor)) {
 			      $pdf->Write(5, $lugarexpedicioncodeudor);
 				  
 				  
-				   $timestamp = !empty($fechaexpedicioncodeudor) ? strtotime($fechaexpedicioncodeudor) : false;
+				  $timestamp = !empty($fechaexpedicioncodeudor)
+    ? strtotime($fechaexpedicioncodeudor)
+    : false;
 
-$dia  = date('d', $timestamp);
-$mes  = date('m', $timestamp);
-$anio = date('y', $timestamp); // solo 2 dígitos
- 
- 
+if ($timestamp) {
 
+    $dia  = date('d', $timestamp);
+    $mes  = date('m', $timestamp);
+    $anio = date('y', $timestamp);
+
+} else {
+
+    $dia  = '';
+    $mes  = '';
+    $anio = '';
+
+}
 
 // Día
 $pdf->SetXY(188, 180);
@@ -740,7 +749,7 @@ $pdf->Write(5, $dia);
 $pdf->SetXY(193, 180);
 $pdf->Write(5, $mes);
 
-// Año (2 dígitos)
+// Año
 $pdf->SetXY(200, 180);
 $pdf->Write(5, $anio);
 
