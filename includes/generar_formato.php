@@ -268,6 +268,9 @@ if(!empty($prestamo['fechaRegistro'])){
 
     $fecha = new DateTime($prestamo['fechaRegistro']);
 
+    echo $prestamo['fechaRegistro'];
+exit;
+
     $dia = $fecha->format('d');
     $mes = $fecha->format('m');
     $anio = $fecha->format('y');
@@ -473,9 +476,6 @@ if(!file_exists($archivo)){
 
 
                     $pdf->SetFont('Arial','B',15);
-
-                    
-
 $pdf->SetXY(133, 17);
 $pdf->Write(5, $dia);
 
