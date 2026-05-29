@@ -2,16 +2,14 @@ $(document).ready(function () {
 
     console.log("JS cargado");
 
-    var table = $('#datatable').DataTable({
+    // Obtener DataTable existente
+    var table = $('#datatable').DataTable();
 
-        pageLength: 10,
+    // ==========================
+    // BOTÓN EXPORTAR EXCEL
+    // ==========================
 
-        language: {
-            url: "//cdn.datatables.net/plug-ins/1.13.8/i18n/es-ES.json"
-        },
-
-        dom: 'Bfrtip',
-
+    new $.fn.dataTable.Buttons(table, {
         buttons: [
             {
                 extend: 'excelHtml5',
@@ -19,8 +17,10 @@ $(document).ready(function () {
                 className: 'btn btn-success'
             }
         ]
-
     });
+
+    table.buttons().container()
+        .appendTo('#datatable_wrapper .col-md-6:eq(0)');
 
     // ==========================
     // FILTRO ESTADO
@@ -53,7 +53,7 @@ $(document).ready(function () {
             return true;
         }
 
-        fechaRegistro = fechaRegistro.substring(0,10);
+        fechaRegistro = fechaRegistro.substring(0, 10);
 
         if (fechaDesde && fechaRegistro < fechaDesde) {
             return false;
