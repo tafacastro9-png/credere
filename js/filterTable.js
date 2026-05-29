@@ -4,10 +4,9 @@ $(document).ready(function () {
 
     var table = $('#datatable').DataTable();
 
-    // =====================================
+    // ==========================
     // FILTRO ESTADO
-    // =====================================
-
+    // ==========================
     $('#filtroEstado').on('change', function () {
 
         let valor = $(this).val();
@@ -20,41 +19,38 @@ $(document).ready(function () {
 
     });
 
-    // =====================================
-    // FILTRO FECHA
-    // =====================================
+    // ==========================
+    // FILTRO FECHAS
+    // ==========================
+    $.fn.dataTable.ext.search.push(function(settings, data) {
 
-    $.fn.dataTable.ext.search.push(
-        function(settings, data, dataIndex) {
+        let fechaDesde = $('#fechaDesde').val();
+        let fechaHasta = $('#fechaHasta').val();
 
-            let fechaDesde = $('#fechaDesde').val();
-            let fechaHasta = $('#fechaHasta').val();
+        let fechaRegistro = data[8];
 
-            // Columna FechaRegistro
-            let fechaTabla = data[8];
-
-            if (!fechaTabla) return true;
-
-            let fechaRegistro = fechaTabla.substring(0, 10);
-
-            if (fechaDesde && fechaRegistro < fechaDesde) {
-                return false;
-            }
-
-            if (fechaHasta && fechaRegistro > fechaHasta) {
-                return false;
-            }
-
+        if (!fechaRegistro) {
             return true;
         }
-    );
 
-    // =====================================
-    // RECARGAR TABLA AL CAMBIAR FECHAS
-    // =====================================
+        fechaRegistro = fechaRegistro.substring(0,10);
+
+        if (fechaDesde && fechaRegistro < fechaDesde) {
+            return false;
+        }
+
+        if (fechaHasta && fechaRegistro > fechaHasta) {
+            return false;
+        }
+
+        return true;
+
+    });
 
     $('#fechaDesde, #fechaHasta').on('change', function () {
+
         table.draw();
+
     });
 
 });
