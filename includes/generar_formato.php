@@ -406,7 +406,53 @@ $patrimonio_codeudor = $prestamo['patrimonio_codeudor'];
 
 
 
+if(empty(trim($prestamo['nombrecompletocodeudor'] ?? ''))){
 
+    $nombrecompletocodeudor = '';
+    $estadocivilcodeudor = '';
+    $generocodeudor = '';
+    $tipoidentificacioncodeudor = '';
+    $numerodocumentocodeudor = '';
+    $lugarexpedicioncodeudor = '';
+    $fechaexpedicioncodeudor = '';
+    $lugarnacimientocodeudor = '';
+    $fechanacimientocodeudor = '';
+    $nivelescolaridadcodeudor = '';
+    $direccioncodeudor = '';
+    $ciudadresidenciacodeudor = '';
+    $departamentoresidenciacodeudor = '';
+    $barriocodeudor = '';
+    $telefonocodeudor = '';
+    $celularcodeudor = '';
+    $estratocodeudor = '';
+    $emailcodeudor = '';
+    $personascargocodeudor = '';
+    $tipoviviendacodeudor = '';
+    $ocupacioncodeudor = '';
+    $tienevehiculocodeudor = '';
+    $placacodeudor = '';
+    $condicion_codeudor = '';
+    $detalle_condicion_codeudor = '';
+    $fechaRegistro = '';
+    $empresa_codeudor = '';
+    $fecha_ingreso_codeudor = '';
+    $devengado_codeudor = '';
+    $descuentos_codeudor = '';
+    $neto_codeudor = '';
+    $direccion_laboral_codeudor = '';
+    $telefono_laboral_codeudor = '';
+    $ciudad_laboral_codeudor = '';
+    $ocupacion_laboral_codeudor = '';
+    $cargo_codeudor = '';
+    $ciiu_codeudor = '';
+    $sector_codeudor = '';
+    $ingresos_codeudor = '';
+    $otros_ingresos_codeudor = '';
+    $egresos_codeudor = '';
+    $activos_codeudor = '';
+    $pasivos_codeudor = '';
+    $patrimonio_codeudor = '';
+}
 
 
 if($id_tipo_credito == 3){
