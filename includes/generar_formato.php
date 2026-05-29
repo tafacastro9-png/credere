@@ -252,10 +252,7 @@ $stmt->execute();
 $resultado = $stmt->get_result();
 $prestamo = $resultado->fetch_assoc();
 
-var_dump($prestamo['nombrecodeudor']);
-var_dump($prestamo['numerodocumentocodeudor']);
-var_dump($prestamo['fechaexpedicioncodeudor']);
-exit;
+
 
 if(!$prestamo){
     die("Préstamo no encontrado");
