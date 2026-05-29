@@ -154,3 +154,5 @@ $(document).ready(function(){
     cargarParametros();
 });
 </script>
+
+<?php include "../includes/footer.php"; ?>
